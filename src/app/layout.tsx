@@ -22,22 +22,22 @@ const jost = Jost({
 export const metadata: Metadata = {
   metadataBase: new URL("https://clickweds.com"),
   title: {
-    default: "Click Weds — Luxury Indian Wedding Design, Jaipur & Beyond",
+    default: "Click Weds — Luxury Indian Wedding Photography, Lucknow & Worldwide",
     template: "%s — Click Weds",
   },
   description:
-    "Click Weds is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan, Delhi NCR, Goa and beyond.",
+    "Click Weds is a luxury wedding photography and film studio based in Lucknow, documenting Indian celebrations across India and worldwide.",
   keywords: [
-    "luxury wedding planner India",
-    "destination wedding Jaipur",
-    "Udaipur palace wedding planner",
-    "Indian wedding design",
-    "mehendi sangeet haldi decor",
+    "wedding photographer Lucknow",
+    "luxury wedding photography India",
+    "candid wedding photographer Lucknow",
+    "pre-wedding shoot Lucknow",
+    "Indian wedding films",
   ],
   openGraph: {
-    title: "Click Weds — Luxury Indian Wedding Design, Jaipur & Beyond",
+    title: "Click Weds — Luxury Indian Wedding Photography, Lucknow & Worldwide",
     description:
-      "Extraordinary Indian weddings, designed across Rajasthan and beyond.",
+      "Extraordinary Indian weddings, photographed across India and worldwide.",
     url: "https://clickweds.com",
     siteName: "Click Weds",
     locale: "en_IN",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Click Weds — Luxury Indian Wedding Design",
+    title: "Click Weds — Luxury Indian Wedding Photography",
     description:
-      "Extraordinary Indian weddings, designed across Rajasthan and beyond.",
+      "Extraordinary Indian weddings, photographed across India and worldwide.",
   },
 };
 

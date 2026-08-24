@@ -1,18 +1,16 @@
 export const brand = {
   name: "Click Weds",
   shortName: "Click Weds",
-  tagline: "A Studio for Extraordinary Indian Weddings",
-  founded: 2014,
-  yearsOfCraft: new Date().getFullYear() - 2014,
-  location: "Jaipur, India",
-  serviceArea: "Jaipur · Udaipur · Delhi NCR · Goa · Rishikesh",
-  email: "hello@clickweds.com",
+  tagline: "Luxury Wedding Photography & Films",
+  location: "Lucknow, India",
+  serviceArea: "Lucknow · across India · worldwide",
+  email: "info.clickweds@gmail.com",
   phone: "+91 84679 88926",
   phoneDisplay: "+91 84679 88926",
-  address: "14 Amrapali Marg, C-Scheme, Jaipur, Rajasthan 302001",
+  address: "Hazratganj, Lucknow, Uttar Pradesh",
   instagram: "@clickweds",
   instagramUrl: "https://instagram.com/clickweds",
-  facebookUrl: "https://facebook.com/clickweds",
+  facebookUrl: "https://facebook.com/princeawasthiphotography",
 };
 
 /**
@@ -37,7 +35,7 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: "Jaipur · Udaipur · Delhi NCR · Goa",
+  eyebrow: "Lucknow · across India · worldwide",
   heading: ["Every Love Story", "Deserves a", "Masterpiece"],
   subtitle:
     "Click Weds designs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual composed like a work of art.",
@@ -50,7 +48,7 @@ export const brandStory = {
   title: "Where Rituals Become Memories",
   paragraphs: [
     "Click Weds began with a simple conviction: an Indian wedding is not a schedule to be managed, but a story told across many days — ritual by ritual, colour by colour, family by family.",
-    "For more than a decade, our studio has designed celebrations in Jaipur, Udaipur, Delhi, Goa, and the palaces and havelis in between — for families who want their wedding to feel inevitable, as though it could belong to no one else.",
+    "From our base in Lucknow we photograph celebrations across India and beyond — for families who want their wedding remembered the way it actually felt, not the way a shot list says it should look.",
     "We are not vendors. We are the quiet hand behind the scenes, translating two families' histories into marigold, mirrorwork, and lamplight. Every Click Weds wedding begins the same way: with listening.",
   ],
   closingLine:
@@ -264,5 +262,5 @@ export const booking = {
 
 export const footer = {
   description:
-    "Click Weds is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan and beyond.",
+    "Click Weds is a luxury wedding photography and film studio based in Lucknow, documenting Indian celebrations across India and worldwide.",
 };
