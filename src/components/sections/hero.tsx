@@ -75,7 +75,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/30 via-transparent to-transparent" />
 
-      <Container className="relative z-10 pb-24 md:pb-28">
+      <Container className="relative z-10 pb-32 md:pb-28">
         <p className="hero-eyebrow font-body text-[12px] uppercase tracking-[0.35em] text-champagne-light md:text-[13px]">
           {hero.eyebrow}
         </p>
@@ -99,11 +99,11 @@ export function Hero() {
         </div>
       </Container>
 
-      <div className="hero-scroll absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3">
+      <div className="hero-scroll pointer-events-none absolute inset-x-0 bottom-6 z-10 flex flex-col items-center gap-2 md:bottom-8 md:gap-3">
         <span className="font-body text-[10px] uppercase tracking-[0.3em] text-ivory/60">
           {hero.scrollLabel}
         </span>
-        <span className="relative h-12 w-px overflow-hidden bg-ivory/20">
+        <span className="relative h-8 w-px overflow-hidden bg-ivory/20 md:h-12">
           <span className="absolute inset-x-0 top-0 h-1/2 animate-[scroll-line_1.8s_ease-in-out_infinite] bg-champagne-light" />
         </span>
       </div>
