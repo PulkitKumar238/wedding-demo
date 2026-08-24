@@ -234,25 +234,22 @@ export const testimonials = [
 ] as const;
 
 /**
- * Ceremonies a couple can attach a date to in the enquiry form. A wedding is
- * several events across several days, so the form lets them add one row per
- * ceremony rather than asking for a single "wedding date".
+ * Ceremonies a couple can attach a date to in the enquiry form. Kept to the
+ * events most couples actually book coverage for — Roka and Tilak sit under
+ * one option, and the baraat and pheras under "Wedding Day", so the dropdown
+ * stays short enough to scan.
  *
  * OTHER_CEREMONY reveals a free-text field for anything not listed.
  */
 export const OTHER_CEREMONY = "Other";
 
 export const ceremonyOptions = [
-  "Roka / Sagai",
-  "Engagement",
-  "Tilak",
   "Pre-Wedding Shoot",
+  "Roka / Engagement",
   "Mehendi",
   "Haldi",
   "Sangeet",
-  "Cocktail Night",
-  "Baraat",
-  "Wedding (Pheras)",
+  "Wedding Day",
   "Reception",
   OTHER_CEREMONY,
 ] as const;
