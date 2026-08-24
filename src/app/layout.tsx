@@ -20,13 +20,13 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vivahaatelier.com"),
+  metadataBase: new URL("https://clickweds.com"),
   title: {
-    default: "Vivaha Atelier — Luxury Indian Wedding Design, Jaipur & Beyond",
-    template: "%s — Vivaha Atelier",
+    default: "Click Weds — Luxury Indian Wedding Design, Jaipur & Beyond",
+    template: "%s — Click Weds",
   },
   description:
-    "Vivaha Atelier is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan, Delhi NCR, Goa and beyond.",
+    "Click Weds is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan, Delhi NCR, Goa and beyond.",
   keywords: [
     "luxury wedding planner India",
     "destination wedding Jaipur",
@@ -35,17 +35,17 @@ export const metadata: Metadata = {
     "mehendi sangeet haldi decor",
   ],
   openGraph: {
-    title: "Vivaha Atelier — Luxury Indian Wedding Design, Jaipur & Beyond",
+    title: "Click Weds — Luxury Indian Wedding Design, Jaipur & Beyond",
     description:
       "Extraordinary Indian weddings, designed across Rajasthan and beyond.",
-    url: "https://vivahaatelier.com",
-    siteName: "Vivaha Atelier",
+    url: "https://clickweds.com",
+    siteName: "Click Weds",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vivaha Atelier — Luxury Indian Wedding Design",
+    title: "Click Weds — Luxury Indian Wedding Design",
     description:
       "Extraordinary Indian weddings, designed across Rajasthan and beyond.",
   },

@@ -159,7 +159,7 @@ export function Booking() {
               </a>
             </p>
             <p className="font-body text-sm text-ivory/70">
-              <span className="text-ivory/40">Atelier — </span>
+              <span className="text-ivory/40">Studio — </span>
               {brand.address}
             </p>
           </div>

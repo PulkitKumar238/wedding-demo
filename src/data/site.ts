@@ -1,18 +1,18 @@
 export const brand = {
-  name: "Vivaha Atelier",
-  shortName: "Vivaha",
-  tagline: "An Atelier for Extraordinary Indian Weddings",
+  name: "Click Weds",
+  shortName: "Click Weds",
+  tagline: "A Studio for Extraordinary Indian Weddings",
   founded: 2014,
   yearsOfCraft: new Date().getFullYear() - 2014,
   location: "Jaipur, India",
   serviceArea: "Jaipur · Udaipur · Delhi NCR · Goa · Rishikesh",
-  email: "hello@vivahaatelier.com",
+  email: "hello@clickweds.com",
   phone: "+91 141 402 8871",
   phoneDisplay: "+91 141 402 8871",
   address: "14 Amrapali Marg, C-Scheme, Jaipur, Rajasthan 302001",
-  instagram: "@vivahaatelier",
-  instagramUrl: "https://instagram.com/vivahaatelier",
-  facebookUrl: "https://facebook.com/vivahaatelier",
+  instagram: "@clickweds",
+  instagramUrl: "https://instagram.com/clickweds",
+  facebookUrl: "https://facebook.com/clickweds",
 };
 
 /**
@@ -41,7 +41,7 @@ export const hero = {
   eyebrow: "Jaipur · Udaipur · Delhi NCR · Goa",
   heading: ["Every Love Story", "Deserves a", "Masterpiece"],
   subtitle:
-    "Vivaha Atelier designs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual composed like a work of art.",
+    "Click Weds designs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual composed like a work of art.",
   cta: "Book a Consultation",
   scrollLabel: "Scroll to begin",
 };
@@ -50,9 +50,9 @@ export const brandStory = {
   eyebrow: "Our Philosophy",
   title: "Where Rituals Become Memories",
   paragraphs: [
-    "Vivaha Atelier began with a simple conviction: an Indian wedding is not a schedule to be managed, but a story told across many days — ritual by ritual, colour by colour, family by family.",
-    "For more than a decade, our atelier has designed celebrations in Jaipur, Udaipur, Delhi, Goa, and the palaces and havelis in between — for families who want their wedding to feel inevitable, as though it could belong to no one else.",
-    "We are not vendors. We are the quiet hand behind the scenes, translating two families' histories into marigold, mirrorwork, and lamplight. Every Vivaha wedding begins the same way: with listening.",
+    "Click Weds began with a simple conviction: an Indian wedding is not a schedule to be managed, but a story told across many days — ritual by ritual, colour by colour, family by family.",
+    "For more than a decade, our studio has designed celebrations in Jaipur, Udaipur, Delhi, Goa, and the palaces and havelis in between — for families who want their wedding to feel inevitable, as though it could belong to no one else.",
+    "We are not vendors. We are the quiet hand behind the scenes, translating two families' histories into marigold, mirrorwork, and lamplight. Every Click Weds wedding begins the same way: with listening.",
   ],
   closingLine:
     "Restraint, to us, is the truest form of luxury. A single strand of jasmine says more than a hundred arranged for effect.",
@@ -176,7 +176,7 @@ export const whyChooseUs = {
   eyebrow: "Why Couples Choose Us",
   title: "Craft, Discretion, and an Obsession with Detail",
   description:
-    "Every Vivaha wedding is led by a senior designer from the first call to the final vidai — never handed off, never templated. It is a level of care that has made us the atelier of choice for families seeking something quietly extraordinary.",
+    "Every Click Weds wedding is led by a senior designer from the first call to the final vidai — never handed off, never templated. It is a level of care that has made us the studio of choice for families seeking something quietly extraordinary.",
   points: [
     {
       title: "Senior-Led, Always",
@@ -199,7 +199,7 @@ export const testimonials = [
     names: "Ayush & Ruchika",
     location: "Jaipur — four ceremonies over three days",
     quote:
-      "Vivaha didn't just plan our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right.",
+      "Click Weds didn't just plan our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right.",
   },
   {
     key: "nishantJenny",
@@ -220,7 +220,7 @@ export const testimonials = [
     names: "Pranay & Sanskriti",
     location: "Jodhpur — a fort wedding for two hundred guests",
     quote:
-      "We met six planners. Vivaha was the only one who asked about our families before asking about our budget. The mandap alone was worth every rupee.",
+      "We met six planners. Click Weds was the only one who asked about our families before asking about our budget. The mandap alone was worth every rupee.",
   },
   {
     key: "shivenduVandna",
@@ -265,5 +265,5 @@ export const booking = {
 
 export const footer = {
   description:
-    "Vivaha Atelier is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan and beyond.",
+    "Click Weds is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan and beyond.",
 };
