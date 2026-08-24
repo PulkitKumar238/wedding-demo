@@ -163,6 +163,29 @@ export function Booking() {
               {brand.address}
             </p>
           </div>
+
+          {/*
+            Loaded lazily: the embed pulls in Google's own scripts, and there
+            is no reason to pay for that before the section is scrolled to.
+          */}
+          <div className="mt-8 overflow-hidden rounded-[2px] border border-ivory/15">
+            <iframe
+              src={brand.mapEmbedUrl}
+              title={`Map showing ${brand.name} in ${brand.location}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-56 w-full border-0 grayscale-[0.4] contrast-[1.05]"
+              allowFullScreen
+            />
+          </div>
+          <a
+            href={brand.mapLinkUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mt-3 inline-block font-body text-[13px] text-ivory/50 underline underline-offset-4 transition-colors hover:text-champagne"
+          >
+            Open in Google Maps
+          </a>
         </Reveal>
 
         <Reveal delay={0.1}>

@@ -8,6 +8,10 @@ export const brand = {
   phone: "+91 84679 88926",
   phoneDisplay: "+91 84679 88926",
   address: "Hazratganj, Lucknow, Uttar Pradesh",
+  /** Google Maps embed. Swap the q= value once the studio's pin is verified. */
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Click+Weds+Hazratganj+Lucknow&output=embed",
+  mapLinkUrl: "https://www.google.com/maps/search/Click+Weds+Hazratganj+Lucknow",
   instagram: "@clickweds",
   instagramUrl: "https://instagram.com/clickweds",
   facebookUrl: "https://facebook.com/princeawasthiphotography",
