@@ -7,8 +7,8 @@ export const brand = {
   location: "Jaipur, India",
   serviceArea: "Jaipur · Udaipur · Delhi NCR · Goa · Rishikesh",
   email: "hello@clickweds.com",
-  phone: "+91 141 402 8871",
-  phoneDisplay: "+91 141 402 8871",
+  phone: "+91 84679 88926",
+  phoneDisplay: "+91 84679 88926",
   address: "14 Amrapali Marg, C-Scheme, Jaipur, Rajasthan 302001",
   instagram: "@clickweds",
   instagramUrl: "https://instagram.com/clickweds",
@@ -19,13 +19,12 @@ export const brand = {
  * Enquiries are handed to WhatsApp as a pre-drafted message, so the couple
  * only has to press send.
  *
- * PLACEHOLDER — replace `number` with the studio's real WhatsApp business
- * number before this goes live. Digits only: country code first, no leading
- * "+", no spaces or dashes. e.g. "919876543210" for +91 98765 43210.
+ * `number` is digits only: country code first, no leading "+", no spaces or
+ * dashes — that is the format wa.me expects.
  */
 export const whatsapp = {
-  number: "910000000000",
-  display: "+91 00000 00000",
+  number: "918467988926",
+  display: "+91 84679 88926",
 };
 
 export const nav = [
