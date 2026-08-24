@@ -98,14 +98,14 @@ export const experiences = [
 ] as const;
 
 export const featuredWeddings = [
-  { key: "palmEvening", couple: "Amara & Oliver", location: "Florence, Italy", size: "large" },
-  { key: "lakeChairs", couple: "Elena & Luca", location: "Lake Como, Italy", size: "tall" },
-  { key: "confettiKiss", couple: "Sofia & Andrea", location: "Villa Cetinale, Tuscany", size: "small" },
-  { key: "lakeBouquet", couple: "Camille & Nicolas", location: "Lake Como, Italy", size: "small" },
-  { key: "blackSandBeach", couple: "Freya & Oskar", location: "Reynisfjara, Iceland", size: "tall" },
-  { key: "mandap", couple: "Priya & Rohan", location: "Jaipur, India", size: "small" },
-  { key: "bouquetDetail", couple: "Grace & William", location: "Santorini, Greece", size: "small" },
-  { key: "receptionToast", couple: "Anaïs & Julien", location: "Provence, France", size: "large" },
+  { key: "venueWalk", couple: "Ayush & Ruchika", location: "Jaipur, Rajasthan", size: "large" },
+  { key: "couplePortrait", couple: "Nishant & Jenny", location: "The Leela, Udaipur", size: "tall" },
+  { key: "ringDetail", couple: "Shubham & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
+  { key: "mehendiHands", couple: "Pranay & Sanskriti", location: "Jodhpur, Rajasthan", size: "small" },
+  { key: "coupleInYellow", couple: "Shivendu & Vandna", location: "Rishikesh, Uttarakhand", size: "tall" },
+  { key: "cafeMoment", couple: "Yash & Shubhangi", location: "Goa", size: "small" },
+  { key: "floralEmbrace", couple: "Ashutosh & Gurpreet", location: "Chandigarh, Punjab", size: "small" },
+  { key: "marigoldBackdrop", couple: "Kartik & Rupali", location: "Delhi NCR", size: "large" },
 ] as const;
 
 export const process = [
@@ -176,39 +176,39 @@ export const whyChooseUs = {
 
 export const testimonials = [
   {
-    key: "isabellaMarco",
-    names: "Isabella & Marco",
-    location: "Milan, Italy — married at Villa Cimbrone, Amalfi Coast",
+    key: "ayushRuchika",
+    names: "Ayush & Ruchika",
+    location: "Jaipur — four ceremonies over three days",
     quote:
-      "Maison Amoret didn't just plan our wedding — they understood it before we did. Every detail felt like it had always belonged to us.",
+      "Vivaha didn't just plan our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right.",
   },
   {
-    key: "charlotte",
-    names: "Charlotte Whitfield",
-    location: "London, UK — married in Florence",
+    key: "nishantJenny",
+    names: "Nishant & Jenny",
+    location: "Udaipur — a Punjabi and Christian ceremony, side by side",
     quote:
-      "From the first call, it was clear this was a team obsessed with craft, not checklists. Our wedding felt like walking into a film.",
+      "Ours was two very different traditions in one weekend. They wove both together with more grace than we imagined possible, and never once made either side feel like a guest.",
   },
   {
-    key: "sophiaJames",
-    names: "Sophia & James",
-    location: "New York, USA — Lake Como wedding",
+    key: "shubhamDisha",
+    names: "Shubham & Disha",
+    location: "Lucknow — mehendi, haldi, and a winter wedding",
     quote:
-      "We interviewed six planners. Maison Amoret was the only one who asked about us before asking about our Pinterest board.",
+      "From the first call, it was clear this was a team obsessed with craft, not checklists. Our haldi looked like something out of a film, and it was still finished by lunch.",
   },
   {
-    key: "thomas",
-    names: "Thomas Reinhardt",
-    location: "Geneva, Switzerland — private estate wedding, Provence",
+    key: "pranaySanskriti",
+    names: "Pranay & Sanskriti",
+    location: "Jodhpur — a fort wedding for two hundred guests",
     quote:
-      "Impeccable, discreet, and endlessly creative. I would trust this team with anything, and have, twice over.",
+      "We met six planners. Vivaha was the only one who asked about our families before asking about our budget. The mandap alone was worth every rupee.",
   },
   {
-    key: "daniel",
-    names: "Daniel & Priya Mehta",
-    location: "Dubai, UAE — Sangeet & wedding, Tuscany",
+    key: "shivenduVandna",
+    names: "Shivendu & Vandna",
+    location: "Rishikesh — a riverside wedding at sunrise",
     quote:
-      "Our families come from two very different traditions. Maison Amoret wove both together with more grace than we imagined possible.",
+      "Impeccable, calm, and endlessly creative. My mother worried about every ritual being done properly, and by the sangeet she had stopped worrying entirely.",
   },
 ] as const;
 

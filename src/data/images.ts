@@ -55,15 +55,14 @@ export const img = {
   },
 
   gallery: {
-    palmEvening: weddingDay.bridePampas,
-    lakeChairs: engagement.venueWalk,
-    confettiKiss: haldi.marigoldBackdrop,
-    lakeBouquet: engagement.couplePortrait,
-    blackSandBeach: haldi.coupleInYellow,
-    bouquetDetail: mehendi.handsDetail,
-    shoesDetail: weddingDay.floralEmbrace,
-    receptionToast: weddingDay.bridalVeil,
-    mandap: weddingDay.varmala,
+    venueWalk: engagement.venueWalk,
+    couplePortrait: engagement.couplePortrait,
+    ringDetail: engagement.ringDetail,
+    mehendiHands: mehendi.handsDetail,
+    coupleInYellow: haldi.coupleInYellow,
+    cafeMoment: preWedding.cafeMoment,
+    floralEmbrace: weddingDay.floralEmbrace,
+    marigoldBackdrop: haldi.marigoldBackdrop,
   },
 
   process: {
@@ -77,11 +76,11 @@ export const img = {
   statsBackground: haldi.marigoldBackdrop,
 
   testimonials: {
-    isabellaMarco: "/photos/avatars/ayush-ruchika.jpg",
-    charlotte: "/photos/avatars/nishant-jenny.jpg",
-    sophiaJames: "/photos/avatars/shubham-disha.jpg",
-    thomas: "/photos/avatars/pranay-sanskriti.jpg",
-    daniel: "/photos/avatars/shivendu-vandna.jpg",
+    ayushRuchika: "/photos/avatars/ayush-ruchika.jpg",
+    nishantJenny: "/photos/avatars/nishant-jenny.jpg",
+    shubhamDisha: "/photos/avatars/shubham-disha.jpg",
+    pranaySanskriti: "/photos/avatars/pranay-sanskriti.jpg",
+    shivenduVandna: "/photos/avatars/shivendu-vandna.jpg",
   },
 
   instagram: [
