@@ -19,8 +19,14 @@ export function Testimonials() {
     setIndex((prev) => (prev + dir + testimonials.length) % testimonials.length);
   };
 
+  // overflow-x-hidden on the section: the slide transition translates the
+  // quote by +/-40px, and without clipping that overhang widens the page and
+  // flashes a horizontal scrollbar on phones each time the carousel advances.
   return (
-    <section id="testimonials" className="bg-ivory-dark py-28 md:py-36">
+    <section
+      id="testimonials"
+      className="overflow-x-hidden bg-ivory-dark py-28 md:py-36"
+    >
       <Container>
         <Reveal className="max-w-2xl">
           <p className="font-body text-[12px] uppercase tracking-[0.3em] text-champagne">

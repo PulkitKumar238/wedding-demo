@@ -90,9 +90,10 @@ body {
 }
 
 /* Clear the persistent action bar pinned to the bottom of the viewport on
-   phones; on md+ it floats in the corner and needs no reserved space. */
+   phones; measured at 65px tall, so reserve a little more than that. On md+
+   the bar floats in the corner and needs no reserved space. */
 body {
-  padding-bottom: 3.5rem;
+  padding-bottom: 4.5rem;
 }
 
 @media (min-width: 768px) {
