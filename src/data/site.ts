@@ -199,6 +199,11 @@ export const whyChooseUs = {
   ],
 };
 
+/**
+ * Placeholder copy. The names are the studio's real clients and match the
+ * portfolio pairings, but every quote below was written for the demo and must
+ * be replaced with genuine reviews before this goes live.
+ */
 export const testimonials = [
   {
     key: "ayushRuchika",
@@ -234,6 +239,41 @@ export const testimonials = [
     location: "Rishikesh — a riverside wedding at sunrise",
     quote:
       "Impeccable, calm, and endlessly creative. My mother worried they would be underfoot during the rituals, and by the sangeet she had stopped noticing them entirely.",
+  },
+  {
+    key: "yashShubhangi",
+    names: "Yash & Shubhangi",
+    location: "Goa — a beach wedding over two days",
+    quote:
+      "The teaser reached us before our guests had even flown home. We must have watched it thirty times that first night.",
+  },
+  {
+    key: "ashutoshGurpreet",
+    names: "Ashutosh & Gurpreet",
+    location: "Chandigarh — an Anand Karaj in December",
+    quote:
+      "They read the room all day. Quiet through the Anand Karaj, everywhere at once once the dancing started. That judgement is the whole job.",
+  },
+  {
+    key: "kartikRupali",
+    names: "Kartik & Rupali",
+    location: "Delhi NCR — a pre-wedding shoot and wedding",
+    quote:
+      "We are both stiff in front of a camera. They spent the pre-wedding shoot just talking to us, and by the wedding we had stopped performing entirely.",
+  },
+  {
+    key: "sandeep",
+    names: "Sandeep",
+    location: "Lucknow — engagement",
+    quote:
+      "Booked them for an engagement, went back for the wedding, and will send them every cousin I have. Straightforward people who deliver what they promise.",
+  },
+  {
+    key: "dhriti",
+    names: "Dhriti",
+    location: "Lucknow — bridal portraits and reception",
+    quote:
+      "Four weeks after the wedding, exactly as promised, the full gallery and the film arrived. No chasing, no excuses. Rarer than it should be.",
   },
 ] as const;
 

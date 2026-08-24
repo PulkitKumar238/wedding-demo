@@ -95,6 +95,11 @@ export const img = {
     shubhamDisha: "/photos/avatars/shubham-disha.jpg",
     pranaySanskriti: "/photos/avatars/pranay-sanskriti.jpg",
     shivenduVandna: "/photos/avatars/shivendu-vandna.jpg",
+    yashShubhangi: "/photos/avatars/yash-shubhangi.jpg",
+    ashutoshGurpreet: "/photos/avatars/ashutosh-gurpreet.jpg",
+    kartikRupali: "/photos/avatars/kartik-rupali.jpg",
+    sandeep: "/photos/avatars/sandeep.jpg",
+    dhriti: "/photos/avatars/dhriti.jpg",
   },
 
   /*
