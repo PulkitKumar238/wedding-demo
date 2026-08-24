@@ -38,7 +38,7 @@ export const hero = {
   eyebrow: "Lucknow · across India · worldwide",
   heading: ["Every Love Story", "Deserves a", "Masterpiece"],
   subtitle:
-    "Click Weds designs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual composed like a work of art.",
+    "Click Weds photographs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual remembered exactly as it felt.",
   cta: "Book a Consultation",
   scrollLabel: "Scroll to begin",
 };
@@ -49,11 +49,11 @@ export const brandStory = {
   paragraphs: [
     "Click Weds began with a simple conviction: an Indian wedding is not a schedule to be managed, but a story told across many days — ritual by ritual, colour by colour, family by family.",
     "From our base in Lucknow we photograph celebrations across India and beyond — for families who want their wedding remembered the way it actually felt, not the way a shot list says it should look.",
-    "We are not vendors. We are the quiet hand behind the scenes, translating two families' histories into marigold, mirrorwork, and lamplight. Every Click Weds wedding begins the same way: with listening.",
+    "We are not vendors. We are the quiet presence at the edge of the frame, watching for the moments nobody thought to plan. Every Click Weds wedding begins the same way: with listening.",
   ],
   closingLine:
-    "Restraint, to us, is the truest form of luxury. A single strand of jasmine says more than a hundred arranged for effect.",
-  signature: "Ananya Rathore, Founder & Creative Director",
+    "Restraint, to us, is the truest form of luxury. One honest frame says more than a hundred arranged for effect.",
+  signature: "The Click Weds Team, Lucknow",
 };
 
 /**
@@ -133,32 +133,32 @@ export const process = [
       "We begin with a conversation, not a questionnaire — understanding who you are, individually and together.",
   },
   {
-    key: "planning",
+    key: "preWedding",
     number: "02",
-    title: "Planning",
+    title: "Pre-Wedding Shoot",
     description:
-      "Budget, logistics, and vendor curation, structured into a plan built entirely around your story.",
+      "An unhurried day somewhere that means something to you, so you are used to the camera long before the wedding.",
   },
   {
-    key: "design",
+    key: "weddingDays",
     number: "03",
-    title: "Design",
+    title: "The Wedding Days",
     description:
-      "Mood boards, sketches, and material samples — every detail considered before a single flower is ordered.",
+      "We arrive early and stay late, moving with your families through every ceremony rather than running a shot list.",
   },
   {
-    key: "execution",
+    key: "edit",
     number: "04",
-    title: "Execution",
+    title: "The Edit",
     description:
-      "Our production team arrives days before your celebration, building the world we designed together.",
+      "Every frame graded by hand in our studio — culled hard, so what reaches you is the story and not the whole card.",
   },
   {
-    key: "celebration",
+    key: "album",
     number: "05",
-    title: "Celebration",
+    title: "Album & Film",
     description:
-      "We disappear into the background so you can be fully present in the one day built entirely around you.",
+      "Your gallery and film in about four weeks, and a printed album built to be handed to people, not scrolled.",
   },
 ] as const;
 
@@ -173,15 +173,15 @@ export const whyChooseUs = {
   eyebrow: "Why Couples Choose Us",
   title: "Craft, Discretion, and an Obsession with Detail",
   description:
-    "Every Click Weds wedding is led by a senior designer from the first call to the final vidai — never handed off, never templated. It is a level of care that has made us the studio of choice for families seeking something quietly extraordinary.",
+    "Every Click Weds wedding is shot by a senior photographer from the first call to the final album — never handed off, never templated. It is a level of care that has made us the studio couples across Lucknow and beyond keep recommending.",
   points: [
     {
       title: "Senior-Led, Always",
-      description: "You work directly with a lead designer throughout — never a rotating team of coordinators.",
+      description: "You work directly with a lead photographer throughout — never a rotating team of assistants.",
     },
     {
-      title: "Uncompromising Sourcing",
-      description: "Rare blooms, heirloom textiles, and karigars sourced from across India for every celebration.",
+      title: "Unhurried Coverage",
+      description: "We shoot every ceremony at its own pace, and never leave a function early to reach the next booking.",
     },
     {
       title: "One Wedding at a Time",

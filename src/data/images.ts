@@ -66,16 +66,17 @@ export const img = {
   },
 
   /*
-    These five are business stages, not ceremonies, so each photo is chosen
-    for what it literally depicts: a couple talking across a table, a venue
-    being walked, decor built, an event running, guests celebrating.
+    These five are stages of the studio's workflow, not ceremonies, so each
+    photo is chosen for what it literally depicts: a couple talking across a
+    table, a pre-wedding shoot, a ceremony in full swing, a finished frame,
+    and the last moment of the day.
   */
   process: {
     consultation: preWedding.cafeMoment,
-    planning: engagement.venueWalk,
-    design: weddingDay.floralArch,
-    execution: haldi.familyBlessing,
-    celebration: weddingDay.vidaiWalk,
+    preWedding: engagement.venueWalk,
+    weddingDays: haldi.familyBlessing,
+    edit: weddingDay.floralArch,
+    album: weddingDay.vidaiWalk,
   },
 
   statsBackground: haldi.marigoldBackdrop,
