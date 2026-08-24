@@ -225,6 +225,30 @@ export const testimonials = [
   },
 ] as const;
 
+/**
+ * Ceremonies a couple can attach a date to in the enquiry form. A wedding is
+ * several events across several days, so the form lets them add one row per
+ * ceremony rather than asking for a single "wedding date".
+ *
+ * OTHER_CEREMONY reveals a free-text field for anything not listed.
+ */
+export const OTHER_CEREMONY = "Other";
+
+export const ceremonyOptions = [
+  "Roka / Sagai",
+  "Engagement",
+  "Tilak",
+  "Pre-Wedding Shoot",
+  "Mehendi",
+  "Haldi",
+  "Sangeet",
+  "Cocktail Night",
+  "Baraat",
+  "Wedding (Pheras)",
+  "Reception",
+  OTHER_CEREMONY,
+] as const;
+
 export const booking = {
   eyebrow: "Begin Your Story",
   title: "Let's Design Something Unforgettable",

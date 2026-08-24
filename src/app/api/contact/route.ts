@@ -1,15 +1,39 @@
 import { NextResponse } from "next/server";
 
+type Ceremony = {
+  label: string;
+  date: string;
+};
+
 type ContactPayload = {
   name: string;
   email: string;
   phone?: string;
-  weddingDate?: string;
   location?: string;
   message: string;
+  ceremonies?: Ceremony[];
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/** Keeps only well-formed {label, date} entries; anything else is discarded. */
+function parseCeremonies(input: unknown): Ceremony[] {
+  if (!Array.isArray(input)) return [];
+
+  return input.flatMap((entry) => {
+    if (typeof entry !== "object" || entry === null) return [];
+
+    const { label, date } = entry as Record<string, unknown>;
+    if (typeof label !== "string" || !label.trim()) return [];
+
+    return [
+      {
+        label: label.trim(),
+        date: typeof date === "string" ? date.trim() : "",
+      },
+    ];
+  });
+}
 
 export async function POST(request: Request) {
   let body: Partial<ContactPayload>;
@@ -20,7 +44,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { name, email, phone, weddingDate, location, message } = body;
+  const { name, email, phone, location, message } = body;
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
     return NextResponse.json(
@@ -39,8 +63,8 @@ export async function POST(request: Request) {
     name: name.trim(),
     email: email.trim(),
     phone: phone?.trim() || null,
-    weddingDate: weddingDate?.trim() || null,
     location: location?.trim() || null,
+    ceremonies: parseCeremonies(body.ceremonies),
     message: message.trim(),
     receivedAt: new Date().toISOString(),
   });
