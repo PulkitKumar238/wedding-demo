@@ -59,54 +59,60 @@ export const brandStory = {
   signature: "Ananya Rathore, Founder & Creative Director",
 };
 
+/**
+ * Every tile here is backed by a photograph of that exact thing in
+ * `public/photos`. Ceremonies the studio has not photographed yet — sangeet,
+ * pheras, baraat, reception — are deliberately absent rather than illustrated
+ * with a near-miss from another ceremony.
+ */
 export const experiences = [
   {
     key: "rokaSagai",
     title: "Roka & Sagai",
     description:
-      "The first promise between two families, staged with the intimacy it deserves — an engagement that sets the tone for everything after.",
+      "The first promise between two families, photographed with the intimacy it deserves — where the story properly begins.",
+  },
+  {
+    key: "preWeddingShoot",
+    title: "Pre-Wedding Shoot",
+    description:
+      "An unhurried day somewhere that already means something to you, long before guest lists and timings take over.",
   },
   {
     key: "mehendi",
-    title: "Mehendi Ceremony",
+    title: "Mehendi",
     description:
-      "Courtyards of marigold and mirrorwork, live dholak, and artists brought in from Rajasthan to write the bride's henna by hand.",
+      "Courtyards of marigold and mirrorwork, live dholak, and the slow hours of henna written onto the bride's hands.",
   },
   {
     key: "haldi",
-    title: "Haldi Ceremony",
+    title: "Haldi",
     description:
-      "Turmeric, sunlight, and unrestrained joy — the most photographed morning of the wedding, designed in every shade of yellow.",
+      "Turmeric, sunlight, and unrestrained joy — the loudest morning of the wedding, in every shade of yellow.",
   },
   {
-    key: "sangeet",
-    title: "Sangeet Night",
+    key: "varmala",
+    title: "Varmala",
     description:
-      "Choreography, staging, and sound built around two families who have been rehearsing for months — production without the chaos.",
+      "The exchange of garlands, framed and lit so the moment lands exactly as loudly as it should.",
   },
   {
-    key: "baraatVarmala",
-    title: "Baraat & Varmala",
+    key: "weddingDay",
+    title: "The Wedding Day",
     description:
-      "The groom's procession and the exchange of garlands, choreographed so the moment lands exactly as loudly as it should.",
+      "Every hour of the day itself, held together — the rituals, the families, the light — so you are never managing anything.",
   },
   {
-    key: "mandapPheras",
-    title: "Mandap & Pheras",
+    key: "bridalPortraits",
+    title: "Bridal Portraits",
     description:
-      "The mandap is the heart of the day. We design it as architecture — florals, drape, and fire, composed to be looked at for hours.",
+      "Lehenga, jewellery, and presence, composed as one portrait in the quiet hour before the day begins.",
   },
   {
-    key: "reception",
-    title: "Reception & Cocktails",
+    key: "couplePortraits",
+    title: "Couple Portraits",
     description:
-      "Tablescapes, lighting, and atmosphere designed to turn a banquet hall or a palace lawn into a world entirely of its own.",
-  },
-  {
-    key: "bridalStyling",
-    title: "Bridal Styling & Trousseau",
-    description:
-      "Lehenga, jewellery, and presence — considered as a single composition, from the first fitting to the final vidai.",
+      "The two of you, away from the crowd for twenty minutes — usually the frames that end up on the wall.",
   },
 ] as const;
 

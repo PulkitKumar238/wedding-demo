@@ -45,13 +45,13 @@ export const img = {
 
   experiences: {
     rokaSagai: engagement.ringExchange,
+    preWeddingShoot: preWedding.cafeMoment,
     mehendi: mehendi.artistAtWork,
     haldi: haldi.petalShower,
-    sangeet: haldi.familyBlessing,
-    baraatVarmala: weddingDay.varmala,
-    mandapPheras: weddingDay.bridePampas,
-    reception: weddingDay.floralArch,
-    bridalStyling: weddingDay.bridalVeil,
+    varmala: weddingDay.varmala,
+    weddingDay: weddingDay.bridePampas,
+    bridalPortraits: weddingDay.bridalVeil,
+    couplePortraits: engagement.couplePortrait,
   },
 
   gallery: {
