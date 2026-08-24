@@ -83,7 +83,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-charcoal/10 py-8 font-body text-xs tracking-wide text-charcoal/45 md:flex-row">
           <p>&copy; {new Date().getFullYear()} {brand.name}. All rights reserved.</p>
-          <p>Florence, Italy — by invitation and availability.</p>
+          <p>{brand.location} — by invitation and availability.</p>
         </div>
       </Container>
     </footer>

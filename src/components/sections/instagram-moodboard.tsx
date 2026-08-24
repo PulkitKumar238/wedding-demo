@@ -56,7 +56,7 @@ export function InstagramMoodboard() {
             >
               <Image
                 src={src}
-                alt="Wedding inspiration from Maison Amoret's Instagram"
+                alt={`Wedding inspiration from ${brand.name}'s Instagram`}
                 fill
                 sizes="(min-width: 1024px) 23vw, (min-width: 640px) 32vw, 48vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

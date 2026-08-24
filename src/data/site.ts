@@ -1,18 +1,18 @@
 export const brand = {
-  name: "Maison Amoret",
-  shortName: "Amoret",
-  tagline: "An Atelier for Extraordinary Weddings",
+  name: "Vivaha Atelier",
+  shortName: "Vivaha",
+  tagline: "An Atelier for Extraordinary Indian Weddings",
   founded: 2014,
   yearsOfCraft: new Date().getFullYear() - 2014,
-  location: "Florence, Italy",
-  serviceArea: "Tuscany · the Amalfi Coast · Lake Como · the Mediterranean",
-  email: "hello@maisonamoret.com",
-  phone: "+39 055 289 4471",
-  phoneDisplay: "+39 055 289 4471",
-  address: "Via de' Tornabuoni 12, Florence, 50123, Italy",
-  instagram: "@maisonamoret",
-  instagramUrl: "https://instagram.com/maisonamoret",
-  facebookUrl: "https://facebook.com/maisonamoret",
+  location: "Jaipur, India",
+  serviceArea: "Jaipur · Udaipur · Delhi NCR · Goa · Rishikesh",
+  email: "hello@vivahaatelier.com",
+  phone: "+91 141 402 8871",
+  phoneDisplay: "+91 141 402 8871",
+  address: "14 Amrapali Marg, C-Scheme, Jaipur, Rajasthan 302001",
+  instagram: "@vivahaatelier",
+  instagramUrl: "https://instagram.com/vivahaatelier",
+  facebookUrl: "https://facebook.com/vivahaatelier",
 };
 
 export const nav = [
@@ -25,25 +25,25 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: "Florence · Amalfi Coast · Lake Como",
+  eyebrow: "Jaipur · Udaipur · Delhi NCR · Goa",
   heading: ["Every Love Story", "Deserves a", "Masterpiece"],
   subtitle:
-    "Maison Amoret designs once-in-a-lifetime weddings across Italy and the Mediterranean — where every detail is composed like a work of art.",
+    "Vivaha Atelier designs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual composed like a work of art.",
   cta: "Book a Consultation",
   scrollLabel: "Scroll to begin",
 };
 
 export const brandStory = {
   eyebrow: "Our Philosophy",
-  title: "Where Dreams Become Celebrations",
+  title: "Where Rituals Become Memories",
   paragraphs: [
-    "Maison Amoret began with a simple conviction: a wedding is not an event to be managed, but a story to be composed — frame by frame, bloom by bloom, hour by hour.",
-    "For more than a decade, our atelier has designed weddings across Florence, the Amalfi Coast, Lake Como, and the Mediterranean's most storied addresses — for couples who want their celebration to feel inevitable, as though it could belong to no one else.",
-    "We are not vendors. We are the quiet hand behind the scenes, translating a couple's history into candlelight, linen, and architecture. Every Maison Amoret wedding begins the same way: with listening.",
+    "Vivaha Atelier began with a simple conviction: an Indian wedding is not a schedule to be managed, but a story told across many days — ritual by ritual, colour by colour, family by family.",
+    "For more than a decade, our atelier has designed celebrations in Jaipur, Udaipur, Delhi, Goa, and the palaces and havelis in between — for families who want their wedding to feel inevitable, as though it could belong to no one else.",
+    "We are not vendors. We are the quiet hand behind the scenes, translating two families' histories into marigold, mirrorwork, and lamplight. Every Vivaha wedding begins the same way: with listening.",
   ],
   closingLine:
-    "Restraint, to us, is the truest form of luxury. A single perfect bloom says more than a hundred arranged for effect.",
-  signature: "Isabella Conti, Founder & Creative Director",
+    "Restraint, to us, is the truest form of luxury. A single strand of jasmine says more than a hundred arranged for effect.",
+  signature: "Ananya Rathore, Founder & Creative Director",
 };
 
 export const experiences = [
@@ -157,7 +157,7 @@ export const whyChooseUs = {
   eyebrow: "Why Couples Choose Us",
   title: "Craft, Discretion, and an Obsession with Detail",
   description:
-    "Every Maison Amoret wedding is led by a senior designer from first call to final farewell — never handed off, never templated. It is a level of care that has made us the atelier of choice for couples seeking something quietly extraordinary.",
+    "Every Vivaha wedding is led by a senior designer from the first call to the final vidai — never handed off, never templated. It is a level of care that has made us the atelier of choice for families seeking something quietly extraordinary.",
   points: [
     {
       title: "Senior-Led, Always",
@@ -165,7 +165,7 @@ export const whyChooseUs = {
     },
     {
       title: "Uncompromising Sourcing",
-      description: "Rare blooms, heirloom linens, and artisans sourced from across Europe for every celebration.",
+      description: "Rare blooms, heirloom textiles, and karigars sourced from across India for every celebration.",
     },
     {
       title: "One Wedding at a Time",
@@ -216,11 +216,11 @@ export const booking = {
   eyebrow: "Begin Your Story",
   title: "Let's Design Something Unforgettable",
   description:
-    "Consultations are held by invitation and availability — we accept a limited number of celebrations each year to preserve the attention every wedding deserves.",
+    "Consultations are held by invitation and availability — we accept a limited number of weddings each season to preserve the attention every celebration deserves.",
   cta: "Book a Consultation",
 };
 
 export const footer = {
   description:
-    "Maison Amoret is a luxury wedding design atelier based in Florence, crafting extraordinary celebrations across Italy and the Mediterranean.",
+    "Vivaha Atelier is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan and beyond.",
 };

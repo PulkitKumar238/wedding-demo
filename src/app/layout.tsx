@@ -19,34 +19,34 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maisonamoret.com"),
+  metadataBase: new URL("https://vivahaatelier.com"),
   title: {
-    default: "Maison Amoret — Luxury Wedding Design, Florence & the Mediterranean",
-    template: "%s — Maison Amoret",
+    default: "Vivaha Atelier — Luxury Indian Wedding Design, Jaipur & Beyond",
+    template: "%s — Vivaha Atelier",
   },
   description:
-    "Maison Amoret is a luxury wedding design atelier based in Florence, crafting extraordinary celebrations across Italy, the Amalfi Coast, Lake Como, and the Mediterranean.",
+    "Vivaha Atelier is a luxury wedding design house based in Jaipur, crafting extraordinary Indian celebrations across Rajasthan, Delhi NCR, Goa and beyond.",
   keywords: [
-    "luxury wedding planner Italy",
-    "destination wedding Florence",
-    "Amalfi Coast wedding planner",
-    "Lake Como wedding design",
-    "luxury wedding florist",
+    "luxury wedding planner India",
+    "destination wedding Jaipur",
+    "Udaipur palace wedding planner",
+    "Indian wedding design",
+    "mehendi sangeet haldi decor",
   ],
   openGraph: {
-    title: "Maison Amoret — Luxury Wedding Design, Florence & the Mediterranean",
+    title: "Vivaha Atelier — Luxury Indian Wedding Design, Jaipur & Beyond",
     description:
-      "Extraordinary weddings, designed across Italy and the Mediterranean.",
-    url: "https://maisonamoret.com",
-    siteName: "Maison Amoret",
-    locale: "en_US",
+      "Extraordinary Indian weddings, designed across Rajasthan and beyond.",
+    url: "https://vivahaatelier.com",
+    siteName: "Vivaha Atelier",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maison Amoret — Luxury Wedding Design",
+    title: "Vivaha Atelier — Luxury Indian Wedding Design",
     description:
-      "Extraordinary weddings, designed across Italy and the Mediterranean.",
+      "Extraordinary Indian weddings, designed across Rajasthan and beyond.",
   },
 };
 

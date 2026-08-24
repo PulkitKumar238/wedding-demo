@@ -116,7 +116,7 @@ export function Booking() {
                 <label className="mb-1 block font-body text-[11px] uppercase tracking-[0.16em] text-ivory/40">
                   Full Name
                 </label>
-                <input name="name" required className={inputClass} placeholder="Isabella Conti" />
+                <input name="name" required className={inputClass} placeholder="Ananya Rathore" />
               </div>
               <div className="sm:col-span-1">
                 <label className="mb-1 block font-body text-[11px] uppercase tracking-[0.16em] text-ivory/40">
@@ -134,13 +134,13 @@ export function Booking() {
                 <label className="mb-1 block font-body text-[11px] uppercase tracking-[0.16em] text-ivory/40">
                   Phone
                 </label>
-                <input name="phone" className={inputClass} placeholder="+1 234 567 8901" />
+                <input name="phone" className={inputClass} placeholder="+91 98765 43210" />
               </div>
               <div className="sm:col-span-1">
                 <label className="mb-1 block font-body text-[11px] uppercase tracking-[0.16em] text-ivory/40">
                   Wedding Date
                 </label>
-                <input name="weddingDate" type="text" className={inputClass} placeholder="e.g. June 2027" />
+                <input name="weddingDate" type="text" className={inputClass} placeholder="e.g. November 2027" />
               </div>
               <div className="sm:col-span-2">
                 <label className="mb-1 block font-body text-[11px] uppercase tracking-[0.16em] text-ivory/40">
@@ -149,7 +149,7 @@ export function Booking() {
                 <input
                   name="location"
                   className={inputClass}
-                  placeholder="Florence, Amalfi Coast, Lake Como..."
+                  placeholder="Jaipur, Udaipur, Goa, Delhi NCR..."
                 />
               </div>
               <div className="sm:col-span-2">
@@ -161,7 +161,7 @@ export function Booking() {
                   required
                   rows={4}
                   className={`${inputClass} resize-none`}
-                  placeholder="Share your vision, guest count, and any dates you're considering..."
+                  placeholder="Share your vision, the ceremonies you are planning, guest count, and any dates you're considering..."
                 />
               </div>
 
