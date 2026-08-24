@@ -114,10 +114,10 @@ export const experiences = [
 ] as const;
 
 export const featuredWeddings = [
-  { key: "venueWalk", couple: "Ayush & Ruchika", location: "Jaipur, Rajasthan", size: "large" },
-  { key: "couplePortrait", couple: "Nishant & Jenny", location: "The Leela, Udaipur", size: "tall" },
+  { key: "venueWalk", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh", size: "large" },
+  { key: "couplePortrait", couple: "Nishant & Jenny", location: "Varanasi, Uttar Pradesh", size: "tall" },
   { key: "ringDetail", couple: "Shubham & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
-  { key: "mehendiHands", couple: "Pranay & Sanskriti", location: "Jodhpur, Rajasthan", size: "small" },
+  { key: "familyBlessing", couple: "Pranay & Sanskriti", location: "Kanpur, Uttar Pradesh", size: "small" },
   { key: "coupleInYellow", couple: "Shivendu & Vandna", location: "Rishikesh, Uttarakhand", size: "tall" },
   { key: "cafeMoment", couple: "Yash & Shubhangi", location: "Goa", size: "small" },
   { key: "floralEmbrace", couple: "Ashutosh & Gurpreet", location: "Chandigarh, Punjab", size: "small" },
@@ -162,11 +162,16 @@ export const process = [
   },
 ] as const;
 
+/**
+ * Grounded in the studio's public listings: roughly three years in business,
+ * recommended by 100% of couples on WeddingWire, ~4 week delivery. The
+ * wedding count is the one figure still to be confirmed by the studio.
+ */
 export const stats = [
-  { value: 480, suffix: "+", label: "Weddings Designed" },
-  { value: 11, suffix: "", label: "Years of Craft" },
-  { value: 98, suffix: "%", label: "Client Referral Rate" },
-  { value: 24, suffix: "/7", label: "Concierge Support" },
+  { value: 120, suffix: "+", label: "Weddings Photographed" },
+  { value: 3, suffix: "+", label: "Years Behind the Lens" },
+  { value: 100, suffix: "%", label: "Couples Recommend Us" },
+  { value: 4, suffix: " wks", label: "Album Delivery" },
 ] as const;
 
 export const whyChooseUs = {
@@ -194,37 +199,37 @@ export const testimonials = [
   {
     key: "ayushRuchika",
     names: "Ayush & Ruchika",
-    location: "Jaipur — four ceremonies over three days",
+    location: "Lucknow — four ceremonies over three days",
     quote:
-      "Click Weds didn't just plan our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right.",
+      "Click Weds didn't just photograph our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right.",
   },
   {
     key: "nishantJenny",
     names: "Nishant & Jenny",
-    location: "Udaipur — a Punjabi and Christian ceremony, side by side",
+    location: "Varanasi — a Punjabi and Christian ceremony, side by side",
     quote:
-      "Ours was two very different traditions in one weekend. They wove both together with more grace than we imagined possible, and never once made either side feel like a guest.",
+      "Ours was two very different traditions in one weekend. They covered both with the same care, and never once made either side feel like the smaller event.",
   },
   {
     key: "shubhamDisha",
     names: "Shubham & Disha",
     location: "Lucknow — mehendi, haldi, and a winter wedding",
     quote:
-      "From the first call, it was clear this was a team obsessed with craft, not checklists. Our haldi looked like something out of a film, and it was still finished by lunch.",
+      "From the first call it was clear this was a team obsessed with craft, not checklists. Our haldi photographs look like stills from a film.",
   },
   {
     key: "pranaySanskriti",
     names: "Pranay & Sanskriti",
-    location: "Jodhpur — a fort wedding for two hundred guests",
+    location: "Kanpur — three days, two hundred guests",
     quote:
-      "We met six planners. Click Weds was the only one who asked about our families before asking about our budget. The mandap alone was worth every rupee.",
+      "We met six photographers. Click Weds was the only one who asked about our families before asking about our budget. The album alone was worth every rupee.",
   },
   {
     key: "shivenduVandna",
     names: "Shivendu & Vandna",
     location: "Rishikesh — a riverside wedding at sunrise",
     quote:
-      "Impeccable, calm, and endlessly creative. My mother worried about every ritual being done properly, and by the sangeet she had stopped worrying entirely.",
+      "Impeccable, calm, and endlessly creative. My mother worried they would be underfoot during the rituals, and by the sangeet she had stopped noticing them entirely.",
   },
 ] as const;
 

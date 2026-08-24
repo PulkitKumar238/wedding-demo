@@ -58,7 +58,7 @@ export const img = {
     venueWalk: engagement.venueWalk,
     couplePortrait: engagement.couplePortrait,
     ringDetail: engagement.ringDetail,
-    mehendiHands: mehendi.handsDetail,
+    familyBlessing: haldi.familyBlessing,
     coupleInYellow: haldi.coupleInYellow,
     cafeMoment: preWedding.cafeMoment,
     floralEmbrace: weddingDay.floralEmbrace,
@@ -89,16 +89,20 @@ export const img = {
     shivenduVandna: "/photos/avatars/shivendu-vandna.jpg",
   },
 
+  /*
+    Presented as the studio's own feed, so this is their photography only —
+    the two Pexels mehendi files are deliberately excluded.
+  */
   instagram: [
     weddingDay.bridalVeil,
     haldi.petalShower,
     engagement.ringExchange,
     weddingDay.floralArch,
-    mehendi.artistAtWork,
     engagement.venueWalk,
+    haldi.marigoldBackdrop,
     weddingDay.varmala,
     haldi.coupleInYellow,
-    mehendi.handsDetail,
+    preWedding.cafeMoment,
     weddingDay.bridePampas,
     haldi.familyBlessing,
     engagement.couplePortrait,
