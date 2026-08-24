@@ -66,8 +66,9 @@ export function Navbar() {
 
       {/*
         Mobile keeps every destination on screen rather than hiding them behind
-        a hamburger. The strip scrolls sideways on the narrowest handsets, so
-        the labels stay legible instead of shrinking to fit.
+        a hamburger. Six labels in one row overflow a 390px viewport, so they
+        wrap into a three-up grid — all six stay visible and legible without
+        anyone having to scroll the bar sideways.
       */}
       <div
         className={cn(
@@ -76,13 +77,13 @@ export function Navbar() {
         )}
       >
         <Container>
-          <div className="no-scrollbar -mx-1 flex items-center gap-5 overflow-x-auto px-1 py-3">
+          <div className="grid grid-cols-3 gap-x-3 gap-y-2 py-3">
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "shrink-0 font-body text-[11px] uppercase tracking-[0.12em] transition-colors",
+                  "text-center font-body text-[11px] uppercase tracking-[0.1em] transition-colors",
                   scrolled ? "text-charcoal/80" : "text-ivory/85"
                 )}
               >
