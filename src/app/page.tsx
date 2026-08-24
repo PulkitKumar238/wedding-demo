@@ -12,12 +12,12 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Testimonials />
       <BrandStory />
       <Experiences />
       <FeaturedWeddings />
       <Process />
       <WhyChooseUs />
-      <Testimonials />
       <InstagramMoodboard />
       <Booking />
     </>

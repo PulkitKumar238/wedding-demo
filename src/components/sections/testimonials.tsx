@@ -20,7 +20,7 @@ export function Testimonials() {
   };
 
   return (
-    <section className="bg-ivory py-28 md:py-36">
+    <section id="testimonials" className="bg-ivory-dark py-28 md:py-36">
       <Container>
         <Reveal className="max-w-2xl">
           <p className="font-body text-[12px] uppercase tracking-[0.3em] text-champagne">
