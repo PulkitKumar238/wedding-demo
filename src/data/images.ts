@@ -65,10 +65,15 @@ export const img = {
     marigoldBackdrop: haldi.marigoldBackdrop,
   },
 
+  /*
+    These five are business stages, not ceremonies, so each photo is chosen
+    for what it literally depicts: a couple talking across a table, a venue
+    being walked, decor built, an event running, guests celebrating.
+  */
   process: {
     consultation: preWedding.cafeMoment,
-    planning: engagement.ringDetail,
-    design: mehendi.handsDetail,
+    planning: engagement.venueWalk,
+    design: weddingDay.floralArch,
     execution: haldi.familyBlessing,
     celebration: weddingDay.vidaiWalk,
   },
