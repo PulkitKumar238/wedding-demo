@@ -38,3 +38,13 @@ export function buildWhatsAppUrl(fields: EnquiryFields): string {
 
   return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(lines.join("\n"))}`;
 }
+
+/**
+ * A bare "get in touch" link for the persistent contact button, with no form
+ * details attached — just an opening line so the couple isn't staring at an
+ * empty message box.
+ */
+export function buildWhatsAppChatUrl(): string {
+  const text = `Hello ${brand.name} — I'd like to know more about your wedding services.`;
+  return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(text)}`;
+}

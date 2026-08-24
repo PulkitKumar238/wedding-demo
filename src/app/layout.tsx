@@ -3,6 +3,7 @@ import { Playfair_Display, Jost } from "next/font/google";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { FloatingActions } from "@/components/layout/floating-actions";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -65,6 +66,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <FloatingActions />
         </SmoothScrollProvider>
       </body>
     </html>

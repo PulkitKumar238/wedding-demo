@@ -98,3 +98,15 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Clear the persistent action bar pinned to the bottom of the viewport on
+   phones; on md+ it floats in the corner and needs no reserved space. */
+body {
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
