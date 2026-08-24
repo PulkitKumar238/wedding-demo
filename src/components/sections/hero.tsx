@@ -65,9 +65,9 @@ export function Hero() {
       <div ref={imageRef} className="absolute inset-0">
         <Image
           src={img.heroMain}
-          alt="Bride and groom embracing in golden evening light, holding a bouquet of white and pink flowers"
+          alt="Bride and groom walking through their vidai as guests look on, lit by warm evening light"
           fill
-          priority
+          preload
           sizes="100vw"
           className="object-cover object-[center_30%]"
         />

@@ -13,7 +13,7 @@ export function BrandStory() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2px]">
               <Image
                 src={img.brandStoryCouple}
-                alt="Bride and groom walking together at dusk beneath tall palm trees"
+                alt="Bride in a red lehenga and groom in an ivory sherwani beneath a floral mandap"
                 fill
                 sizes="(min-width: 768px) 45vw, 90vw"
                 className="object-cover"
@@ -22,7 +22,7 @@ export function BrandStory() {
             <div className="absolute -bottom-10 -right-6 hidden aspect-[4/5] w-2/5 overflow-hidden border-8 border-ivory shadow-xl sm:block md:-right-10">
               <Image
                 src={img.brandStoryHands}
-                alt="Close up of a bride and groom holding hands"
+                alt="Close up of a ring being placed on a mehendi-covered hand"
                 fill
                 sizes="20vw"
                 className="object-cover"
