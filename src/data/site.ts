@@ -15,6 +15,19 @@ export const brand = {
   facebookUrl: "https://facebook.com/vivahaatelier",
 };
 
+/**
+ * Enquiries are handed to WhatsApp as a pre-drafted message, so the couple
+ * only has to press send.
+ *
+ * PLACEHOLDER — replace `number` with the studio's real WhatsApp business
+ * number before this goes live. Digits only: country code first, no leading
+ * "+", no spaces or dashes. e.g. "919876543210" for +91 98765 43210.
+ */
+export const whatsapp = {
+  number: "910000000000",
+  display: "+91 00000 00000",
+};
+
 export const nav = [
   { label: "Our Story", href: "#story" },
   { label: "Experiences", href: "#experiences" },

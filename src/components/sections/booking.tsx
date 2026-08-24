@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { Button } from "@/components/ui/button";
 import { booking, brand } from "@/data/site";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { img } from "@/data/images";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -16,11 +17,20 @@ const inputClass =
 export function Booking() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [whatsAppUrl, setWhatsAppUrl] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+
+    const url = buildWhatsAppUrl(data);
+    setWhatsAppUrl(url);
+
+    // Opened before the fetch on purpose: a window opened after an await has
+    // lost the user activation from the click, and popup blockers reject it.
+    // If the browser blocks it anyway, the success panel offers the same link.
+    window.open(url, "_blank", "noopener,noreferrer");
 
     setStatus("submitting");
     setErrorMessage("");
@@ -98,17 +108,21 @@ export function Booking() {
                 Thank you — your enquiry has been received.
               </p>
               <p className="mt-4 font-body text-sm font-light leading-relaxed text-ivory/60">
-                A member of our atelier will be in touch within two business
-                days to arrange your consultation.
+                WhatsApp should have opened with your details already drafted —
+                just press send. If it did not open, use the button below.
               </p>
-              <Button
-                variant="outline-light"
-                size="sm"
-                className="mt-8"
+              <Button variant="primary" size="sm" className="mt-8" asChild>
+                <a href={whatsAppUrl} target="_blank" rel="noreferrer noopener">
+                  Open WhatsApp
+                </a>
+              </Button>
+              <button
+                type="button"
                 onClick={() => setStatus("idle")}
+                className="mt-6 font-body text-sm text-ivory/50 underline underline-offset-4 transition-colors hover:text-champagne"
               >
                 Send another enquiry
-              </Button>
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -177,6 +191,9 @@ export function Booking() {
                 >
                   {status === "submitting" ? "Sending..." : booking.cta}
                 </Button>
+                <p className="mt-4 font-body text-[13px] font-light text-ivory/45">
+                  Sending opens WhatsApp with your details already drafted.
+                </p>
               </div>
             </form>
           )}
