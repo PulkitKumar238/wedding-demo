@@ -21,9 +21,10 @@ export function Experiences() {
             Signature Wedding Experiences
           </h2>
           <p className="mt-6 font-body text-[15px] font-light leading-relaxed text-charcoal/65 md:text-base">
-            From an intimate elopement to a five-day celebration spanning
-            continents, every experience is designed with the same rigor —
-            never templated, never repeated.
+            From the roka to the vidai, every ceremony in an Indian wedding
+            carries its own mood, its own palette, and its own rituals. We
+            design each one with the same rigor — never templated, never
+            repeated.
           </p>
         </Reveal>
 

@@ -48,52 +48,52 @@ export const brandStory = {
 
 export const experiences = [
   {
-    key: "luxuryWeddings",
-    title: "Luxury Weddings",
+    key: "rokaSagai",
+    title: "Roka & Sagai",
     description:
-      "Full-scale design and production for couples who want every hour of their celebration considered, from the first toast to the last dance.",
+      "The first promise between two families, staged with the intimacy it deserves — an engagement that sets the tone for everything after.",
   },
   {
-    key: "destinationWeddings",
-    title: "Destination Weddings",
+    key: "mehendi",
+    title: "Mehendi Ceremony",
     description:
-      "Intimate elopements to five-day celebrations, staged across Italy, Greece, and the French Riviera.",
+      "Courtyards of marigold and mirrorwork, live dholak, and artists brought in from Rajasthan to write the bride's henna by hand.",
   },
   {
-    key: "floralDecoration",
-    title: "Floral Decoration",
+    key: "haldi",
+    title: "Haldi Ceremony",
     description:
-      "Sculptural, seasonal, and never generic — florals composed like still-life paintings, never arrangements.",
+      "Turmeric, sunlight, and unrestrained joy — the most photographed morning of the wedding, designed in every shade of yellow.",
   },
   {
-    key: "receptionStyling",
-    title: "Reception Styling",
+    key: "sangeet",
+    title: "Sangeet Night",
     description:
-      "Tablescapes, lighting, and atmosphere designed to transform any room into a world entirely of its own.",
+      "Choreography, staging, and sound built around two families who have been rehearsing for months — production without the chaos.",
   },
   {
-    key: "mehendiSangeet",
-    title: "Mehendi & Sangeet",
+    key: "baraatVarmala",
+    title: "Baraat & Varmala",
     description:
-      "Vibrant, joy-filled celebrations styled with the same precision and restraint as our white-wedding work.",
+      "The groom's procession and the exchange of garlands, choreographed so the moment lands exactly as loudly as it should.",
   },
   {
-    key: "engagement",
-    title: "Engagement",
+    key: "mandapPheras",
+    title: "Mandap & Pheras",
     description:
-      "Understated, cinematic proposals and engagement celebrations, designed to mark where the story begins.",
+      "The mandap is the heart of the day. We design it as architecture — florals, drape, and fire, composed to be looked at for hours.",
   },
   {
-    key: "corporateEvents",
-    title: "Corporate Events",
+    key: "reception",
+    title: "Reception & Cocktails",
     description:
-      "Brand launches, galas, and private events, staged with the same rigor and discretion as our weddings.",
+      "Tablescapes, lighting, and atmosphere designed to turn a banquet hall or a palace lawn into a world entirely of its own.",
   },
   {
     key: "bridalStyling",
-    title: "Bridal Styling & Design",
+    title: "Bridal Styling & Trousseau",
     description:
-      "Gown, veil, and presence — considered as a single composition, from first fitting to final walk.",
+      "Lehenga, jewellery, and presence — considered as a single composition, from the first fitting to the final vidai.",
   },
 ] as const;
 

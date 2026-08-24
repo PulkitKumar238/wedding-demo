@@ -44,13 +44,13 @@ export const img = {
   brandStoryCouple: weddingDay.floralEmbrace,
 
   experiences: {
-    luxuryWeddings: weddingDay.varmala,
-    destinationWeddings: engagement.venueWalk,
-    floralDecoration: weddingDay.floralArch,
-    receptionStyling: weddingDay.bridePampas,
-    mehendiSangeet: mehendi.artistAtWork,
-    engagement: engagement.ringExchange,
-    corporateEvents: haldi.familyBlessing,
+    rokaSagai: engagement.ringExchange,
+    mehendi: mehendi.artistAtWork,
+    haldi: haldi.petalShower,
+    sangeet: haldi.familyBlessing,
+    baraatVarmala: weddingDay.varmala,
+    mandapPheras: weddingDay.bridePampas,
+    reception: weddingDay.floralArch,
     bridalStyling: weddingDay.bridalVeil,
   },
 
