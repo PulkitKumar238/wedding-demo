@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { brand, nav } from "@/data/site";
@@ -10,7 +8,6 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -19,29 +16,22 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled || open
+        scrolled
           ? "bg-ivory/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]"
           : "bg-transparent"
       )}
     >
       <Container>
-        <nav className="flex h-20 items-center justify-between md:h-24">
+        <nav className="flex h-16 items-center justify-between md:h-24">
           <a
             href="#top"
             className={cn(
               "font-display text-xl tracking-wide transition-colors md:text-2xl",
-              scrolled || open ? "text-charcoal" : "text-ivory"
+              scrolled ? "text-charcoal" : "text-ivory"
             )}
           >
             {brand.name}
@@ -71,49 +61,37 @@ export function Navbar() {
               <a href="#booking">Book Consultation</a>
             </Button>
           </div>
-
-          <button
-            aria-label={open ? "Close menu" : "Open menu"}
-            onClick={() => setOpen((o) => !o)}
-            className={cn(
-              "-mr-2 p-2 lg:hidden",
-              scrolled || open ? "text-charcoal" : "text-ivory"
-            )}
-          >
-            {open ? <X size={26} /> : <Menu size={26} />}
-          </button>
         </nav>
       </Container>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden bg-ivory lg:hidden"
-          >
-            <Container className="flex flex-col gap-6 pb-10 pt-4">
-              {nav.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="font-display text-2xl text-charcoal"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <Button asChild className="mt-2 w-fit">
-                <a href="#booking" onClick={() => setOpen(false)}>
-                  Book Consultation
-                </a>
-              </Button>
-            </Container>
-          </motion.div>
+      {/*
+        Mobile keeps every destination on screen rather than hiding them behind
+        a hamburger. The strip scrolls sideways on the narrowest handsets, so
+        the labels stay legible instead of shrinking to fit.
+      */}
+      <div
+        className={cn(
+          "border-t transition-colors duration-500 lg:hidden",
+          scrolled ? "border-charcoal/10" : "border-ivory/15"
         )}
-      </AnimatePresence>
+      >
+        <Container>
+          <div className="no-scrollbar -mx-1 flex items-center gap-5 overflow-x-auto px-1 py-3">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "shrink-0 font-body text-[11px] uppercase tracking-[0.12em] transition-colors",
+                  scrolled ? "text-charcoal/80" : "text-ivory/85"
+                )}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </Container>
+      </div>
     </header>
   );
 }
