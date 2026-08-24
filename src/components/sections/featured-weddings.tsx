@@ -27,9 +27,8 @@ export function FeaturedWeddings() {
             </h2>
           </div>
           <p className="max-w-sm font-body text-[15px] font-light leading-relaxed text-ivory/55">
-            A collection of celebrations designed across Rajasthan, Delhi
-            NCR, Goa and beyond — each one composed to feel entirely,
-            unmistakably their own.
+            A collection of weddings photographed across Uttar Pradesh and
+            beyond — each one remembered entirely, unmistakably as its own.
           </p>
         </Reveal>
 
