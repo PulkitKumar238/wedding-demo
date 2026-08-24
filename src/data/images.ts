@@ -36,7 +36,15 @@ const weddingDay = {
   floralArch: "/photos/wedding-day/PR001775.jpg",
 } as const;
 
+/** Trimmed from the studio's own wedding film; see README for how it was cut. */
+const video = {
+  heroTeaser: "/video/hero-teaser.mp4",
+  heroTeaserPoster: "/video/hero-teaser-poster.jpg",
+} as const;
+
 export const img = {
+  heroVideo: video.heroTeaser,
+  heroPoster: video.heroTeaserPoster,
   heroMain: weddingDay.vidaiWalk,
   heroAlt: haldi.marigoldBackdrop,
 

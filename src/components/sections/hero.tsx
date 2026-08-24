@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,31 @@ import { img } from "@/data/images";
 
 export function Hero() {
   const imageRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+
+  // Anyone who has asked their OS for less motion gets the poster frame held
+  // still rather than a looping film behind the headline.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => {
+      if (reduced.matches) {
+        video.pause();
+        video.removeAttribute("autoplay");
+      } else {
+        void video.play().catch(() => {
+          /* autoplay refused — the poster frame stands in */
+        });
+      }
+    };
+
+    apply();
+    reduced.addEventListener("change", apply);
+    return () => reduced.removeEventListener("change", apply);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,15 +85,25 @@ export function Hero() {
       ref={rootRef}
       className="relative flex h-[100svh] w-full items-end overflow-hidden bg-charcoal"
     >
+      {/*
+        Eight seconds cut from the studio's own wedding film. Muted and
+        playsInline so mobile browsers will autoplay it at all; the poster
+        frame carries the hero on its own if they refuse.
+      */}
       <div ref={imageRef} className="absolute inset-0">
-        <Image
-          src={img.heroMain}
-          alt="Bride and groom walking through their vidai as guests look on, lit by warm evening light"
-          fill
-          preload
-          sizes="100vw"
-          className="object-cover object-[center_30%]"
-        />
+        <video
+          ref={videoRef}
+          className="h-full w-full object-cover object-[center_35%]"
+          poster={img.heroPoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src={img.heroVideo} type="video/mp4" />
+        </video>
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/30 via-transparent to-transparent" />
