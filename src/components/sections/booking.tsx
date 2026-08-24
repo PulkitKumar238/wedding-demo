@@ -215,7 +215,7 @@ export function Booking() {
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div className="sm:col-span-1">
                 <label className={labelClass}>Full Name</label>
-                <input name="name" required className={inputClass} placeholder="Ananya Rathore" />
+                <input name="name" required className={inputClass} placeholder="Your full name" />
               </div>
               <div className="sm:col-span-1">
                 <label className={labelClass}>Email</label>
@@ -236,7 +236,7 @@ export function Booking() {
                 <input
                   name="location"
                   className={inputClass}
-                  placeholder="Jaipur, Udaipur, Goa, Delhi NCR..."
+                  placeholder="Lucknow, Varanasi, Goa, Delhi NCR..."
                 />
               </div>
 

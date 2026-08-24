@@ -300,7 +300,7 @@ export const ceremonyOptions = [
 
 export const booking = {
   eyebrow: "Begin Your Story",
-  title: "Let's Design Something Unforgettable",
+  title: "Let's Capture Something Unforgettable",
   description:
     "Consultations are held by invitation and availability — we accept a limited number of weddings each season to preserve the attention every celebration deserves.",
   cta: "Book a Consultation",
