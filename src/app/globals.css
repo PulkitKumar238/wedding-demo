@@ -89,6 +89,16 @@ body {
   font-family: var(--font-body), sans-serif;
 }
 
+/* Sliders scroll horizontally without showing a scrollbar under the cards. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 /* Clear the persistent action bar pinned to the bottom of the viewport on
    phones; measured at 65px tall, so reserve a little more than that. On md+
    the bar floats in the corner and needs no reserved space. */

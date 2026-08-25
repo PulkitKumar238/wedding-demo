@@ -6,13 +6,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { testimonials } from "@/data/site";
+import { stories, testimonials } from "@/data/site";
 import { img } from "@/data/images";
+
+/** Each testimonial shares its key with a story, and borrows its couple,
+ *  location and photograph from there. */
+const storyByKey = new Map(stories.map((story) => [story.key, story]));
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const current = testimonials[index];
+  const story = storyByKey.get(current.key);
 
   const go = (dir: 1 | -1) => {
     setDirection(dir);
@@ -57,8 +62,8 @@ export function Testimonials() {
               <div className="flex flex-col items-center gap-4">
                 <div className="relative h-16 w-16 overflow-hidden rounded-full border border-champagne/40">
                   <Image
-                    src={img.testimonials[current.key as keyof typeof img.testimonials]}
-                    alt={current.names}
+                    src={img.storyAvatars[current.key as keyof typeof img.storyAvatars]}
+                    alt={story?.couple ?? ""}
                     fill
                     sizes="64px"
                     className="object-cover"
@@ -66,10 +71,10 @@ export function Testimonials() {
                 </div>
                 <div>
                   <p className="font-body text-sm font-medium tracking-wide text-charcoal">
-                    {current.names}
+                    {story?.couple}
                   </p>
                   <p className="mt-1 font-body text-[13px] text-charcoal/50">
-                    {current.location}
+                    {story?.location}
                   </p>
                 </div>
               </div>

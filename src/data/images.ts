@@ -89,20 +89,11 @@ export const img = {
 
   statsBackground: haldi.marigoldBackdrop,
 
-  testimonials: {
-    ayushRuchika: "/photos/avatars/ayush-ruchika.jpg",
-    nishantJenny: "/photos/avatars/nishant-jenny.jpg",
-    shubhamDisha: "/photos/avatars/shubham-disha.jpg",
-    pranaySanskriti: "/photos/avatars/pranay-sanskriti.jpg",
-    shivenduVandna: "/photos/avatars/shivendu-vandna.jpg",
-    yashShubhangi: "/photos/avatars/yash-shubhangi.jpg",
-    ashutoshGurpreet: "/photos/avatars/ashutosh-gurpreet.jpg",
-    kartikRupali: "/photos/avatars/kartik-rupali.jpg",
-    sandeep: "/photos/avatars/sandeep.jpg",
-    dhriti: "/photos/avatars/dhriti.jpg",
-  },
-
   /*
+    Feed for the retired "Inspiration, As It Finds Us" moodboard. The section
+    is off the page but the component and this list are kept intact so it can
+    be dropped back in — see the commented import in app/page.tsx.
+
     Presented as the studio's own feed, so this is their photography only —
     the two Pexels mehendi files are deliberately excluded.
   */
@@ -120,6 +111,46 @@ export const img = {
     haldi.familyBlessing,
     engagement.couplePortrait,
   ],
+
+  /** One photograph per wedding, shown in the stories slider. */
+  stories: {
+    vandnaPandey: "/photos/stories/vandna-pandey.jpg",
+    rupali: "/photos/stories/rupali.jpg",
+    ayushRuchika: "/photos/stories/ayush-ruchika.jpg",
+    shubhangi: "/photos/stories/shubhangi.jpg",
+    ashutoshGupta: "/photos/stories/ashutosh-gupta.jpg",
+    kartik: "/photos/stories/kartik.jpg",
+    dishaMishra: "/photos/stories/disha-mishra.jpg",
+    sanskriti: "/photos/stories/sanskriti.jpg",
+    nishantJenny: "/photos/stories/nishant-jenny.jpg",
+    yashShrivastava: "/photos/stories/yash-shrivastava.jpg",
+    gurpreetKaur: "/photos/stories/gurpreet-kaur.jpg",
+    dhriti: "/photos/stories/dhriti.jpg",
+    shubhamMishra: "/photos/stories/shubham-mishra.jpg",
+    pranayPragati: "/photos/stories/pranay-pragati.jpg",
+    sandeep: "/photos/stories/sandeep.jpg",
+    shivenduPandey: "/photos/stories/shivendu-pandey.jpg",
+  },
+
+  /** Square crops of the same photographs, for the testimonial avatars. */
+  storyAvatars: {
+    vandnaPandey: "/photos/story-avatars/vandna-pandey.jpg",
+    rupali: "/photos/story-avatars/rupali.jpg",
+    ayushRuchika: "/photos/story-avatars/ayush-ruchika.jpg",
+    shubhangi: "/photos/story-avatars/shubhangi.jpg",
+    ashutoshGupta: "/photos/story-avatars/ashutosh-gupta.jpg",
+    kartik: "/photos/story-avatars/kartik.jpg",
+    dishaMishra: "/photos/story-avatars/disha-mishra.jpg",
+    sanskriti: "/photos/story-avatars/sanskriti.jpg",
+    nishantJenny: "/photos/story-avatars/nishant-jenny.jpg",
+    yashShrivastava: "/photos/story-avatars/yash-shrivastava.jpg",
+    gurpreetKaur: "/photos/story-avatars/gurpreet-kaur.jpg",
+    dhriti: "/photos/story-avatars/dhriti.jpg",
+    shubhamMishra: "/photos/story-avatars/shubham-mishra.jpg",
+    pranayPragati: "/photos/story-avatars/pranay-pragati.jpg",
+    sandeep: "/photos/story-avatars/sandeep.jpg",
+    shivenduPandey: "/photos/story-avatars/shivendu-pandey.jpg",
+  },
 
   bookingSide: weddingDay.floralArch,
 } as const;

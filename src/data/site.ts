@@ -34,7 +34,7 @@ export const nav = [
   { label: "Experiences", href: "#experiences" },
   { label: "Weddings", href: "#weddings" },
   { label: "Process", href: "#process" },
-  { label: "Journal", href: "#journal" },
+  { label: "Stories", href: "#stories" },
   { label: "Contact", href: "#booking" },
 ];
 
@@ -118,15 +118,49 @@ export const experiences = [
 ] as const;
 
 export const featuredWeddings = [
-  { key: "venueWalk", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh", size: "large" },
-  { key: "couplePortrait", couple: "Nishant & Jenny", location: "Varanasi, Uttar Pradesh", size: "tall" },
-  { key: "ringDetail", couple: "Shubham & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
-  { key: "familyBlessing", couple: "Pranay & Sanskriti", location: "Kanpur, Uttar Pradesh", size: "small" },
-  { key: "coupleInYellow", couple: "Shivendu & Vandna", location: "Rishikesh, Uttarakhand", size: "tall" },
-  { key: "cafeMoment", couple: "Yash & Shubhangi", location: "Goa", size: "small" },
-  { key: "floralEmbrace", couple: "Ashutosh & Gurpreet", location: "Chandigarh, Punjab", size: "small" },
-  { key: "marigoldBackdrop", couple: "Kartik & Rupali", location: "Delhi NCR", size: "large" },
+  { key: "venueWalk", couple: "Sandeep & Ritika", location: "Lucknow, Uttar Pradesh", size: "large" },
+  { key: "couplePortrait", couple: "Karan & Vandna", location: "Lucknow, Uttar Pradesh", size: "tall" },
+  { key: "ringDetail", couple: "Nikhil & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
+  { key: "familyBlessing", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh", size: "small" },
+  { key: "coupleInYellow", couple: "Shivendu & Aarti", location: "Rishikesh, Uttarakhand", size: "tall" },
+  { key: "cafeMoment", couple: "Shubham & Priya", location: "Agra, Uttar Pradesh", size: "small" },
+  { key: "floralEmbrace", couple: "Aditya & Dhriti", location: "Kanpur, Uttar Pradesh", size: "small" },
+  { key: "marigoldBackdrop", couple: "Ashutosh & Meera", location: "Lucknow, Uttar Pradesh", size: "large" },
 ] as const;
+
+/**
+ * One slide per wedding the studio has shot, in deliberately mixed order
+ * rather than the order the folders happen to sit in.
+ *
+ * `key` matches the studio's own shoot folder, so every slide stays traceable
+ * to its archive. Where only one name was on record the partner's name is
+ * invented — flagged here so real ones can replace them.
+ */
+export const stories = [
+  { key: "vandnaPandey", couple: "Karan & Vandna", location: "Lucknow, Uttar Pradesh" },
+  { key: "rupali", couple: "Varun & Rupali", location: "Manali, Himachal Pradesh" },
+  { key: "ayushRuchika", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh" },
+  { key: "shubhangi", couple: "Rohan & Shubhangi", location: "Varanasi, Uttar Pradesh" },
+  { key: "ashutoshGupta", couple: "Ashutosh & Meera", location: "Lucknow, Uttar Pradesh" },
+  { key: "kartik", couple: "Kartik & Anaya", location: "Delhi NCR" },
+  { key: "dishaMishra", couple: "Nikhil & Disha", location: "Lucknow, Uttar Pradesh" },
+  { key: "sanskriti", couple: "Aman & Sanskriti", location: "Kanpur, Uttar Pradesh" },
+  { key: "nishantJenny", couple: "Nishant & Jenny", location: "Varanasi, Uttar Pradesh" },
+  { key: "yashShrivastava", couple: "Yash & Ishita", location: "Lucknow, Uttar Pradesh" },
+  { key: "gurpreetKaur", couple: "Jaspreet & Gurpreet", location: "Chandigarh, Punjab" },
+  { key: "dhriti", couple: "Aditya & Dhriti", location: "Kanpur, Uttar Pradesh" },
+  { key: "shubhamMishra", couple: "Shubham & Priya", location: "Agra, Uttar Pradesh" },
+  { key: "pranayPragati", couple: "Pranay & Pragati", location: "Lucknow, Uttar Pradesh" },
+  { key: "sandeep", couple: "Sandeep & Ritika", location: "Lucknow, Uttar Pradesh" },
+  { key: "shivenduPandey", couple: "Shivendu & Aarti", location: "Rishikesh, Uttarakhand" },
+] as const;
+
+export const storiesSection = {
+  eyebrow: "Their Stories",
+  title: "Every Wedding We've Told",
+  description:
+    "Sixteen families, sixteen entirely different days. Swipe through a few of them.",
+};
 
 export const process = [
   {
@@ -200,81 +234,29 @@ export const whyChooseUs = {
 };
 
 /**
- * Placeholder copy. The names are the studio's real clients and match the
- * portfolio pairings, but every quote below was written for the demo and must
- * be replaced with genuine reviews before this goes live.
+ * One testimonial per story, sharing its key, its couple and its photograph —
+ * so the avatar beside a quote is the same wedding shown in the slider.
+ *
+ * Placeholder copy: every quote below was written for the demo and must be
+ * replaced with genuine reviews before launch.
  */
 export const testimonials = [
-  {
-    key: "ayushRuchika",
-    names: "Ayush & Ruchika",
-    location: "Lucknow — four ceremonies over three days",
-    quote:
-      "Click Weds didn't just photograph our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right.",
-  },
-  {
-    key: "nishantJenny",
-    names: "Nishant & Jenny",
-    location: "Varanasi — a Punjabi and Christian ceremony, side by side",
-    quote:
-      "Ours was two very different traditions in one weekend. They covered both with the same care, and never once made either side feel like the smaller event.",
-  },
-  {
-    key: "shubhamDisha",
-    names: "Shubham & Disha",
-    location: "Lucknow — mehendi, haldi, and a winter wedding",
-    quote:
-      "From the first call it was clear this was a team obsessed with craft, not checklists. Our haldi photographs look like stills from a film.",
-  },
-  {
-    key: "pranaySanskriti",
-    names: "Pranay & Sanskriti",
-    location: "Kanpur — three days, two hundred guests",
-    quote:
-      "We met six photographers. Click Weds was the only one who asked about our families before asking about our budget. The album alone was worth every rupee.",
-  },
-  {
-    key: "shivenduVandna",
-    names: "Shivendu & Vandna",
-    location: "Rishikesh — a riverside wedding at sunrise",
-    quote:
-      "Impeccable, calm, and endlessly creative. My mother worried they would be underfoot during the rituals, and by the sangeet she had stopped noticing them entirely.",
-  },
-  {
-    key: "yashShubhangi",
-    names: "Yash & Shubhangi",
-    location: "Goa — a beach wedding over two days",
-    quote:
-      "The teaser reached us before our guests had even flown home. We must have watched it thirty times that first night.",
-  },
-  {
-    key: "ashutoshGurpreet",
-    names: "Ashutosh & Gurpreet",
-    location: "Chandigarh — an Anand Karaj in December",
-    quote:
-      "They read the room all day. Quiet through the Anand Karaj, everywhere at once once the dancing started. That judgement is the whole job.",
-  },
-  {
-    key: "kartikRupali",
-    names: "Kartik & Rupali",
-    location: "Delhi NCR — a pre-wedding shoot and wedding",
-    quote:
-      "We are both stiff in front of a camera. They spent the pre-wedding shoot just talking to us, and by the wedding we had stopped performing entirely.",
-  },
-  {
-    key: "sandeep",
-    names: "Sandeep",
-    location: "Lucknow — engagement",
-    quote:
-      "Booked them for an engagement, went back for the wedding, and will send them every cousin I have. Straightforward people who deliver what they promise.",
-  },
-  {
-    key: "dhriti",
-    names: "Dhriti",
-    location: "Lucknow — bridal portraits and reception",
-    quote:
-      "Four weeks after the wedding, exactly as promised, the full gallery and the film arrived. No chasing, no excuses. Rarer than it should be.",
-  },
+  { key: "vandnaPandey", quote: "Click Weds didn't just photograph our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of an Indian wedding to get right." },
+  { key: "rupali", quote: "We dragged them up a mountain in the middle of winter and not one of them complained. The snow frames are the ones both our families ask for." },
+  { key: "ayushRuchika", quote: "The varmala happened in about ninety seconds and they caught all of it. We have watched that sequence more times than we would like to admit." },
+  { key: "shubhangi", quote: "My bridal portraits are the only photographs of myself I have ever actually liked. I still have no idea how they managed that in twenty minutes." },
+  { key: "ashutoshGupta", quote: "From the first call it was clear this was a team obsessed with craft, not checklists. Nothing about the day felt staged for a camera." },
+  { key: "kartik", quote: "We are both stiff in front of a lens. They spent the pre-wedding shoot just talking to us, and by the wedding we had stopped performing entirely." },
+  { key: "dishaMishra", quote: "Half our wedding happened after dark and I was sure the photographs would suffer. They are somehow the best ones in the whole gallery." },
+  { key: "sanskriti", quote: "There were forty cousins in that haldi and they got every single one. My grandmother has printed three of those frames already." },
+  { key: "nishantJenny", quote: "Ours was two very different traditions in one weekend. They covered both with the same care, and never once made either side feel like the smaller event." },
+  { key: "yashShrivastava", quote: "The teaser reached us before our guests had even flown home. We must have watched it thirty times that first night." },
+  { key: "gurpreetKaur", quote: "They read the room all day. Quiet through the Anand Karaj, everywhere at once once the dancing started. That judgement is the whole job." },
+  { key: "dhriti", quote: "Impeccable, calm, and endlessly creative. My mother worried they would be underfoot during the rituals, and by the sangeet she had stopped noticing them entirely." },
+  { key: "shubhamMishra", quote: "We met six photographers. Click Weds was the only one who asked about our families before asking about our budget. The album alone was worth every rupee." },
+  { key: "pranayPragati", quote: "Four weeks after the wedding, exactly as promised, the full gallery and the film arrived. No chasing, no excuses. Rarer than it should be." },
+  { key: "sandeep", quote: "Booked them for an engagement, went back for the wedding, and will send them every cousin I have. Straightforward people who deliver what they promise." },
+  { key: "shivenduPandey", quote: "They were the calmest people at that wedding. When the schedule fell apart in the afternoon, they simply kept shooting and we never felt it." },
 ] as const;
 
 /**
