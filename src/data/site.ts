@@ -138,7 +138,6 @@ export const featuredWeddings = [
  */
 export const stories = [
   { key: "vandnaPandey", couple: "Karan & Vandna", location: "Lucknow, Uttar Pradesh" },
-  { key: "rupali", couple: "Varun & Rupali", location: "Manali, Himachal Pradesh" },
   { key: "ayushRuchika", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh" },
   { key: "shubhangi", couple: "Rohan & Shubhangi", location: "Varanasi, Uttar Pradesh" },
   { key: "ashutoshGupta", couple: "Ashutosh & Meera", location: "Lucknow, Uttar Pradesh" },
@@ -151,6 +150,7 @@ export const stories = [
   { key: "dhriti", couple: "Aditya & Dhriti", location: "Kanpur, Uttar Pradesh" },
   { key: "shubhamMishra", couple: "Shubham & Priya", location: "Agra, Uttar Pradesh" },
   { key: "pranayPragati", couple: "Pranay & Pragati", location: "Lucknow, Uttar Pradesh" },
+  { key: "rupali", couple: "Varun & Rupali", location: "Manali, Himachal Pradesh" },
   { key: "sandeep", couple: "Sandeep & Ritika", location: "Lucknow, Uttar Pradesh" },
   { key: "shivenduPandey", couple: "Shivendu & Aarti", location: "Rishikesh, Uttarakhand" },
 ] as const;
