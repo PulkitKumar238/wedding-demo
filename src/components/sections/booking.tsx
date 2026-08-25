@@ -128,6 +128,7 @@ export function Booking() {
           aria-hidden
           fill
           sizes="100vw"
+          quality={45}
           className="object-cover opacity-15"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/90 to-charcoal" />

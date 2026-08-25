@@ -15,6 +15,7 @@ export function WhyChooseUs() {
           aria-hidden
           fill
           sizes="100vw"
+          quality={45}
           className="object-cover opacity-25"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal" />
