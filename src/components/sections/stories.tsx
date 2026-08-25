@@ -34,6 +34,82 @@ export function Stories() {
     };
   }, [syncEdges]);
 
+  /*
+    Shift + wheel scrolls the track sideways. Most browsers already map that
+    gesture onto a horizontal scroller, but not every mouse and trackpad gets
+    there, so it is handled explicitly. The page keeps its own scroll whenever
+    the track has nothing further to give in that direction.
+  */
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const onWheel = (e: WheelEvent) => {
+      if (!e.shiftKey || e.deltaY === 0) return;
+
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const next = track.scrollLeft + e.deltaY;
+      if ((next <= 0 && e.deltaY < 0) || (next >= maxScroll && e.deltaY > 0)) {
+        return;
+      }
+
+      e.preventDefault();
+      track.scrollLeft = next;
+    };
+
+    track.addEventListener("wheel", onWheel, { passive: false });
+    return () => track.removeEventListener("wheel", onWheel);
+  }, []);
+
+  /*
+    Click-and-drag with a mouse. Touch and trackpad already scroll the track
+    natively, so pointerType is filtered to mouse only — hijacking touch would
+    break the momentum scrolling phones give for free.
+  */
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let dragging = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      dragging = true;
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      // Snapping fights a drag in progress; it is restored on release.
+      track.style.scrollSnapType = "none";
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      const delta = e.clientX - startX;
+      if (Math.abs(delta) > 3) track.setPointerCapture(e.pointerId);
+      track.scrollLeft = startScroll - delta;
+    };
+
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      track.style.scrollSnapType = "";
+    };
+
+    track.addEventListener("pointerdown", onPointerDown);
+    track.addEventListener("pointermove", onPointerMove);
+    track.addEventListener("pointerup", endDrag);
+    track.addEventListener("pointercancel", endDrag);
+    track.addEventListener("pointerleave", endDrag);
+    return () => {
+      track.removeEventListener("pointerdown", onPointerDown);
+      track.removeEventListener("pointermove", onPointerMove);
+      track.removeEventListener("pointerup", endDrag);
+      track.removeEventListener("pointercancel", endDrag);
+      track.removeEventListener("pointerleave", endDrag);
+    };
+  }, []);
+
   const scrollByCard = (direction: 1 | -1) => {
     const track = trackRef.current;
     if (!track) return;
@@ -42,8 +118,11 @@ export function Stories() {
     track.scrollBy({ left: step * direction, behavior: "smooth" });
   };
 
+  const arrowClass =
+    "flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/20 text-charcoal transition-colors hover:border-champagne hover:text-champagne disabled:pointer-events-none disabled:opacity-30";
+
   return (
-    <section id="stories" className="overflow-hidden bg-ivory-dark py-28 md:py-36">
+    <section id="stories" className="bg-ivory-dark py-24 md:py-36">
       <Container>
         <Reveal className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
@@ -53,18 +132,20 @@ export function Stories() {
             <h2 className="mt-5 font-display text-4xl leading-[1.1] text-charcoal sm:text-5xl">
               {storiesSection.title}
             </h2>
-            <p className="mt-6 font-body text-[15px] font-light leading-relaxed text-charcoal/65">
+            <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-charcoal/65">
               {storiesSection.description}
             </p>
           </div>
 
-          <div className="flex shrink-0 gap-3">
+          {/* Phones swipe the track directly, so the arrows would only be
+              clutter down there. */}
+          <div className="hidden shrink-0 gap-3 md:flex">
             <button
               type="button"
               aria-label="Previous stories"
               onClick={() => scrollByCard(-1)}
               disabled={atStart}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/20 text-charcoal transition-colors hover:border-champagne hover:text-champagne disabled:pointer-events-none disabled:opacity-30"
+              className={arrowClass}
             >
               <ArrowLeft size={18} />
             </button>
@@ -73,56 +154,55 @@ export function Stories() {
               aria-label="Next stories"
               onClick={() => scrollByCard(1)}
               disabled={atEnd}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/20 text-charcoal transition-colors hover:border-champagne hover:text-champagne disabled:pointer-events-none disabled:opacity-30"
+              className={arrowClass}
             >
               <ArrowRight size={18} />
             </button>
           </div>
         </Reveal>
-      </Container>
 
-      {/*
-        The track bleeds past the container so cards run to the screen edge,
-        with matching padding either side to keep the first and last aligned
-        with the heading above.
-      */}
-      <ul
-        ref={trackRef}
-        className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-6 pb-2 md:px-12 lg:px-20"
-      >
-        {stories.map((story, index) => (
-          <li
-            key={story.key}
-            className="w-[78vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[28vw] xl:w-[22vw]"
-          >
-            <figure className="group">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2px] bg-charcoal/5">
-                <Image
-                  src={img.stories[story.key as keyof typeof img.stories]}
-                  alt={`${story.couple}'s wedding in ${story.location}`}
-                  fill
-                  sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 28vw, (min-width: 768px) 38vw, (min-width: 640px) 52vw, 78vw"
-                  /*
-                    Only the first card is fetched up front. Every other card
-                    sits outside the viewport, so the browser holds its image
-                    back until it is scrolled towards.
-                  */
-                  loading={index === 0 ? "eager" : "lazy"}
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <figcaption className="mt-5">
-                <p className="font-display text-xl italic text-charcoal md:text-2xl">
-                  {story.couple}
-                </p>
-                <p className="mt-1 font-body text-[11px] uppercase tracking-[0.14em] text-charcoal/50">
-                  {story.location}
-                </p>
-              </figcaption>
-            </figure>
-          </li>
-        ))}
-      </ul>
+        {/* The track lives inside the Container so the first card lines up with
+            the heading above it, and the last is clipped by the same gutter —
+            which reads as "there is more this way". */}
+        <ul
+          ref={trackRef}
+          className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:mt-14"
+        >
+          {stories.map((story, index) => (
+            <li
+              key={story.key}
+              className="w-[72vw] shrink-0 snap-start sm:w-[46vw] md:w-[34vw] lg:w-[26vw] xl:w-[21vw]"
+            >
+              <figure className="group">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-[2px] bg-charcoal/5">
+                  <Image
+                    src={img.stories[story.key as keyof typeof img.stories]}
+                    alt={`${story.couple}'s wedding in ${story.location}`}
+                    fill
+                    sizes="(min-width: 1280px) 21vw, (min-width: 1024px) 26vw, (min-width: 768px) 34vw, (min-width: 640px) 46vw, 72vw"
+                    /*
+                      Only the first card is fetched up front. Every other card
+                      sits outside the viewport, so the browser holds its image
+                      back until it is scrolled towards.
+                    */
+                    loading={index === 0 ? "eager" : "lazy"}
+                    draggable={false}
+                    className="select-none object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="mt-4">
+                  <p className="font-display text-lg italic text-charcoal md:text-xl">
+                    {story.couple}
+                  </p>
+                  <p className="mt-1 font-body text-[10px] uppercase tracking-[0.14em] text-charcoal/50 md:text-[11px]">
+                    {story.location}
+                  </p>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Container>
     </section>
   );
 }

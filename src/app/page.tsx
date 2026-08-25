@@ -19,11 +19,11 @@ export default function Home() {
       <Hero />
       <Testimonials />
       <BrandStory />
+      <Stories />
       <Experiences />
       <FeaturedWeddings />
       <Process />
       <WhyChooseUs />
-      <Stories />
       {/* <InstagramMoodboard /> */}
       <Booking />
     </>
