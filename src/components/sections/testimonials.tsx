@@ -13,6 +13,23 @@ import { img } from "@/data/images";
  *  location and photograph from there. */
 const storyByKey = new Map(stories.map((story) => [story.key, story]));
 
+/*
+  Quotes differ in length, so the slide they sit in differed in height and the
+  whole section jumped every time the carousel advanced. An invisible copy of
+  the longest quote now holds that space open and the real quote is laid over
+  it, so the section height — and the avatar's position under it — stay put.
+
+  Sizing from the copy rather than a hard-coded pixel height means this keeps
+  working at every breakpoint, and when the quotes are replaced with real ones.
+*/
+const longestQuote = testimonials.reduce((longest, t) =>
+  t.quote.length > longest.quote.length ? t : longest
+).quote;
+
+const slideClass = "flex flex-col items-center gap-8 text-center md:gap-10";
+const quoteClass =
+  "font-display text-2xl italic leading-snug text-charcoal md:text-3xl lg:text-4xl";
+
 export function Testimonials() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -42,7 +59,7 @@ export function Testimonials() {
           </h2>
         </Reveal>
 
-        <div className="relative mt-16 min-h-[380px] md:mt-20">
+        <div className="mt-16 md:mt-20">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current.key}
@@ -51,13 +68,21 @@ export function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 * direction }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center gap-8 text-center md:gap-10"
+              className={slideClass}
             >
               <Quote className="h-8 w-8 text-champagne" strokeWidth={1.2} />
 
-              <p className="max-w-3xl font-display text-2xl italic leading-snug text-charcoal md:text-3xl lg:text-4xl">
-                &ldquo;{current.quote}&rdquo;
-              </p>
+              <div className="relative w-full max-w-3xl">
+                {/* Holds the tallest quote's height open; never shown. */}
+                <p aria-hidden className={`invisible ${quoteClass}`}>
+                  &ldquo;{longestQuote}&rdquo;
+                </p>
+                <p
+                  className={`absolute inset-0 flex items-center justify-center ${quoteClass}`}
+                >
+                  &ldquo;{current.quote}&rdquo;
+                </p>
+              </div>
 
               <div className="flex flex-col items-center gap-4">
                 <div className="relative h-16 w-16 overflow-hidden rounded-full border border-champagne/40">
