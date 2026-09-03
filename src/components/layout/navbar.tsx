@@ -91,7 +91,7 @@ export function Navbar() {
               size="sm"
               asChild
             >
-              <a href="#booking">Book Consultation</a>
+              <a href="#booking">Book Your Date</a>
             </Button>
           </div>
         </nav>
