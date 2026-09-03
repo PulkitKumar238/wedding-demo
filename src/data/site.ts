@@ -117,17 +117,6 @@ export const services = [
   },
 ] as const;
 
-export const featuredWeddings = [
-  { key: "venueWalk", couple: "Brandon & Vasundhara", location: "Lucknow, Uttar Pradesh", size: "large" },
-  { key: "couplePortrait", couple: "Karan & Vandna", location: "Lucknow, Uttar Pradesh", size: "tall" },
-  { key: "ringDetail", couple: "Abhinav & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
-  { key: "familyBlessing", couple: "Ayush & Janhvi", location: "Lucknow, Uttar Pradesh", size: "small" },
-  { key: "coupleInYellow", couple: "Shivendu & Aarti", location: "Rishikesh, Uttarakhand", size: "tall" },
-  { key: "cafeMoment", couple: "Shubham & Priya", location: "Agra, Uttar Pradesh", size: "small" },
-  { key: "floralEmbrace", couple: "Puneet & Dhiti", location: "Kanpur, Uttar Pradesh", size: "small" },
-  { key: "marigoldBackdrop", couple: "Ashutosh & Twinkle", location: "Lucknow, Uttar Pradesh", size: "large" },
-] as const;
-
 /**
  * One slide per wedding the studio has shot, in deliberately mixed order
  * rather than the order the folders happen to sit in.

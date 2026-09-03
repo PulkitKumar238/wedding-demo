@@ -1,7 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { BrandStory } from "@/components/sections/brand-story";
 import { Services } from "@/components/sections/services";
-import { FeaturedWeddings } from "@/components/sections/featured-weddings";
+import { Portfolio } from "@/components/sections/portfolio";
 import { Process } from "@/components/sections/process";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -21,7 +21,7 @@ export default function Home() {
       <BrandStory />
       <Testimonials />
       <Services />
-      <FeaturedWeddings />
+      <Portfolio />
       <Process />
       <WhyChooseUs />
       {/* <InstagramMoodboard /> */}
