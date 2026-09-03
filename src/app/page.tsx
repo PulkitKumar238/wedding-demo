@@ -1,6 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { BrandStory } from "@/components/sections/brand-story";
-import { Experiences } from "@/components/sections/experiences";
+import { Services } from "@/components/sections/services";
 import { FeaturedWeddings } from "@/components/sections/featured-weddings";
 import { Process } from "@/components/sections/process";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -20,7 +20,7 @@ export default function Home() {
       <Stories />
       <BrandStory />
       <Testimonials />
-      <Experiences />
+      <Services />
       <FeaturedWeddings />
       <Process />
       <WhyChooseUs />

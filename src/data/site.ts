@@ -31,7 +31,7 @@ export const whatsapp = {
 
 export const nav = [
   { label: "Our Story", href: "#story" },
-  { label: "Experiences", href: "#experiences" },
+  { label: "Services", href: "#services" },
   { label: "Weddings", href: "#weddings" },
   { label: "Process", href: "#process" },
   { label: "Stories", href: "#stories" },
@@ -61,59 +61,59 @@ export const brandStory = {
 };
 
 /**
- * Every tile here is backed by a photograph of that exact thing in
- * `public/photos`. Ceremonies the studio has not photographed yet — sangeet,
- * pheras, baraat, reception — are deliberately absent rather than illustrated
- * with a near-miss from another ceremony.
+ * What the studio actually sells, in the order the team lists it. Every tile is
+ * backed by a photograph of that service being carried out — the edit suites
+ * and the drone included — rather than a wedding frame standing in for the
+ * craft behind it.
  */
-export const experiences = [
+export const services = [
   {
-    key: "rokaSagai",
-    title: "Roka & Sagai",
+    key: "candidPhotography",
+    title: "Candid Photography",
     description:
-      "The first promise between two families, photographed with the intimacy it deserves — where the story properly begins.",
+      "The unposed hours — a father's face during the vidai, cousins mid-argument over the sangeet playlist. Nobody is asked to look at us.",
   },
   {
-    key: "preWeddingShoot",
-    title: "Pre-Wedding Shoot",
+    key: "cinematicVideography",
+    title: "Cinematic Videography",
     description:
-      "An unhurried day somewhere that already means something to you, long before guest lists and timings take over.",
+      "The film cut, shot for it: gimbals, prime lenses, and a colour grade that holds up on a television years later.",
   },
   {
-    key: "mehendi",
-    title: "Mehendi",
+    key: "traditionalVideography",
+    title: "Traditional Videography",
     description:
-      "Courtyards of marigold and mirrorwork, live dholak, and the slow hours of henna written onto the bride's hands.",
+      "Every ritual recorded end to end, locked off and unhurried, so the pheras exist in full and not only as highlights.",
   },
   {
-    key: "haldi",
-    title: "Haldi",
+    key: "traditionalPhotography",
+    title: "Traditional Photography",
     description:
-      "Turmeric, sunlight, and unrestrained joy — the loudest morning of the wedding, in every shade of yellow.",
+      "The portraits the family will ask for — both sides, every elder, properly lit and properly composed. Nobody gets left out.",
   },
   {
-    key: "varmala",
-    title: "Varmala",
+    key: "photoEditing",
+    title: "Photo Editing",
     description:
-      "The exchange of garlands, framed and lit so the moment lands exactly as loudly as it should.",
+      "Colour, skin, and light matched frame to frame in-house, so a gallery reads as one wedding rather than four photographers.",
   },
   {
-    key: "weddingDay",
-    title: "The Wedding Day",
+    key: "videoEditing",
+    title: "Video Editing",
     description:
-      "Every hour of the day itself, held together — the rituals, the families, the light — so you are never managing anything.",
+      "Cut, scored, and graded by the people who were in the room — the teaser first, the long film once the dust settles.",
   },
   {
-    key: "bridalPortraits",
-    title: "Bridal Portraits",
+    key: "dronePhotography",
+    title: "Drone Photography",
     description:
-      "Lehenga, jewellery, and presence, composed as one portrait in the quiet hour before the day begins.",
+      "The scale of it from above — the mandap, the baraat down the street, the venue at blue hour. Flown by a licensed pilot.",
   },
   {
-    key: "couplePortraits",
-    title: "Couple Portraits",
+    key: "craneLedWall",
+    title: "Crane & LED Wall",
     description:
-      "The two of you, away from the crowd for twenty minutes — usually the frames that end up on the wall.",
+      "Jib moves over a full banquet floor, and a live LED wall so the back of the hall sees the stage as clearly as the front row.",
   },
 ] as const;
 

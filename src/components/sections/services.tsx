@@ -4,27 +4,26 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { experiences } from "@/data/site";
+import { services } from "@/data/site";
 import { img } from "@/data/images";
 
-const imageMap = img.experiences;
+const imageMap = img.services;
 
-export function Experiences() {
+export function Services() {
   return (
-    <section id="experiences" className="bg-ivory-dark py-28 md:py-36">
+    <section id="services" className="bg-ivory-dark py-28 md:py-36">
       <Container>
         <Reveal className="max-w-2xl">
           <p className="font-body text-[12px] uppercase tracking-[0.3em] text-champagne">
-            What We Design
+            What We Do
           </p>
           <h2 className="mt-5 font-display text-4xl leading-[1.1] text-charcoal sm:text-5xl">
-            Signature Wedding Experiences
+            Our Services
           </h2>
           <p className="mt-6 font-body text-[15px] font-light leading-relaxed text-charcoal/65 md:text-base">
-            From the roka to the vidai, every part of an Indian wedding
-            carries its own mood, its own palette, and its own rituals. We
-            approach each one with the same rigor — never templated, never
-            repeated.
+            Everything a wedding needs, kept under one roof — shot, edited, and
+            delivered by the same team. Book the whole thing or only the part
+            you are missing.
           </p>
         </Reveal>
 
@@ -32,9 +31,9 @@ export function Experiences() {
           stagger
           className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {experiences.map((exp) => (
+          {services.map((service) => (
             <motion.div
-              key={exp.key}
+              key={service.key}
               className="group relative aspect-[3/4] overflow-hidden rounded-[2px]"
               whileHover="hover"
               initial="rest"
@@ -46,8 +45,8 @@ export function Experiences() {
                 className="absolute inset-0"
               >
                 <Image
-                  src={imageMap[exp.key as keyof typeof imageMap]}
-                  alt={exp.title}
+                  src={imageMap[service.key as keyof typeof imageMap]}
+                  alt={service.title}
                   fill
                   sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 90vw"
                   className="object-cover"
@@ -58,7 +57,7 @@ export function Experiences() {
 
               <div className="absolute inset-x-0 bottom-0 p-6">
                 <h3 className="font-display text-xl text-ivory md:text-2xl">
-                  {exp.title}
+                  {service.title}
                 </h3>
                 <motion.p
                   variants={{
@@ -68,7 +67,7 @@ export function Experiences() {
                   transition={{ duration: 0.4 }}
                   className="overflow-hidden font-body text-[13px] font-light leading-relaxed text-ivory/80"
                 >
-                  {exp.description}
+                  {service.description}
                 </motion.p>
               </div>
 
