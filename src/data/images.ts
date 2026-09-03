@@ -36,6 +36,19 @@ const weddingDay = {
   floralArch: "/photos/wedding-day/PR001775.jpg",
 } as const;
 
+/**
+ * The studio wordmark, in the two forms the site needs. `logo` is the full
+ * lockup — mark above the name — and `mark` is the brushed CW on its own, for
+ * the places too small to set the name legibly beside it. The `-light` files
+ * are the ivory cut, for anything sitting on charcoal or over photography.
+ */
+const logo = {
+  full: "/brand/clickweds-logo.png",
+  fullLight: "/brand/clickweds-logo-light.png",
+  mark: "/brand/clickweds-mark.png",
+  markLight: "/brand/clickweds-mark-light.png",
+} as const;
+
 /** Trimmed from the studio's own wedding film; see README for how it was cut. */
 const video = {
   heroTeaser: "/video/hero-teaser.mp4",
@@ -43,6 +56,11 @@ const video = {
 } as const;
 
 export const img = {
+  logo: logo.full,
+  logoLight: logo.fullLight,
+  logoMark: logo.mark,
+  logoMarkLight: logo.markLight,
+
   heroVideo: video.heroTeaser,
   heroPoster: video.heroTeaserPoster,
   heroMain: weddingDay.vidaiWalk,
