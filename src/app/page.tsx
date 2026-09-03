@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Testimonials />
-      <BrandStory />
       <Stories />
+      <BrandStory />
+      <Testimonials />
       <Experiences />
       <FeaturedWeddings />
       <Process />
