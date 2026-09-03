@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { brand, nav } from "@/data/site";
+import { img } from "@/data/images";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -27,14 +29,45 @@ export function Navbar() {
     >
       <Container>
         <nav className="flex h-16 items-center justify-between md:h-24">
-          <a
-            href="#top"
-            className={cn(
-              "font-display text-xl tracking-wide transition-colors md:text-2xl",
-              scrolled ? "text-charcoal" : "text-ivory"
-            )}
-          >
-            {brand.name}
+          {/*
+            The bar is too short to set the stacked lockup, so the header takes
+            the mark on its own with the name beside it. Both cuts are rendered
+            and cross-faded rather than swapping `src` on scroll — swapping
+            would re-request the file and blink the mark out mid-transition.
+          */}
+          <a href="#top" className="flex items-center gap-3">
+            <span className="relative block h-8 w-[33px] shrink-0 md:h-11 md:w-[45px]">
+              <Image
+                src={img.logoMarkLight}
+                alt=""
+                fill
+                sizes="45px"
+                priority
+                className={cn(
+                  "object-contain transition-opacity duration-500",
+                  scrolled ? "opacity-0" : "opacity-100"
+                )}
+              />
+              <Image
+                src={img.logoMark}
+                alt=""
+                fill
+                sizes="45px"
+                priority
+                className={cn(
+                  "object-contain transition-opacity duration-500",
+                  scrolled ? "opacity-100" : "opacity-0"
+                )}
+              />
+            </span>
+            <span
+              className={cn(
+                "font-display text-xl tracking-wide transition-colors md:text-2xl",
+                scrolled ? "text-charcoal" : "text-ivory"
+              )}
+            >
+              {brand.name}
+            </span>
           </a>
 
           <div className="hidden items-center gap-10 lg:flex">
