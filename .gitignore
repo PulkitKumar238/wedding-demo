@@ -44,6 +44,3 @@ couple_names.png
 # Source wedding films — trimmed clips live in public/video/
 *.mp4
 !public/video/*.mp4
-
-# Brand originals — web-ready cuts live in public/brand/
-/CLICK*.png
