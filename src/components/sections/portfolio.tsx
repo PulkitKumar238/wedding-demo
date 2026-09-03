@@ -141,39 +141,43 @@ export function Portfolio() {
             Drag the rail, or open any frame to see it whole.
           </p>
         </Reveal>
-      </Container>
 
-      <Reveal className="mt-16">
-        <div
-          ref={trackRef}
-          onMouseEnter={() => (held.current = true)}
-          onMouseLeave={() => (held.current = false)}
-          className="no-scrollbar flex gap-3 overflow-x-auto overscroll-x-contain md:gap-4"
-        >
-          {/* Rendered twice so the wrap-around lands on an identical frame. */}
-          {[0, 1].map((copy) =>
-            photos.map((src, i) => (
-              <button
-                key={`${copy}-${src}`}
-                type="button"
-                onClick={() => open(i)}
-                aria-label={`Open wedding photograph ${i + 1} of ${photos.length}`}
-                className="group relative h-[260px] w-[195px] shrink-0 cursor-pointer overflow-hidden rounded-[2px] sm:h-[320px] sm:w-[240px] lg:h-[400px] lg:w-[300px]"
-              >
-                <Image
-                  src={src}
-                  alt=""
-                  fill
-                  sizes="300px"
-                  draggable={false}
-                  className="select-none object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
-                />
-                <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-500 group-hover:bg-charcoal/20" />
-              </button>
-            ))
-          )}
-        </div>
-      </Reveal>
+
+        {/* The rail lives inside the Container, like the stories track: the
+            first frame lines up with the heading above it, and the last is
+            clipped by the same gutter rather than by the window edge. */}
+        <Reveal className="mt-16">
+          <div
+            ref={trackRef}
+            onMouseEnter={() => (held.current = true)}
+            onMouseLeave={() => (held.current = false)}
+            className="no-scrollbar flex gap-3 overflow-x-auto overscroll-x-contain md:gap-4"
+          >
+            {/* Rendered twice so the wrap-around lands on an identical frame. */}
+            {[0, 1].map((copy) =>
+              photos.map((src, i) => (
+                <button
+                  key={`${copy}-${src}`}
+                  type="button"
+                  onClick={() => open(i)}
+                  aria-label={`Open wedding photograph ${i + 1} of ${photos.length}`}
+                  className="group relative h-[260px] w-[195px] shrink-0 cursor-pointer overflow-hidden rounded-[2px] sm:h-[320px] sm:w-[240px] lg:h-[400px] lg:w-[300px]"
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="300px"
+                    draggable={false}
+                    className="select-none object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+                  />
+                  <div className="absolute inset-0 bg-charcoal/0 transition-colors duration-500 group-hover:bg-charcoal/20" />
+                </button>
+              ))
+            )}
+          </div>
+        </Reveal>
+      </Container>
 
       {lightbox !== null && (
         <Lightbox
