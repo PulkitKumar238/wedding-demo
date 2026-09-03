@@ -86,7 +86,7 @@ export function Hero() {
       className="relative flex h-[100svh] w-full items-end overflow-hidden bg-charcoal"
     >
       {/*
-        Eight seconds cut from the studio's own wedding film. Muted and
+        Ten seconds cut from the studio's own wedding film. Muted and
         playsInline so mobile browsers will autoplay it at all; the poster
         frame carries the hero on its own if they refuse.
       */}
