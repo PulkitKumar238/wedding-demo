@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { brand, nav, footer } from "@/data/site";
+import { img } from "@/data/images";
 
 export function Footer() {
   return (
@@ -7,8 +9,16 @@ export function Footer() {
       <Container>
         <div className="grid gap-16 pb-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <a href="#top" className="font-display text-2xl text-charcoal">
-              {brand.name}
+            {/* The one place with room for the full lockup, name and all. */}
+            <a href="#top" className="inline-block">
+              <Image
+                src={img.logo}
+                alt={brand.name}
+                width={628}
+                height={640}
+                sizes="140px"
+                className="h-32 w-auto md:h-36"
+              />
             </a>
             <p className="mt-5 max-w-xs font-body text-sm leading-relaxed text-charcoal/60">
               {footer.description}
