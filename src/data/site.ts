@@ -118,14 +118,14 @@ export const experiences = [
 ] as const;
 
 export const featuredWeddings = [
-  { key: "venueWalk", couple: "Sandeep & Ritika", location: "Lucknow, Uttar Pradesh", size: "large" },
+  { key: "venueWalk", couple: "Brandon & Vasundhara", location: "Lucknow, Uttar Pradesh", size: "large" },
   { key: "couplePortrait", couple: "Karan & Vandna", location: "Lucknow, Uttar Pradesh", size: "tall" },
-  { key: "ringDetail", couple: "Nikhil & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
-  { key: "familyBlessing", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh", size: "small" },
+  { key: "ringDetail", couple: "Abhinav & Disha", location: "Lucknow, Uttar Pradesh", size: "small" },
+  { key: "familyBlessing", couple: "Ayush & Janhvi", location: "Lucknow, Uttar Pradesh", size: "small" },
   { key: "coupleInYellow", couple: "Shivendu & Aarti", location: "Rishikesh, Uttarakhand", size: "tall" },
   { key: "cafeMoment", couple: "Shubham & Priya", location: "Agra, Uttar Pradesh", size: "small" },
-  { key: "floralEmbrace", couple: "Aditya & Dhriti", location: "Kanpur, Uttar Pradesh", size: "small" },
-  { key: "marigoldBackdrop", couple: "Ashutosh & Meera", location: "Lucknow, Uttar Pradesh", size: "large" },
+  { key: "floralEmbrace", couple: "Puneet & Dhiti", location: "Kanpur, Uttar Pradesh", size: "small" },
+  { key: "marigoldBackdrop", couple: "Ashutosh & Twinkle", location: "Lucknow, Uttar Pradesh", size: "large" },
 ] as const;
 
 /**
@@ -133,25 +133,30 @@ export const featuredWeddings = [
  * rather than the order the folders happen to sit in.
  *
  * `key` matches the studio's own shoot folder, so every slide stays traceable
- * to its archive. Where only one name was on record the partner's name is
- * invented — flagged here so real ones can replace them.
+ * to its archive even where the couple's name has since been corrected.
+ *
+ * Most names here are now the real ones, taken from the studio's client
+ * folders. The seven still carrying an invented partner are vandnaPandey,
+ * yashShrivastava, gurpreetKaur, shubhamMishra, pranayPragati, rupali and
+ * shivenduPandey — three client folders (Asavari & Swapnil, Nida & Mohamed,
+ * Shivansh & Keerthi) are unmatched and belong to three of them.
  */
 export const stories = [
   { key: "vandnaPandey", couple: "Karan & Vandna", location: "Lucknow, Uttar Pradesh" },
-  { key: "ayushRuchika", couple: "Ayush & Ruchika", location: "Lucknow, Uttar Pradesh" },
-  { key: "shubhangi", couple: "Rohan & Shubhangi", location: "Varanasi, Uttar Pradesh" },
-  { key: "ashutoshGupta", couple: "Ashutosh & Meera", location: "Lucknow, Uttar Pradesh" },
-  { key: "kartik", couple: "Kartik & Anaya", location: "Delhi NCR" },
-  { key: "dishaMishra", couple: "Nikhil & Disha", location: "Lucknow, Uttar Pradesh" },
-  { key: "sanskriti", couple: "Aman & Sanskriti", location: "Kanpur, Uttar Pradesh" },
+  { key: "ayushRuchika", couple: "Ayush & Janhvi", location: "Lucknow, Uttar Pradesh" },
+  { key: "shubhangi", couple: "Shobhit & Shubhangi", location: "Varanasi, Uttar Pradesh" },
+  { key: "ashutoshGupta", couple: "Ashutosh & Twinkle", location: "Lucknow, Uttar Pradesh" },
+  { key: "kartik", couple: "Kartik & Nishi", location: "Delhi NCR" },
+  { key: "dishaMishra", couple: "Abhinav & Disha", location: "Lucknow, Uttar Pradesh" },
+  { key: "sanskriti", couple: "Aman & Shivangi", location: "Kanpur, Uttar Pradesh" },
   { key: "nishantJenny", couple: "Nishant & Jenny", location: "Varanasi, Uttar Pradesh" },
   { key: "yashShrivastava", couple: "Yash & Ishita", location: "Lucknow, Uttar Pradesh" },
   { key: "gurpreetKaur", couple: "Jaspreet & Gurpreet", location: "Chandigarh, Punjab" },
-  { key: "dhriti", couple: "Aditya & Dhriti", location: "Kanpur, Uttar Pradesh" },
+  { key: "dhriti", couple: "Puneet & Dhiti", location: "Kanpur, Uttar Pradesh" },
   { key: "shubhamMishra", couple: "Shubham & Priya", location: "Agra, Uttar Pradesh" },
   { key: "pranayPragati", couple: "Pranay & Pragati", location: "Lucknow, Uttar Pradesh" },
   { key: "rupali", couple: "Varun & Rupali", location: "Manali, Himachal Pradesh" },
-  { key: "sandeep", couple: "Sandeep & Ritika", location: "Lucknow, Uttar Pradesh" },
+  { key: "sandeep", couple: "Brandon & Vasundhara", location: "Lucknow, Uttar Pradesh" },
   { key: "shivenduPandey", couple: "Shivendu & Aarti", location: "Rishikesh, Uttarakhand" },
 ] as const;
 
