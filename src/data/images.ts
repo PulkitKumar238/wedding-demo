@@ -18,11 +18,6 @@ const haldi = {
   petalShower: "/photos/haldi/PR004960.jpg",
 } as const;
 
-const mehendi = {
-  handsDetail: "/photos/mehendi/pexels-photo-18074563.jpg",
-  artistAtWork: "/photos/mehendi/pexels-photo-31032216.jpg",
-} as const;
-
 const preWedding = {
   cafeMoment: "/photos/pre-wedding/NIK03197.jpg",
 } as const;
@@ -69,15 +64,15 @@ export const img = {
   brandStoryHands: engagement.ringDetail,
   brandStoryCouple: weddingDay.floralEmbrace,
 
-  experiences: {
-    rokaSagai: engagement.ringExchange,
-    preWeddingShoot: preWedding.cafeMoment,
-    mehendi: mehendi.artistAtWork,
-    haldi: haldi.petalShower,
-    varmala: weddingDay.varmala,
-    weddingDay: weddingDay.bridePampas,
-    bridalPortraits: weddingDay.bridalVeil,
-    couplePortraits: engagement.couplePortrait,
+  services: {
+    candidPhotography: "/photos/services/candid-photography.jpg",
+    cinematicVideography: "/photos/services/cinematic-videography.jpg",
+    traditionalVideography: "/photos/services/traditional-videography.jpg",
+    traditionalPhotography: "/photos/services/traditional-photography.jpg",
+    photoEditing: "/photos/services/photo-editing.jpg",
+    videoEditing: "/photos/services/video-editing.jpg",
+    dronePhotography: "/photos/services/drone-photography.jpg",
+    craneLedWall: "/photos/services/crane-led-wall.jpg",
   },
 
   gallery: {
@@ -112,8 +107,7 @@ export const img = {
     is off the page but the component and this list are kept intact so it can
     be dropped back in — see the commented import in app/page.tsx.
 
-    Presented as the studio's own feed, so this is their photography only —
-    the two Pexels mehendi files are deliberately excluded.
+    Presented as the studio's own feed, so this is their photography only.
   */
   instagram: [
     weddingDay.bridalVeil,
