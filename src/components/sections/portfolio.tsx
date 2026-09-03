@@ -18,10 +18,17 @@ export function Portfolio() {
 
   /*
     The rail is a real horizontal scroller, so trackpads, touch and shift-wheel
-    all work for free. The drift on top of that is just scrollLeft nudged every
-    frame. The list is rendered twice: once scrollLeft passes the halfway mark
-    it is wound back by exactly one copy, which lands on an identical frame and
-    so reads as an endless loop rather than a jump back to the start.
+    all work for free. The drift on top of that is a position this effect owns
+    and writes out every frame.
+
+    It has to own it: at 28px/s a frame advances well under a pixel, and the
+    browser snaps `scrollLeft` to whole device pixels on read-back — so
+    `scrollLeft += 0.47` reads back as 0 and the rail never moves at all. The
+    fractional part only survives in a variable of our own.
+
+    The list is rendered twice: once the position passes the halfway mark it is
+    wound back by exactly one copy, which lands on an identical frame and so
+    reads as an endless loop rather than a jump back to the start.
   */
   useEffect(() => {
     const track = trackRef.current;
@@ -30,17 +37,23 @@ export function Portfolio() {
 
     let raf = 0;
     let last = performance.now();
+    let pos = track.scrollLeft;
 
     const step = (now: number) => {
-      const dt = (now - last) / 1000;
+      // Clamped so a backgrounded tab does not resume with one huge jump.
+      const dt = Math.min((now - last) / 1000, 0.1);
       last = now;
 
-      if (!held.current) {
-        track.scrollLeft += DRIFT * dt;
-      }
-      // One copy of the list is exactly half the scrollable width.
+      // Anything else that moved the rail — a drag, a wheel, a finger — wins.
+      // Read-back snapping is under a pixel, so only a real move trips this.
+      if (Math.abs(track.scrollLeft - pos) > 1.5) pos = track.scrollLeft;
+
       const half = track.scrollWidth / 2;
-      if (half > 0 && track.scrollLeft >= half) track.scrollLeft -= half;
+      if (!held.current && half > 0) {
+        pos += DRIFT * dt;
+        if (pos >= half) pos -= half;
+        track.scrollLeft = pos;
+      }
 
       raf = requestAnimationFrame(step);
     };
