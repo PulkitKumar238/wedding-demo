@@ -15,15 +15,15 @@ const sizeClasses: Record<string, string> = {
 
 export function FeaturedWeddings() {
   return (
-    <section id="weddings" className="bg-charcoal py-28 md:py-36">
+    <section id="portfolio" className="bg-charcoal py-28 md:py-36">
       <Container>
         <Reveal className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <p className="font-body text-[12px] uppercase tracking-[0.3em] text-champagne-light">
-              Portfolio
+              Selected Work
             </p>
             <h2 className="mt-5 font-display text-4xl leading-[1.1] text-ivory sm:text-5xl">
-              Featured Weddings
+              Portfolio
             </h2>
           </div>
           <p className="max-w-sm font-body text-[15px] font-light leading-relaxed text-ivory/55">

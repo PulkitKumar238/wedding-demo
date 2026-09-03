@@ -32,7 +32,7 @@ export const whatsapp = {
 export const nav = [
   { label: "Our Story", href: "#story" },
   { label: "Services", href: "#services" },
-  { label: "Weddings", href: "#weddings" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Process", href: "#process" },
   { label: "Stories", href: "#stories" },
   { label: "Contact", href: "#booking" },
