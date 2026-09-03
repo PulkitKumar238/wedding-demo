@@ -43,7 +43,7 @@ export const hero = {
   heading: ["Every Love Story", "Deserves a", "Masterpiece"],
   subtitle:
     "Click Weds photographs once-in-a-lifetime weddings across India — from the first roka to the final vidai, every ritual remembered exactly as it felt.",
-  cta: "Book a Consultation",
+  cta: "Book Your Date",
   scrollLabel: "Scroll to begin",
 };
 
@@ -254,10 +254,12 @@ export const testimonials = [
 ] as const;
 
 /**
- * Ceremonies a couple can attach a date to in the enquiry form. Kept to the
- * events most couples actually book coverage for — Roka and Tilak sit under
- * one option, and the baraat and pheras under "Wedding Day", so the dropdown
- * stays short enough to scan.
+ * Every occasion a couple can attach a date to in the enquiry form, listed in
+ * roughly the order a celebration runs: the run-up, the functions, the wedding
+ * itself, then what follows. The studio's non-wedding shoots sit at the end.
+ *
+ * The wedding is split by when and where it happens rather than offered as one
+ * "Wedding Day", because that is what changes the crew and the lighting plan.
  *
  * OTHER_CEREMONY reveals a free-text field for anything not listed.
  */
@@ -265,12 +267,25 @@ export const OTHER_CEREMONY = "Other";
 
 export const ceremonyOptions = [
   "Pre-Wedding Shoot",
-  "Roka / Engagement",
-  "Mehendi",
+  "Roka",
+  "Shagan",
+  "Tilak Ceremony",
+  "Engagement Ceremony",
   "Haldi",
-  "Sangeet",
-  "Wedding Day",
-  "Reception",
+  "Bride & Groom Combined Haldi",
+  "Mehendi",
+  "Bride & Groom Combined Mehendi",
+  "Sangeet Night",
+  "Day Wedding",
+  "Evening Wedding",
+  "Church Wedding",
+  "Gurudwara Wedding",
+  "Bride Home Welcome",
+  "Reception Party",
+  "Home Pooja",
+  "Maternity Shoot",
+  "Baby Shoot",
+  "Birthday",
   OTHER_CEREMONY,
 ] as const;
 
@@ -279,7 +294,7 @@ export const booking = {
   title: "Let's Capture Something Unforgettable",
   description:
     "Consultations are held by invitation and availability — we accept a limited number of weddings each season to preserve the attention every celebration deserves.",
-  cta: "Book a Consultation",
+  cta: "Book Your Date",
 };
 
 export const footer = {
