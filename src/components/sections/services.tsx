@@ -29,7 +29,7 @@ export function Services() {
 
         <Reveal
           stagger
-          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-5 lg:grid-cols-4"
         >
           {services.map((service) => (
             <motion.div
@@ -48,15 +48,15 @@ export function Services() {
                   src={imageMap[service.key as keyof typeof imageMap]}
                   alt={service.title}
                   fill
-                  sizes="(min-width: 1024px) 24vw, (min-width: 640px) 45vw, 90vw"
+                  sizes="(min-width: 1024px) 24vw, 45vw"
                   className="object-cover"
                 />
               </motion.div>
 
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/10 to-transparent" />
 
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <h3 className="font-display text-xl text-ivory md:text-2xl">
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+                <h3 className="font-display text-[15px] leading-tight text-ivory sm:text-xl md:text-2xl">
                   {service.title}
                 </h3>
                 <motion.p
