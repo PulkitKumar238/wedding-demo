@@ -258,7 +258,7 @@ function Lightbox({
           type="button"
           onClick={() => onStep(-1)}
           aria-label="Previous photograph"
-          className="absolute -left-4 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:text-ivory md:-left-16"
+          className="absolute left-1 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:bg-charcoal hover:text-ivory md:left-2"
         >
           ←
         </button>
@@ -266,7 +266,7 @@ function Lightbox({
           type="button"
           onClick={() => onStep(1)}
           aria-label="Next photograph"
-          className="absolute -right-4 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:text-ivory md:-right-16"
+          className="absolute right-1 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:bg-charcoal hover:text-ivory md:right-2"
         >
           →
         </button>

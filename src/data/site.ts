@@ -179,20 +179,20 @@ export const process = [
     number: "05",
     title: "Album & Film",
     description:
-      "Your gallery and film in about four weeks, and a printed album built to be handed to people, not scrolled.",
+      "Your gallery and film in about forty days, and a printed album built to be handed to people, not scrolled.",
   },
 ] as const;
 
 /**
- * Grounded in the studio's public listings: roughly three years in business,
- * recommended by 100% of couples on WeddingWire, ~4 week delivery. The
+ * Grounded in the studio's public listings: over ten years in business,
+ * recommended by 100% of couples on WeddingWire, 40 day delivery. The
  * wedding count is the one figure still to be confirmed by the studio.
  */
 export const stats = [
   { value: 120, suffix: "+", label: "Weddings Photographed" },
-  { value: 3, suffix: "+", label: "Years Behind the Lens" },
+  { value: 10, suffix: "+", label: "Years Behind the Lens" },
   { value: 100, suffix: "%", label: "Couples Recommend Us" },
-  { value: 4, suffix: " wks", label: "Album Delivery" },
+  { value: 40, suffix: " days", label: "Album Delivery" },
 ] as const;
 
 export const whyChooseUs = {
@@ -223,7 +223,7 @@ export const whyChooseUs = {
 export const testimonials = [
   { key: "vasundharaBrandon", quote: "Booked them for an engagement, went back for the wedding, and will send them every cousin I have. Straightforward people who deliver what they promise." },
   { key: "nishantJenny", quote: "Ours was two very different traditions in one weekend. They covered both with the same care, and never once made either side feel like the smaller event." },
-  { key: "asavariSwapnil", quote: "Four weeks after the wedding, exactly as promised, the full gallery and the film arrived. No chasing, no excuses. Rarer than it should be." },
+  { key: "asavariSwapnil", quote: "Forty days after the wedding, exactly as promised, the full gallery and the film arrived. No chasing, no excuses. Rarer than it should be." },
   { key: "nidaMohamed", quote: "Click Weds didn't just photograph our wedding — they understood it before we did. Both families felt looked after, which is the hardest part of a wedding to get right." },
   { key: "ashutoshTwinkle", quote: "From the first call it was clear this was a team obsessed with craft, not checklists. Nothing about the day felt staged for a camera." },
   { key: "dhitiPuneet", quote: "Impeccable, calm, and endlessly creative. My mother worried they would be underfoot during the rituals, and by the sangeet she had stopped noticing them entirely." },

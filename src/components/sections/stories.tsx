@@ -380,11 +380,34 @@ function CoupleGallery({
           className="max-h-[64vh] w-auto max-w-full rounded-[2px] object-contain shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8)]"
         />
 
+        {/*
+          The frames on either side are fetched as soon as this one is shown.
+          Without it, every step forward lands on a photograph the browser has
+          never asked for and the frame is empty until it arrives — which reads
+          as the button not working.
+        */}
+        <div aria-hidden className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0">
+          {[shot - 1, shot + 1].map((n) => {
+            const i = (n + shots.length) % shots.length;
+            return (
+              <Image
+                key={shots[i]}
+                src={shots[i]}
+                alt=""
+                width={1400}
+                height={1400}
+                sizes="(min-width: 768px) 92vw, 100vw"
+                loading="eager"
+              />
+            );
+          })}
+        </div>
+
         <button
           type="button"
           onClick={() => step(-1)}
           aria-label="Previous photograph"
-          className="absolute -left-2 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:text-ivory md:-left-14"
+          className="absolute left-1 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:bg-charcoal hover:text-ivory md:left-2"
         >
           <ArrowLeft size={18} />
         </button>
@@ -392,7 +415,7 @@ function CoupleGallery({
           type="button"
           onClick={() => step(1)}
           aria-label="Next photograph"
-          className="absolute -right-2 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:text-ivory md:-right-14"
+          className="absolute right-1 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:bg-charcoal hover:text-ivory md:right-2"
         >
           <ArrowRight size={18} />
         </button>
