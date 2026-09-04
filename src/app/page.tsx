@@ -1,5 +1,5 @@
 import { Hero } from "@/components/sections/hero";
-import { BrandStory } from "@/components/sections/brand-story";
+import { Films } from "@/components/sections/films";
 import { Services } from "@/components/sections/services";
 import { Portfolio } from "@/components/sections/portfolio";
 import { Process } from "@/components/sections/process";
@@ -13,12 +13,19 @@ import { Booking } from "@/components/sections/booking";
 // repo. To bring it back, uncomment the import and the element below.
 // import { InstagramMoodboard } from "@/components/sections/instagram-moodboard";
 
+// The brand story ("Our Story") gave up this slot to the films. It is kept
+// whole too — component, copy in data/site.ts and both photographs are all
+// still here. To bring it back, uncomment the import and the element below,
+// and restore the { label: "Our Story", href: "#story" } entry in `nav`.
+// import { BrandStory } from "@/components/sections/brand-story";
+
 export default function Home() {
   return (
     <>
       <Hero />
       <Stories />
-      <BrandStory />
+      <Films />
+      {/* <BrandStory /> */}
       <Testimonials />
       <Services />
       <Portfolio />

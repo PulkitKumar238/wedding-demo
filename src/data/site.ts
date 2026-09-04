@@ -30,7 +30,7 @@ export const whatsapp = {
 };
 
 export const nav = [
-  { label: "Our Story", href: "#story" },
+  { label: "Films", href: "#films" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Process", href: "#process" },
@@ -252,6 +252,31 @@ export const testimonials = [
   { key: "sandeep", quote: "Booked them for an engagement, went back for the wedding, and will send them every cousin I have. Straightforward people who deliver what they promise." },
   { key: "shivenduPandey", quote: "They were the calmest people at that wedding. When the schedule fell apart in the afternoon, they simply kept shooting and we never felt it." },
 ] as const;
+
+/**
+ * The studio's wedding films, in the order they play. Titles are the couples
+ * named on each upload — the YouTube titles themselves are keyword-stuffed for
+ * search and read badly on a page, so only the names are carried over.
+ *
+ * Posters live in `public/photos/films`, so the YouTube player is only ever
+ * loaded once a visitor actually presses play.
+ */
+export const films = [
+  { id: "YGodpv3qwd0", title: "Ashutosh & Twinkle", note: "Destination wedding teaser" },
+  { id: "v59M6vkHfsM", title: "Ayush & Janhvi", note: "Wedding film" },
+  { id: "iRp4aJSStCw", title: "Shobhit & Shubhangi", note: "Wedding teaser, Lucknow" },
+  { id: "Jw7UKOL7Nu0", title: "Kartik & Nishi", note: "Wedding teaser, Lucknow" },
+  { id: "qo0LDkBfZMQ", title: "A Lucknow Nikah", note: "Taj Mahal, Lucknow" },
+  { id: "JnDbuRC3LjU", title: "Jasmeet & Jasmine", note: "Wedding highlight" },
+  { id: "56nLQih7vWU", title: "Utkarsh & Priyashree", note: "Wedding teaser, Lucknow" },
+] as const;
+
+export const filmsSection = {
+  eyebrow: "In Motion",
+  title: "Our Wedding Films",
+  description:
+    "Seven weddings as they actually sounded and moved — the teasers and highlight films cut in our own studio.",
+};
 
 /**
  * Every occasion a couple can attach a date to in the enquiry form, listed in
