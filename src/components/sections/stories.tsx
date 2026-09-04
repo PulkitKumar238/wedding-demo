@@ -12,6 +12,7 @@ export function Stories() {
   const trackRef = useRef<HTMLUListElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const syncEdges = useCallback(() => {
     const track = trackRef.current;
@@ -174,9 +175,14 @@ export function Stories() {
               className="w-[72vw] shrink-0 snap-start sm:w-[46vw] md:w-[34vw] lg:w-[26vw] xl:w-[21vw]"
             >
               <figure className="group">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-[2px] bg-charcoal/5">
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(index)}
+                  aria-label={`See all photographs from ${story.couple}'s wedding`}
+                  className="relative block aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-[2px] bg-charcoal/5"
+                >
                   <Image
-                    src={img.stories[story.key as keyof typeof img.stories]}
+                    src={img.couples[story.key as keyof typeof img.couples].cover}
                     alt={`${story.couple}'s wedding in ${story.location}`}
                     fill
                     sizes="(min-width: 1280px) 21vw, (min-width: 1024px) 26vw, (min-width: 768px) 34vw, (min-width: 640px) 46vw, 72vw"
@@ -189,7 +195,12 @@ export function Stories() {
                     draggable={false}
                     className="select-none object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
+                  <span className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-charcoal/70 to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <span className="font-body text-[10px] uppercase tracking-[0.2em] text-ivory">
+                      View gallery
+                    </span>
+                  </span>
+                </button>
                 <figcaption className="mt-4">
                   <p className="font-display text-lg italic text-charcoal md:text-xl">
                     {story.couple}
@@ -203,6 +214,139 @@ export function Stories() {
           ))}
         </ul>
       </Container>
+
+      {openIndex !== null && (
+        <CoupleGallery
+          storyIndex={openIndex}
+          onClose={() => setOpenIndex(null)}
+        />
+      )}
     </section>
+  );
+}
+
+/*
+  Everything one couple's gallery needs, over the page rather than on a route of
+  its own: the frame in view, arrows and keys to move through it, and a strip to
+  jump around. Same shape as the portfolio lightbox and the film viewer, so the
+  three read as one idea rather than three.
+*/
+function CoupleGallery({
+  storyIndex,
+  onClose,
+}: {
+  storyIndex: number;
+  onClose: () => void;
+}) {
+  const story = stories[storyIndex];
+  const shots = img.couples[story.key as keyof typeof img.couples].gallery;
+  const [shot, setShot] = useState(0);
+
+  const step = useCallback(
+    (delta: number) => setShot((i) => (i + delta + shots.length) % shots.length),
+    [shots.length]
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const prevOverflow = root.style.overflow;
+    root.style.overflow = "hidden";
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") step(1);
+      if (e.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      root.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [onClose, step]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${story.couple} — wedding gallery`}
+      data-lenis-prevent
+      onClick={onClose}
+      className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-5 bg-charcoal/90 p-5 backdrop-blur-sm md:p-10"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="flex w-full max-w-[min(92vw,1100px)] items-baseline justify-between gap-4"
+      >
+        <div>
+          <p className="font-display text-xl text-ivory md:text-2xl">
+            {story.couple}
+          </p>
+          <p className="mt-1 font-body text-[10px] uppercase tracking-[0.2em] text-ivory/45">
+            {story.location} — {shot + 1} of {shots.length}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close gallery"
+          className="shrink-0 font-body text-[11px] uppercase tracking-[0.25em] text-ivory/70 transition-colors hover:text-ivory"
+        >
+          Close
+        </button>
+      </div>
+
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative flex max-h-[64vh] w-full max-w-[min(92vw,1100px)] flex-1 items-center justify-center"
+      >
+        <Image
+          key={shots[shot]}
+          src={shots[shot]}
+          alt={`${story.couple}, photograph ${shot + 1}`}
+          width={1400}
+          height={1400}
+          sizes="(min-width: 768px) 92vw, 100vw"
+          priority
+          className="max-h-[64vh] w-auto max-w-full rounded-[2px] object-contain shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8)]"
+        />
+
+        <button
+          type="button"
+          onClick={() => step(-1)}
+          aria-label="Previous photograph"
+          className="absolute -left-2 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:text-ivory md:-left-14"
+        >
+          <ArrowLeft size={18} />
+        </button>
+        <button
+          type="button"
+          onClick={() => step(1)}
+          aria-label="Next photograph"
+          className="absolute -right-2 flex h-11 w-11 items-center justify-center rounded-full bg-charcoal/70 text-ivory/80 backdrop-blur transition-colors hover:text-ivory md:-right-14"
+        >
+          <ArrowRight size={18} />
+        </button>
+      </div>
+
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="no-scrollbar flex w-full max-w-[min(92vw,1100px)] gap-2 overflow-x-auto"
+      >
+        {shots.map((src, i) => (
+          <button
+            key={src}
+            type="button"
+            onClick={() => setShot(i)}
+            aria-label={`Photograph ${i + 1}`}
+            aria-current={i === shot}
+            className={`relative aspect-square w-14 shrink-0 overflow-hidden rounded-[2px] transition-all duration-300 sm:w-16 ${
+              i === shot ? "opacity-100 ring-1 ring-champagne" : "opacity-40 hover:opacity-75"
+            }`}
+          >
+            <Image src={src} alt="" fill sizes="64px" className="object-cover" />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

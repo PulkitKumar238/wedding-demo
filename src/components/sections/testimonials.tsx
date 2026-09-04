@@ -87,7 +87,7 @@ export function Testimonials() {
               <div className="flex flex-col items-center gap-4">
                 <div className="relative h-16 w-16 overflow-hidden rounded-full border border-champagne/40">
                   <Image
-                    src={img.storyAvatars[current.key as keyof typeof img.storyAvatars]}
+                    src={img.couples[current.key as keyof typeof img.couples].avatar}
                     alt={story?.couple ?? ""}
                     fill
                     sizes="64px"

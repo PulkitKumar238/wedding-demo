@@ -144,6 +144,38 @@ const portfolio = [
 ] as const;
 
 /**
+ * One entry per wedding in "Every Wedding We've Told". `cover` is already
+ * cropped to the story card's 3:4 and `avatar` to the testimonial circle, so
+ * neither is fetched at one size and drawn at another. `gallery` is the set
+ * that opens when a card is clicked — kept at its original aspect ratios,
+ * because that lightbox is where a frame is finally seen whole.
+ *
+ * Files are numbered rather than named, so a photo is swapped by replacing the
+ * file; only the count below changes.
+ */
+const couple = (slug: string, shots: number) => ({
+  cover: `/photos/couples/${slug}/cover.jpg`,
+  avatar: `/photos/couples/${slug}/avatar.jpg`,
+  gallery: Array.from(
+    { length: shots },
+    (_, i) => `/photos/couples/${slug}/${String(i + 1).padStart(2, "0")}.jpg`
+  ),
+});
+
+const couples = {
+  vasundharaBrandon: couple("vasundhara-brandon", 18),
+  nishantJenny: couple("nishant-jenny", 18),
+  asavariSwapnil: couple("asavari-swapnil", 18),
+  nidaMohamed: couple("nida-mohamed", 18),
+  ashutoshTwinkle: couple("ashutosh-twinkle", 18),
+  dhitiPuneet: couple("dhiti-puneet", 18),
+  shubhangiShobhit: couple("shubhangi-shobhit", 18),
+  shivanshKeerthi: couple("shivansh-keerthi", 18),
+  dishaAbhinav: couple("disha-abhinav", 18),
+  amanShivangi: couple("aman-shivangi", 18),
+} as const;
+
+/**
  * Poster frames for the wedding films, pulled once from YouTube and served
  * from our own origin. The viewer shows these until someone presses play, so
  * an ordinary visit never touches YouTube at all.
@@ -165,6 +197,8 @@ const video = {
 } as const;
 
 export const img = {
+  couples,
+
   films,
 
   portfolio,
@@ -232,44 +266,6 @@ export const img = {
   ],
 
   /** One photograph per wedding, shown in the stories slider. */
-  stories: {
-    vandnaPandey: "/photos/stories/vandna-pandey.jpg",
-    rupali: "/photos/stories/rupali.jpg",
-    ayushRuchika: "/photos/stories/ayush-ruchika.jpg",
-    shubhangi: "/photos/stories/shubhangi.jpg",
-    ashutoshGupta: "/photos/stories/ashutosh-gupta.jpg",
-    kartik: "/photos/stories/kartik.jpg",
-    dishaMishra: "/photos/stories/disha-mishra.jpg",
-    sanskriti: "/photos/stories/sanskriti.jpg",
-    nishantJenny: "/photos/stories/nishant-jenny.jpg",
-    yashShrivastava: "/photos/stories/yash-shrivastava.jpg",
-    gurpreetKaur: "/photos/stories/gurpreet-kaur.jpg",
-    dhriti: "/photos/stories/dhriti.jpg",
-    shubhamMishra: "/photos/stories/shubham-mishra.jpg",
-    pranayPragati: "/photos/stories/pranay-pragati.jpg",
-    sandeep: "/photos/stories/sandeep.jpg",
-    shivenduPandey: "/photos/stories/shivendu-pandey.jpg",
-  },
-
   /** Square crops of the same photographs, for the testimonial avatars. */
-  storyAvatars: {
-    vandnaPandey: "/photos/story-avatars/vandna-pandey.jpg",
-    rupali: "/photos/story-avatars/rupali.jpg",
-    ayushRuchika: "/photos/story-avatars/ayush-ruchika.jpg",
-    shubhangi: "/photos/story-avatars/shubhangi.jpg",
-    ashutoshGupta: "/photos/story-avatars/ashutosh-gupta.jpg",
-    kartik: "/photos/story-avatars/kartik.jpg",
-    dishaMishra: "/photos/story-avatars/disha-mishra.jpg",
-    sanskriti: "/photos/story-avatars/sanskriti.jpg",
-    nishantJenny: "/photos/story-avatars/nishant-jenny.jpg",
-    yashShrivastava: "/photos/story-avatars/yash-shrivastava.jpg",
-    gurpreetKaur: "/photos/story-avatars/gurpreet-kaur.jpg",
-    dhriti: "/photos/story-avatars/dhriti.jpg",
-    shubhamMishra: "/photos/story-avatars/shubham-mishra.jpg",
-    pranayPragati: "/photos/story-avatars/pranay-pragati.jpg",
-    sandeep: "/photos/story-avatars/sandeep.jpg",
-    shivenduPandey: "/photos/story-avatars/shivendu-pandey.jpg",
-  },
-
   bookingSide: weddingDay.floralArch,
 } as const;
