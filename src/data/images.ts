@@ -143,6 +143,21 @@ const portfolio = [
   { tile: "/photos/portfolio/tiles/pr009819.jpg", full: "/photos/portfolio/pr009819.jpg" },
 ] as const;
 
+/**
+ * Poster frames for the wedding films, pulled once from YouTube and served
+ * from our own origin. The viewer shows these until someone presses play, so
+ * an ordinary visit never touches YouTube at all.
+ */
+const films = {
+  "YGodpv3qwd0": "/photos/films/YGodpv3qwd0.jpg",
+  "v59M6vkHfsM": "/photos/films/v59M6vkHfsM.jpg",
+  "iRp4aJSStCw": "/photos/films/iRp4aJSStCw.jpg",
+  "Jw7UKOL7Nu0": "/photos/films/Jw7UKOL7Nu0.jpg",
+  "qo0LDkBfZMQ": "/photos/films/qo0LDkBfZMQ.jpg",
+  "JnDbuRC3LjU": "/photos/films/JnDbuRC3LjU.jpg",
+  "56nLQih7vWU": "/photos/films/56nLQih7vWU.jpg",
+} as const;
+
 /** Trimmed from the studio's own wedding film; see README for how it was cut. */
 const video = {
   heroTeaser: "/video/hero-teaser.mp4",
@@ -150,6 +165,8 @@ const video = {
 } as const;
 
 export const img = {
+  films,
+
   portfolio,
 
   logo: logo.full,
