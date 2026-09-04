@@ -241,6 +241,7 @@ function CoupleGallery({
   const story = stories[storyIndex];
   const shots = img.couples[story.key as keyof typeof img.couples].gallery;
   const [shot, setShot] = useState(0);
+  const stripRef = useRef<HTMLDivElement>(null);
 
   const step = useCallback(
     (delta: number) => setShot((i) => (i + delta + shots.length) % shots.length),
@@ -263,6 +264,75 @@ function CoupleGallery({
       window.removeEventListener("keydown", onKey);
     };
   }, [onClose, step]);
+
+  /*
+    The strip does not follow the photo on its own: step past the fifth or sixth
+    frame and the marker walks off the right-hand edge while the strip sits
+    still. Centre the active thumbnail instead, every time the photo changes.
+  */
+  useEffect(() => {
+    const strip = stripRef.current;
+    const active = strip?.children[shot] as HTMLElement | undefined;
+    if (!strip || !active) return;
+
+    // Measured off bounding rects, not offsetLeft: the strip is not a
+    // positioned element, so offsetLeft would be relative to the dialog and
+    // the target would land far to the right of the thumbnail.
+    const stripBox = strip.getBoundingClientRect();
+    const activeBox = active.getBoundingClientRect();
+    const within = activeBox.left - stripBox.left + strip.scrollLeft;
+
+    strip.scrollTo({
+      left: within - strip.clientWidth / 2 + activeBox.width / 2,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  }, [shot]);
+
+  /* Click-and-drag the strip. Touch and trackpad already scroll it natively. */
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (!strip) return;
+
+    let dragging = false;
+    let moved = 0;
+    let startX = 0;
+    let startScroll = 0;
+
+    const down = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      dragging = true;
+      moved = 0;
+      startX = e.clientX;
+      startScroll = strip.scrollLeft;
+    };
+    const move = (e: PointerEvent) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      strip.scrollLeft = startScroll - dx;
+      if (moved > 4) e.preventDefault();
+    };
+    const up = () => {
+      if (!dragging) return;
+      dragging = false;
+      // A drag that travelled must not also select the thumbnail under it.
+      if (moved > 4) {
+        strip.dataset.dragged = "1";
+        window.setTimeout(() => delete strip.dataset.dragged, 0);
+      }
+    };
+
+    strip.addEventListener("pointerdown", down);
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+    return () => {
+      strip.removeEventListener("pointerdown", down);
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+    };
+  }, []);
 
   return (
     <div
@@ -329,14 +399,18 @@ function CoupleGallery({
       </div>
 
       <div
+        ref={stripRef}
         onClick={(e) => e.stopPropagation()}
-        className="no-scrollbar flex w-full max-w-[min(92vw,1100px)] gap-2 overflow-x-auto"
+        className="no-scrollbar flex w-full max-w-[min(92vw,1100px)] cursor-grab gap-2 overflow-x-auto overscroll-x-contain active:cursor-grabbing"
       >
         {shots.map((src, i) => (
           <button
             key={src}
             type="button"
-            onClick={() => setShot(i)}
+            onClick={() => {
+              if (stripRef.current?.dataset.dragged) return;
+              setShot(i);
+            }}
             aria-label={`Photograph ${i + 1}`}
             aria-current={i === shot}
             className={`relative aspect-square w-14 shrink-0 overflow-hidden rounded-[2px] transition-all duration-300 sm:w-16 ${

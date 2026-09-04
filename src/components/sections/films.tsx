@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -14,6 +14,7 @@ export function Films() {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const film = films[index];
+  const stripRef = useRef<HTMLDivElement>(null);
 
   /*
     Stepping keeps `playing` as it was. Someone who is already watching wants
@@ -23,6 +24,25 @@ export function Films() {
   const step = useCallback((delta: number) => {
     setIndex((i) => (i + delta + films.length) % films.length);
   }, []);
+
+  /* The strip overflows on a phone, so it has to follow the film. */
+  useEffect(() => {
+    const strip = stripRef.current;
+    const active = strip?.children[index] as HTMLElement | undefined;
+    if (!strip || !active) return;
+
+    // Rects rather than offsetLeft — the strip is not a positioned element.
+    const stripBox = strip.getBoundingClientRect();
+    const activeBox = active.getBoundingClientRect();
+    const within = activeBox.left - stripBox.left + strip.scrollLeft;
+
+    strip.scrollTo({
+      left: within - strip.clientWidth / 2 + activeBox.width / 2,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  }, [index]);
 
   return (
     <section id="films" className="bg-charcoal py-28 md:py-36">
@@ -143,7 +163,10 @@ export function Films() {
 
           {/* Jump straight to any film. Scrolls on phones rather than shrinking
               seven thumbnails to nothing. */}
-          <div className="no-scrollbar mt-5 flex gap-3 overflow-x-auto pb-1">
+          <div
+            ref={stripRef}
+            className="no-scrollbar mt-5 flex gap-3 overflow-x-auto overscroll-x-contain pb-1"
+          >
             {films.map((f, i) => (
               <button
                 key={f.id}
