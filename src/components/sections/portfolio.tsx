@@ -168,19 +168,21 @@ export function Portfolio() {
           >
             {/* Rendered twice so the wrap-around lands on an identical frame. */}
             {[0, 1].map((copy) =>
-              photos.map((src, i) => (
+              photos.map((photo, i) => (
                 <button
-                  key={`${copy}-${src}`}
+                  key={`${copy}-${photo.tile}`}
                   type="button"
                   onClick={() => open(i)}
                   aria-label={`Open wedding photograph ${i + 1} of ${photos.length}`}
                   className="group relative h-[260px] w-[195px] shrink-0 cursor-pointer overflow-hidden rounded-[2px] sm:h-[320px] sm:w-[240px] lg:h-[400px] lg:w-[300px]"
                 >
+                  {/* The tile is already 3:4, so the slot width is the whole
+                      story and these numbers are the real tile widths. */}
                   <Image
-                    src={src}
+                    src={photo.tile}
                     alt=""
                     fill
-                    sizes="300px"
+                    sizes="(min-width: 1024px) 300px, (min-width: 640px) 240px, 195px"
                     draggable={false}
                     className="select-none object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                   />
@@ -234,7 +236,7 @@ function Lightbox({
         className="relative flex max-h-[80vh] max-w-[min(88vw,1000px)] items-center justify-center"
       >
         <Image
-          src={photos[index]}
+          src={photos[index].full}
           alt={`Wedding photograph ${index + 1} of ${photos.length}`}
           width={1600}
           height={1600}
