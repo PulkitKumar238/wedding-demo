@@ -110,7 +110,7 @@ export function Navbar() {
         )}
       >
         <Container>
-          <div className="grid grid-cols-3 gap-x-3 gap-y-2 py-3">
+          <div className="grid grid-cols-3 gap-x-3 gap-y-1.5 py-2">
             {nav.map((item) => (
               <a
                 key={item.href}

@@ -128,7 +128,7 @@ export function Hero() {
     <section
       id="top"
       ref={rootRef}
-      className="relative flex min-h-[70svh] w-full items-end overflow-hidden bg-charcoal pt-40 md:h-[100svh] md:min-h-0 md:pt-0"
+      className="relative flex min-h-[48svh] w-full items-end overflow-hidden bg-charcoal pt-40 md:h-[100svh] md:min-h-0 md:pt-0"
     >
       {/*
         Ten seconds cut from the studio's own wedding film. Muted and
@@ -162,12 +162,12 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/40" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-charcoal/30 via-transparent to-transparent" />
 
-      <Container className="relative z-10 pb-28 md:pb-28">
+      <Container className="relative z-10 pb-10 md:pb-28">
         <p className="hero-eyebrow font-body text-[12px] uppercase tracking-[0.35em] text-champagne-light md:text-[13px]">
           {hero.eyebrow}
         </p>
 
-        <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.5rem,9vw,6.5rem)] leading-[1.03] text-ivory">
+        <h1 className="mt-4 max-w-4xl font-display text-[clamp(1.8rem,8vw,6.5rem)] leading-[1.03] text-ivory md:mt-6">
           {hero.heading.map((line) => (
             <span key={line} className="hero-line block overflow-hidden">
               {line}
@@ -175,18 +175,18 @@ export function Hero() {
           ))}
         </h1>
 
-        <p className="hero-subtitle mt-8 max-w-md font-body text-base font-light leading-relaxed text-ivory/80 md:text-lg">
+        <p className="hero-subtitle mt-4 max-w-md font-body text-[15px] font-light leading-relaxed text-ivory/80 md:mt-8 md:text-lg">
           {hero.subtitle}
         </p>
 
-        <div className="hero-cta mt-10">
+        <div className="hero-cta mt-6 md:mt-10">
           <Button variant="outline-light" asChild>
             <a href="#booking">{hero.cta}</a>
           </Button>
         </div>
       </Container>
 
-      <div className="hero-scroll pointer-events-none absolute inset-x-0 bottom-6 z-10 flex flex-col items-center gap-2 md:bottom-8 md:gap-3">
+      <div className="hero-scroll pointer-events-none absolute inset-x-0 bottom-6 z-10 hidden flex-col items-center gap-2 md:bottom-8 md:flex md:gap-3">
         <span className="font-body text-[10px] uppercase tracking-[0.3em] text-ivory/60">
           {hero.scrollLabel}
         </span>
