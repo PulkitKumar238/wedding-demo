@@ -18,21 +18,66 @@ export function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
+    /*
+      React sets `muted` as a property but does not always render it as an
+      attribute, and iOS checks the attribute before it will autoplay at all.
+      Setting both here costs nothing and removes the doubt.
+    */
+    video.muted = true;
+    video.setAttribute("muted", "");
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const play = () => {
+      if (reduced.matches) return;
+      void video.play().catch(() => {
+        /* autoplay refused — the poster frame stands in */
+      });
+    };
+
     const apply = () => {
       if (reduced.matches) {
         video.pause();
         video.removeAttribute("autoplay");
       } else {
-        void video.play().catch(() => {
-          /* autoplay refused — the poster frame stands in */
-        });
+        play();
       }
     };
 
+    /*
+      `loop` alone is not enough on a phone. Low Power Mode, battery saver and
+      backgrounding all pause the element, and once paused nothing restarts it —
+      which is why it played through once and then stopped. So: restart on end,
+      resume whenever the tab comes back, and try again when the hero scrolls
+      back into view.
+    */
+    const onEnded = () => {
+      video.currentTime = 0;
+      play();
+    };
+    const onVisible = () => {
+      if (document.visibilityState === "visible") play();
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && video.paused) play();
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(video);
+
     apply();
+    video.addEventListener("ended", onEnded);
+    document.addEventListener("visibilitychange", onVisible);
     reduced.addEventListener("change", apply);
-    return () => reduced.removeEventListener("change", apply);
+
+    return () => {
+      observer.disconnect();
+      video.removeEventListener("ended", onEnded);
+      document.removeEventListener("visibilitychange", onVisible);
+      reduced.removeEventListener("change", apply);
+    };
   }, []);
 
   useEffect(() => {
@@ -83,7 +128,7 @@ export function Hero() {
     <section
       id="top"
       ref={rootRef}
-      className="relative flex h-[100svh] w-full items-end overflow-hidden bg-charcoal"
+      className="relative flex h-[68svh] min-h-[440px] w-full items-end overflow-hidden bg-charcoal sm:h-[80svh] md:h-[100svh]"
     >
       {/*
         Ten seconds cut from the studio's own wedding film. Muted and
