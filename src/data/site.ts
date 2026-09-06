@@ -33,6 +33,7 @@ export const nav = [
   { label: "Films", href: "#films" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "Packages", href: "#packages" },
   { label: "Process", href: "#process" },
   { label: "Stories", href: "#stories" },
   { label: "Contact", href: "#booking" },
@@ -293,6 +294,287 @@ export const ceremonyOptions = [
   "Birthday",
   OTHER_CEREMONY,
 ] as const;
+
+/**
+ * The studio's standard packages, transcribed from the quotation PDFs it sends
+ * clients. Page one of each PDF is the package — the ceremonies, the crew on
+ * each, what is delivered and what comes free. Custom packages are quoted
+ * separately and deliberately are not listed here.
+ *
+ * `list` is "TOTAL COST OF THIS PACKAGE" and `offer` is "AFTER DISCOUNT YOU GET
+ * THIS ONLY IN". Wedding Only is the one fixed price, with no discount shown.
+ */
+const ALBUM_50 =
+  "1 exclusive luxury wedding album, 50 sheets with 300 photos, NTR 200GSM matt or glossy";
+const TEASER =
+  "1 exclusive cinematic story-telling wedding teaser mixing all your cinematic functions, 4 to 5 minutes UHD";
+const FULL_VIDEOS =
+  "Complete edited detailed videos for all functions as per shoot";
+const REELS = "1 to 2 reel videos, 30 to 59 sec, for social media";
+const SOCIAL_PHOTOS =
+  "30 to 40 selected edited bridal and couple wedding photos for social media (soft copy)";
+const RAW_DRIVE = "Complete raw data on your hard drive";
+
+/** The five complimentary items that come with most packages. */
+const GIFTS = [
+  "1 small photo frame 8x12",
+  "1 big photo frame 12x18",
+  "1 mini album",
+  "1 pen drive box",
+  "1 calendar",
+];
+
+const FULL_CREW = [
+  "1 Candid Photographer",
+  "1 Cinematic Videographer",
+  "1 Traditional Photographer",
+  "1 Traditional Videographer",
+  "1 Light Man",
+];
+
+/** The wedding day always adds a drone to the full crew. */
+const WEDDING_CREW = [
+  "1 Candid Photographer",
+  "1 Cinematic Videographer",
+  "1 Traditional Photographer",
+  "1 Traditional Videographer",
+  "1 Drone Videographer",
+  "1 Light Man",
+];
+
+const TRAD_PAIR = ["1 Traditional Photographer", "1 Traditional Videographer"];
+
+const MIXED = "Mixed with some candid & cinematic shots";
+
+export const packages = [
+  {
+    key: "weddingOnly",
+    code: "Wedding Only",
+    name: "The Wedding Day",
+    covers: ["Wedding"],
+    list: null,
+    offer: 80000,
+    crew: [
+      {
+        ceremony: "Wedding Ceremony",
+        people: [
+          "1 Candid Photographer",
+          "1 Traditional Photographer",
+          "1 Cinematic Videographer",
+          "1 Traditional Videographer",
+        ],
+      },
+    ],
+    deliverables: [
+      "1 exclusive luxury album, 40 sheets & 250 photos, matt or glossy 200GSM high-quality print",
+      "1 exclusive cinematic teaser video, 3 to 4 minutes in UHD",
+      "Complete full-length edited detailed videos for all functions as per shoot",
+      "1 Instagram reel video, 30 to 59 sec",
+      "30 to 40 selected edited photos (soft copy)",
+      "Complete raw data via Google Drive link",
+    ],
+    complimentary: [],
+  },
+  {
+    key: "haldiWedding",
+    code: "HW",
+    name: "Haldi & Wedding",
+    covers: ["Haldi", "Wedding"],
+    list: 120000,
+    offer: 85000,
+    crew: [
+      { ceremony: "Haldi Ceremony", people: TRAD_PAIR, note: MIXED },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+    ],
+    deliverables: [
+      TEASER,
+      ALBUM_50,
+      FULL_VIDEOS,
+      "1 reel video, 30 to 59 sec, for social media",
+      SOCIAL_PHOTOS,
+      RAW_DRIVE,
+    ],
+    complimentary: [
+      "2 small photo frames 8x12",
+      "1 big photo frame 12x18",
+      "1 mini album",
+      "1 pen drive box",
+      "1 calendar",
+    ],
+  },
+  {
+    key: "haldiWeddingPremium",
+    code: "Premium HW",
+    name: "Haldi & Wedding — Premium",
+    covers: ["Haldi", "Wedding"],
+    list: 155000,
+    offer: 99000,
+    crew: [
+      { ceremony: "Haldi Ceremony", people: FULL_CREW },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+    ],
+    deliverables: [TEASER, ALBUM_50, FULL_VIDEOS, REELS, SOCIAL_PHOTOS, RAW_DRIVE],
+    complimentary: GIFTS,
+  },
+  {
+    key: "hmwStandard",
+    code: "HMW Standard",
+    name: "Haldi, Mehndi & Wedding",
+    covers: ["Haldi", "Mehndi", "Wedding"],
+    list: 120000,
+    offer: 99000,
+    crew: [
+      { ceremony: "Haldi Ceremony", people: TRAD_PAIR },
+      { ceremony: "Mehndi Ceremony", people: TRAD_PAIR },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+    ],
+    deliverables: [TEASER, ALBUM_50, FULL_VIDEOS, REELS, SOCIAL_PHOTOS, RAW_DRIVE],
+    complimentary: GIFTS,
+  },
+  {
+    key: "hmswBasic",
+    code: "HMSW Basic",
+    name: "Haldi, Mehndi, Sangeet & Wedding",
+    covers: ["Haldi", "Mehndi", "Sangeet", "Wedding", "Vidai"],
+    list: 159000,
+    offer: 110000,
+    crew: [
+      { ceremony: "Mehndi Ceremony", people: TRAD_PAIR },
+      { ceremony: "Sangeet Ceremony", people: TRAD_PAIR },
+      { ceremony: "Haldi Ceremony", people: TRAD_PAIR },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+      { ceremony: "Vidai Rasam", people: TRAD_PAIR },
+    ],
+    deliverables: [TEASER, ALBUM_50, FULL_VIDEOS, REELS, SOCIAL_PHOTOS, RAW_DRIVE],
+    complimentary: GIFTS,
+  },
+  {
+    key: "hmwPremium",
+    code: "HMW Premium",
+    name: "Haldi, Mehndi & Wedding — Premium",
+    covers: ["Haldi", "Mehndi", "Wedding", "Vidai"],
+    list: 175000,
+    offer: 130000,
+    crew: [
+      { ceremony: "Haldi Ceremony", people: FULL_CREW },
+      { ceremony: "Mehndi Ceremony", people: FULL_CREW },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+      { ceremony: "Vidai Rasam", people: TRAD_PAIR },
+    ],
+    deliverables: [TEASER, ALBUM_50, FULL_VIDEOS, REELS, SOCIAL_PHOTOS, RAW_DRIVE],
+    complimentary: GIFTS,
+  },
+  {
+    key: "ehmw",
+    code: "EHMW",
+    name: "Engagement, Haldi, Mehndi & Wedding",
+    covers: ["Engagement", "Haldi", "Mehndi", "Wedding"],
+    list: 180000,
+    offer: 135000,
+    crew: [
+      { ceremony: "Engagement Ceremony", people: FULL_CREW },
+      { ceremony: "Mehndi Ceremony", people: TRAD_PAIR, note: MIXED },
+      { ceremony: "Haldi Ceremony", people: TRAD_PAIR, note: MIXED },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+    ],
+    deliverables: [
+      TEASER,
+      "1 exclusive luxury wedding album, 50 sheets each with 300 photos, NTR 200GSM matt or glossy",
+      FULL_VIDEOS,
+      REELS,
+      SOCIAL_PHOTOS,
+      RAW_DRIVE,
+    ],
+    complimentary: GIFTS,
+  },
+  {
+    key: "hmswPremium",
+    code: "HMSW Premium",
+    name: "Haldi, Mehndi, Sangeet & Wedding — Premium",
+    covers: ["Haldi", "Mehndi", "Sangeet", "Wedding", "Vidai"],
+    list: 225000,
+    offer: 135000,
+    crew: [
+      { ceremony: "Mehndi Ceremony", people: FULL_CREW },
+      { ceremony: "Haldi Ceremony", people: FULL_CREW },
+      { ceremony: "Sangeet Night", people: FULL_CREW },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+      { ceremony: "Vidai Rasam", people: TRAD_PAIR },
+    ],
+    deliverables: [TEASER, ALBUM_50, FULL_VIDEOS, REELS, SOCIAL_PHOTOS, RAW_DRIVE],
+    complimentary: GIFTS,
+  },
+  {
+    key: "ehmwr",
+    code: "EHMWR",
+    name: "Engagement to Reception",
+    covers: ["Engagement", "Haldi", "Mehndi", "Wedding", "Reception"],
+    list: 185000,
+    offer: 150000,
+    crew: [
+      { ceremony: "Engagement Ceremony", people: FULL_CREW },
+      {
+        ceremony: "Haldi & Mehndi",
+        people: TRAD_PAIR,
+        note: "Mixed with some candid and cinematic shots",
+      },
+      { ceremony: "Wedding Ceremony", people: WEDDING_CREW },
+      { ceremony: "Reception Party", people: FULL_CREW },
+    ],
+    deliverables: [
+      TEASER,
+      "1 exclusive wedding album, 50 sheets with 300 photos, NTR 200GSM matt or glossy",
+      FULL_VIDEOS,
+      SOCIAL_PHOTOS,
+      "1 to 2 reel videos for Instagram and social media",
+      RAW_DRIVE,
+    ],
+    complimentary: [
+      "2 small photo frames 8x12",
+      "1 big photo frame 12x18",
+      "1 wedding invitation",
+      "1 table calendar",
+      "1 pen drive box",
+      "1 mini album",
+    ],
+  },
+] as const;
+
+/** Page two of every quotation — identical across all nine. */
+export const addOns = [
+  { name: "Drone Camera", price: 6000 },
+  { name: "LED Wall 10x12", price: 12000 },
+  { name: "Crane 32 Feet", price: 8000 },
+  { name: "360 Selfie Point", price: 6000 },
+  { name: "Live Broadcast", price: 25000 },
+  { name: "Live Photo Booth", price: 20000 },
+] as const;
+
+/** Bookable by the hour, from the same page. */
+export const hourlyServices = [
+  { name: "Candid Photography", unit: "2-3 hrs / 4-6 hrs", price: "8,000 / 15,000" },
+  { name: "Cinematic Videography", unit: "2-3 hrs / 4-6 hrs", price: "8,000 / 15,000" },
+  { name: "Traditional Videography", unit: "2-3 hrs / 4-6 hrs", price: "5,000 / 10,000" },
+  { name: "Traditional Photography", unit: "2-3 hrs / 4-6 hrs", price: "5,000 / 10,000" },
+  { name: "Extra Album Sheets", unit: "1 sheet, matt or glossy", price: "272 per sheet" },
+  { name: "E-invitation Video", unit: "30 sec / 1 min", price: "1,500 / 2,500" },
+] as const;
+
+export const packageTerms = [
+  "Payment: 30% booking amount, 50% two days before the wedding, 10% on raw data delivery, 10% at final delivery.",
+  "Bookings cancelled within 10 days of the date are not refundable.",
+  "Vidai coverage runs to 10:00am; beyond that is charged at ₹2,000 per hour.",
+  "Drone permissions are the client's to arrange where a drone is booked.",
+  "Only the functions you book are covered.",
+  "Travel, food and stay are the client's responsibility for functions outside Lucknow.",
+];
+
+export const packagesSection = {
+  eyebrow: "What It Costs",
+  title: "Packages",
+  description:
+    "The studio's standard packages. Anything else is quoted around your own schedule — tell us the functions and we will build it to fit.",
+};
 
 export const booking = {
   eyebrow: "Begin Your Story",

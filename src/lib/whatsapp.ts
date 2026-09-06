@@ -85,3 +85,12 @@ export function buildWhatsAppChatUrl(): string {
   const text = `Hello ${brand.name} — I'd like to know more about your wedding services.`;
   return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(text)}`;
 }
+
+/**
+ * Enquiry link for a specific package, so the studio can see which one the
+ * couple was reading without them having to describe it.
+ */
+export function buildWhatsAppPackageUrl(packageName: string): string {
+  const text = `Hello ${brand.name} — I'd like to know more about the "${packageName}" package.`;
+  return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(text)}`;
+}

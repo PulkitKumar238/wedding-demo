@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/hero";
 import { Films } from "@/components/sections/films";
 import { Services } from "@/components/sections/services";
 import { Portfolio } from "@/components/sections/portfolio";
+import { Packages } from "@/components/sections/packages";
 import { Process } from "@/components/sections/process";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -29,6 +30,7 @@ export default function Home() {
       <Testimonials />
       <Services />
       <Portfolio />
+      <Packages />
       <Process />
       <WhyChooseUs />
       {/* <InstagramMoodboard /> */}
