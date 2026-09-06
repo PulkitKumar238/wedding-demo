@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Gift, Plus } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
@@ -16,7 +16,42 @@ import { buildWhatsAppPackageUrl } from "@/lib/whatsapp";
 /** ₹1,35,000 — Indian grouping, which is what the quotations use. */
 const rupees = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
+/**
+ * How many cards sit on a row, matching the grid's own breakpoints. Expanding
+ * one card alone left the rest of its row stretched to the open card's height
+ * and empty, so the whole row opens together — which means knowing how wide
+ * the row currently is.
+ */
+function useColumns() {
+  const [cols, setCols] = useState(1);
+
+  useEffect(() => {
+    const xl = window.matchMedia("(min-width: 1280px)");
+    const md = window.matchMedia("(min-width: 768px)");
+    const sync = () => setCols(xl.matches ? 3 : md.matches ? 2 : 1);
+
+    sync();
+    xl.addEventListener("change", sync);
+    md.addEventListener("change", sync);
+    return () => {
+      xl.removeEventListener("change", sync);
+      md.removeEventListener("change", sync);
+    };
+  }, []);
+
+  return cols;
+}
+
 export function Packages() {
+  const cols = useColumns();
+  /*
+    The open package is tracked by key rather than by row number, so the right
+    row stays open when the window crosses a breakpoint and the rows re-form.
+  */
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const openIndex = openKey ? packages.findIndex((p) => p.key === openKey) : -1;
+  const openRow = openIndex >= 0 ? Math.floor(openIndex / cols) : -1;
+
   return (
     <section id="packages" className="bg-ivory py-24 md:py-36">
       <Container>
@@ -33,9 +68,17 @@ export function Packages() {
         </Reveal>
 
         <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 xl:grid-cols-3">
-          {packages.map((pkg) => (
-            <PackageCard key={pkg.key} pkg={pkg} />
-          ))}
+          {packages.map((pkg, i) => {
+            const open = Math.floor(i / cols) === openRow;
+            return (
+              <PackageCard
+                key={pkg.key}
+                pkg={pkg}
+                open={open}
+                onToggle={() => setOpenKey(open ? null : pkg.key)}
+              />
+            );
+          })}
         </div>
 
         {/*
@@ -131,8 +174,15 @@ export function Packages() {
   );
 }
 
-function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
-  const [open, setOpen] = useState(false);
+function PackageCard({
+  pkg,
+  open,
+  onToggle,
+}: {
+  pkg: (typeof packages)[number];
+  open: boolean;
+  onToggle: () => void;
+}) {
   const saving = pkg.list ? pkg.list - pkg.offer : 0;
 
   /*
@@ -147,7 +197,7 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
     <Reveal className="flex h-full flex-col border border-charcoal/10 bg-ivory-dark/40">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={onToggle}
         aria-expanded={open}
         className="group flex w-full items-start gap-4 p-5 text-left md:p-6"
       >
@@ -178,7 +228,7 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
 
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={onToggle}
         aria-expanded={open}
         tabIndex={-1}
         className="flex items-center gap-2 px-5 pb-5 font-body text-[11px] uppercase tracking-[0.16em] text-charcoal/50 transition-colors hover:text-charcoal md:px-6 md:pb-6"

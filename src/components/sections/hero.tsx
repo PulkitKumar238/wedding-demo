@@ -128,23 +128,23 @@ export function Hero() {
     <section
       id="top"
       ref={rootRef}
-      className="relative w-full overflow-hidden bg-charcoal md:flex md:h-[100svh] md:items-end"
+      className="relative flex min-h-[70svh] w-full items-end overflow-hidden bg-charcoal pt-40 md:h-[100svh] md:min-h-0 md:pt-0"
     >
       {/*
         Ten seconds cut from the studio's own wedding film. Muted and
         playsInline so mobile browsers will autoplay it at all; the poster
         frame carries the hero on its own if they refuse.
 
-        On a phone the film sits in the flow at its own 16:9, so the whole
-        frame is visible rather than a quarter of it, and the headline sits
-        underneath on charcoal. From md up it goes back behind the headline,
-        full bleed. Overlaying the text on a portrait screen is what pushed
-        the copy up into the navbar.
+        Full bleed on every size, cropped by object-cover — a letterboxed 16:9
+        strip on a phone showed the whole frame but read as a small video with
+        a lot of page under it.
+
+        The height is a minimum rather than a fixed one, and the top padding
+        clears the navbar, which wraps to three rows on a phone. Between them
+        the copy can never overflow upward into the nav the way it did when
+        this was a fixed 68svh box.
       */}
-      <div
-        ref={imageRef}
-        className="relative aspect-video w-full overflow-hidden md:absolute md:inset-0 md:aspect-auto"
-      >
+      <div ref={imageRef} className="absolute inset-0">
         <video
           ref={videoRef}
           className="h-full w-full object-cover object-[center_35%]"
@@ -159,10 +159,10 @@ export function Hero() {
           <source src={img.heroVideo} type="video/mp4" />
         </video>
       </div>
-      <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/40 md:block" />
-      <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-charcoal/30 via-transparent to-transparent md:block" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/25 to-charcoal/40" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-charcoal/30 via-transparent to-transparent" />
 
-      <Container className="relative z-10 py-12 md:py-0 md:pb-28">
+      <Container className="relative z-10 pb-28 md:pb-28">
         <p className="hero-eyebrow font-body text-[12px] uppercase tracking-[0.35em] text-champagne-light md:text-[13px]">
           {hero.eyebrow}
         </p>
@@ -186,7 +186,7 @@ export function Hero() {
         </div>
       </Container>
 
-      <div className="hero-scroll pointer-events-none absolute inset-x-0 bottom-6 z-10 hidden flex-col items-center gap-2 md:bottom-8 md:flex md:gap-3">
+      <div className="hero-scroll pointer-events-none absolute inset-x-0 bottom-6 z-10 flex flex-col items-center gap-2 md:bottom-8 md:gap-3">
         <span className="font-body text-[10px] uppercase tracking-[0.3em] text-ivory/60">
           {hero.scrollLabel}
         </span>
