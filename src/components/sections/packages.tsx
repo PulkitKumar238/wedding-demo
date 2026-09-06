@@ -135,72 +135,83 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
   const [open, setOpen] = useState(false);
   const saving = pkg.list ? pkg.list - pkg.offer : 0;
 
+  /*
+    Nine packages, each with up to five ceremonies of crew and six
+    deliverables, ran to half a phone screen apiece. Collapsed, a card is now
+    just the name and the price — the name already lists the ceremonies, so the
+    chips that used to sit here only said it twice. The whole header is the
+    toggle, which gives a thumb something to hit, and the same one card works
+    on a phone and on a desktop.
+  */
   return (
-    <Reveal className="flex h-full flex-col border border-charcoal/10 bg-ivory-dark/40 p-6 md:p-7">
-      <p className="font-body text-[11px] uppercase tracking-[0.2em] text-champagne">
-        {pkg.code}
-      </p>
-      <h3 className="mt-2 font-display text-2xl leading-tight text-charcoal">
-        {pkg.name}
-      </h3>
-
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        {pkg.covers.map((c) => (
-          <span
-            key={c}
-            className="rounded-full border border-charcoal/15 px-2.5 py-1 font-body text-[11px] tracking-wide text-charcoal/60"
-          >
-            {c}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-6 flex items-baseline gap-3">
-        <span className="font-display text-3xl text-charcoal">
-          {rupees(pkg.offer)}
-        </span>
-        {pkg.list && (
-          <span className="font-body text-[15px] text-charcoal/35 line-through">
-            {rupees(pkg.list)}
-          </span>
-        )}
-      </div>
-      <p className="mt-1 font-body text-[12px] tracking-wide text-charcoal/45">
-        {pkg.list ? `You save ${rupees(saving)}` : "Fixed price"}
-      </p>
-
-      <div className="mt-6 space-y-3 border-t border-charcoal/10 pt-6">
-        {pkg.crew.map((c) => (
-          <div key={c.ceremony}>
-            <p className="font-body text-[12px] uppercase tracking-[0.14em] text-charcoal/70">
-              {c.ceremony}
-            </p>
-            <p className="mt-1 font-body text-[13px] font-light leading-relaxed text-charcoal/55">
-              {c.people.join(" · ")}
-              {"note" in c && c.note ? ` — ${c.note.toLowerCase()}` : ""}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Deliverables run long and are near-identical between packages, so they
-          stay folded away until someone is actually comparing. */}
+    <Reveal className="flex h-full flex-col border border-charcoal/10 bg-ivory-dark/40">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="mt-6 flex items-center gap-2 self-start font-body text-[12px] uppercase tracking-[0.16em] text-charcoal/55 transition-colors hover:text-charcoal"
+        className="group flex w-full items-start gap-4 p-5 text-left md:p-6"
+      >
+        <span className="min-w-0 flex-1">
+          <span className="block font-body text-[11px] uppercase tracking-[0.2em] text-champagne">
+            {pkg.code}
+          </span>
+          <span className="mt-1.5 block font-display text-xl leading-tight text-charcoal md:text-2xl">
+            {pkg.name}
+          </span>
+        </span>
+
+        <span className="shrink-0 text-right">
+          <span className="block font-display text-2xl leading-none text-charcoal md:text-[28px]">
+            {rupees(pkg.offer)}
+          </span>
+          {pkg.list ? (
+            <span className="mt-1.5 block font-body text-[13px] text-charcoal/35 line-through">
+              {rupees(pkg.list)}
+            </span>
+          ) : (
+            <span className="mt-1.5 block font-body text-[11px] tracking-wide text-charcoal/45">
+              Fixed price
+            </span>
+          )}
+        </span>
+      </button>
+
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        tabIndex={-1}
+        className="flex items-center gap-2 px-5 pb-5 font-body text-[11px] uppercase tracking-[0.16em] text-charcoal/50 transition-colors hover:text-charcoal md:px-6 md:pb-6"
       >
         <Plus
-          size={13}
+          size={12}
           className={`transition-transform duration-300 ${open ? "rotate-45" : ""}`}
         />
-        {open ? "Hide what you get" : "What you get"}
+        {open ? "Hide details" : "See what's included"}
+        {pkg.list ? (
+          <span className="ml-auto font-body text-[11px] normal-case tracking-normal text-champagne">
+            Save {rupees(saving)}
+          </span>
+        ) : null}
       </button>
 
       {open && (
-        <div className="mt-5 space-y-4">
-          <ul className="space-y-2">
+        <div className="space-y-5 border-t border-charcoal/10 px-5 py-5 md:px-6">
+          <div className="space-y-3">
+            {pkg.crew.map((c) => (
+              <div key={c.ceremony}>
+                <p className="font-body text-[12px] uppercase tracking-[0.14em] text-charcoal/70">
+                  {c.ceremony}
+                </p>
+                <p className="mt-1 font-body text-[13px] font-light leading-relaxed text-charcoal/55">
+                  {c.people.join(" · ")}
+                  {"note" in c && c.note ? ` — ${c.note.toLowerCase()}` : ""}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <ul className="space-y-2 border-t border-charcoal/10 pt-5">
             {pkg.deliverables.map((d) => (
               <li key={d} className="flex gap-2.5">
                 <Check
@@ -225,19 +236,17 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
               </p>
             </div>
           )}
+
+          <a
+            href={buildWhatsAppPackageUrl(pkg.name)}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="block rounded-full border border-charcoal/25 py-3 text-center font-body text-[12px] uppercase tracking-[0.16em] text-charcoal transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory"
+          >
+            Enquire about this
+          </a>
         </div>
       )}
-
-      <a
-        href={buildWhatsAppPackageUrl(pkg.name)}
-        target="_blank"
-        rel="noreferrer noopener"
-        className="mt-auto block pt-7"
-      >
-        <span className="block rounded-full border border-charcoal/25 py-3 text-center font-body text-[12px] uppercase tracking-[0.16em] text-charcoal transition-colors hover:border-charcoal hover:bg-charcoal hover:text-ivory">
-          Enquire about this
-        </span>
-      </a>
     </Reveal>
   );
 }
