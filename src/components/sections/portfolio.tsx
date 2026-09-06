@@ -62,6 +62,14 @@ export function Portfolio() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  /*
+    The rail no longer pauses on hover. It is a 400px-tall, full-width target,
+    so on a desktop the cursor is very often resting somewhere on it — which
+    held the drift still and made the rail look broken. A phone has no hover at
+    all, which is why it kept sliding there. It still holds for a drag and for
+    the lightbox, and at 28px/s a tile is easy enough to click while moving.
+  */
+
   /* Click-and-drag on a mouse. Touch already scrolls the rail natively. */
   useEffect(() => {
     const track = trackRef.current;
@@ -162,8 +170,6 @@ export function Portfolio() {
         <Reveal className="mt-16">
           <div
             ref={trackRef}
-            onMouseEnter={() => (held.current = true)}
-            onMouseLeave={() => (held.current = false)}
             className="no-scrollbar flex gap-3 overflow-x-auto overscroll-x-contain md:gap-4"
           >
             {/* Rendered twice so the wrap-around lands on an identical frame. */}
