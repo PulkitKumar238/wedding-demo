@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
@@ -25,6 +26,12 @@ export function Services() {
             delivered by the same team. Book the whole thing or only the part
             you are missing.
           </p>
+          <Link
+            href="/services"
+            className="mt-6 inline-block font-body text-[12px] uppercase tracking-[0.2em] text-champagne transition-opacity hover:opacity-70"
+          >
+            Explore all services →
+          </Link>
         </Reveal>
 
         <Reveal

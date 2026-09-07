@@ -1,13 +1,49 @@
+/**
+ * The canonical origin. Every absolute URL the site emits — canonical tags,
+ * the sitemap, Open Graph, and the JSON-LD graph — is built from this, so the
+ * day the domain changes there is exactly one line to edit.
+ *
+ * No trailing slash. `NEXT_PUBLIC_SITE_URL` lets a preview deploy point its
+ * metadata at its own URL instead of production; production leaves it unset.
+ */
+// `globalThis.process` rather than a bare `process`, because this file also
+// exports a `process` constant (the five-step workflow) further down, which
+// would otherwise shadow the Node global right here.
+export const siteUrl = (
+  globalThis.process?.env?.NEXT_PUBLIC_SITE_URL ?? "https://clickweds.com"
+).replace(/\/$/, "");
+
 export const brand = {
   name: "Click Weds",
   shortName: "Click Weds",
+  legalName: "Click Weds",
   tagline: "Luxury Wedding Photography & Films",
   location: "Lucknow, India",
   serviceArea: "Lucknow · across India · worldwide",
+  /** Cities the studio has actually shot in — drives areaServed in the schema. */
+  citiesServed: ["Lucknow", "Varanasi", "Kanpur", "Uttar Pradesh"],
   email: "info.clickweds@gmail.com",
   phone: "+91 84679 88926",
   phoneDisplay: "+91 84679 88926",
+  /** E.164, for tel: links and schema. */
+  phoneE164: "+918467988926",
   address: "Hazratganj, Lucknow, Uttar Pradesh",
+  /** Broken out for schema.org PostalAddress. Add the street line + PIN once known. */
+  postal: {
+    streetAddress: "Hazratganj",
+    addressLocality: "Lucknow",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "226001",
+    addressCountry: "IN",
+  },
+  /**
+   * Approximate — the centroid of Hazratganj, not the studio door. Replace with
+   * the exact pin from the studio's verified Google Business Profile before
+   * launch; a wrong pin hurts local ranking more than a missing one.
+   */
+  geo: { latitude: 26.8512, longitude: 80.9455 },
+  /** Cheapest package (Wedding Only) to the top custom builds, for priceRange. */
+  priceRange: "₹₹₹",
   /** Google Maps embed. Swap the q= value once the studio's pin is verified. */
   mapEmbedUrl:
     "https://www.google.com/maps?q=Click+Weds+Hazratganj+Lucknow&output=embed",
@@ -15,6 +51,11 @@ export const brand = {
   instagram: "@clickweds",
   instagramUrl: "https://instagram.com/clickweds",
   facebookUrl: "https://facebook.com/princeawasthiphotography",
+  /** Every profile that is unambiguously this studio goes in sameAs. */
+  sameAs: [
+    "https://instagram.com/clickweds",
+    "https://facebook.com/princeawasthiphotography",
+  ],
 };
 
 /**
@@ -594,3 +635,38 @@ export const footer = {
   description:
     "Click Weds is a luxury wedding photography and film studio based in Lucknow, documenting Indian celebrations across India and worldwide.",
 };
+
+/**
+ * The questions couples actually ask on the first call. Every answer is
+ * grounded in something already true elsewhere in this file — the packages,
+ * the delivery window in `stats`, the payment schedule in `packageTerms`, the
+ * five-step `process` — so the FAQ and the rest of the site can never drift
+ * apart. Rendered visibly on the Lucknow landing page and mirrored into a
+ * `FAQPage` block for search.
+ */
+export const faqs = [
+  {
+    q: "How much does a wedding photographer cost in Lucknow?",
+    a: "Click Weds packages start at ₹80,000 for wedding-day photo and film coverage and run to around ₹1,50,000 for multi-day coverage from the engagement through to the reception. Every package includes a printed album, a cinematic teaser, full-length films, social-media edits and all the raw footage. Anything outside the standard list is quoted around your own schedule.",
+  },
+  {
+    q: "Which cities and venues do you cover?",
+    a: "The studio is based in Hazratganj, Lucknow, and shoots across Uttar Pradesh — Lucknow, Varanasi and Kanpur among them — as well as destination weddings elsewhere in India and abroad. Travel, food and stay for functions outside Lucknow are arranged by the couple.",
+  },
+  {
+    q: "How long after the wedding do we get our photos and film?",
+    a: "The full edited gallery and the wedding film are delivered in about forty days. The cinematic teaser comes first, usually within a couple of weeks, followed by the long-form films and the printed album once the edit is complete.",
+  },
+  {
+    q: "How do we book, and what is the payment schedule?",
+    a: "Booking starts with a consultation — a conversation, not a questionnaire. To hold a date the studio takes 30% up front, 50% two days before the wedding, 10% on delivery of the raw data and the final 10% on final delivery. Bookings cancelled within ten days of the date are non-refundable.",
+  },
+  {
+    q: "Do you shoot candid photography, or only traditional posed portraits?",
+    a: "Both, on every wedding. A senior candid photographer covers the unposed hours while a traditional photographer handles the family portraits every household will ask for. Cinematic and traditional video crews work alongside them, so nothing is missed on either side.",
+  },
+  {
+    q: "Is the same photographer there for the whole wedding?",
+    a: "Yes. Every Click Weds wedding is led by a senior photographer from the first call to the final album — never handed to a rotating team of assistants — and the studio deliberately limits how many weddings it takes each season so no function is ever left early to reach the next booking.",
+  },
+] as const;
