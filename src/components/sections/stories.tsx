@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
@@ -136,6 +137,12 @@ export function Stories() {
             <p className="mt-5 font-body text-[15px] font-light leading-relaxed text-charcoal/65">
               {storiesSection.description}
             </p>
+            <Link
+              href="/weddings"
+              className="mt-6 inline-block font-body text-[12px] uppercase tracking-[0.2em] text-champagne transition-opacity hover:opacity-70"
+            >
+              View all weddings →
+            </Link>
           </div>
 
           {/* Phones swipe the track directly, so the arrows would only be

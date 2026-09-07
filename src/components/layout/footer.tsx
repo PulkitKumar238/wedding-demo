@@ -4,11 +4,24 @@ import { Container } from "@/components/ui/container";
 import { brand, nav, footer } from "@/data/site";
 import { img } from "@/data/images";
 
+/**
+ * Standalone routes that are not in the main nav but need a crawlable link from
+ * every page — this is what carries link equity to the SEO landing pages and
+ * keeps them shallow in the crawl.
+ */
+const explore = [
+  { label: "Wedding Photography in Lucknow", href: "/wedding-photography-lucknow" },
+  { label: "Real Weddings", href: "/weddings" },
+  { label: "Wedding Films", href: "/films" },
+  { label: "Services", href: "/services" },
+  { label: "Packages & Prices", href: "/packages" },
+];
+
 export function Footer() {
   return (
     <footer className="border-t border-charcoal/10 bg-ivory pt-20">
       <Container>
-        <div className="grid gap-16 pb-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-x-10 gap-y-14 pb-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_1fr_0.9fr]">
           <div>
             {/* The one place with room for the full lockup, name and all. */}
             <Link href="/#top" className="inline-block">
@@ -32,6 +45,24 @@ export function Footer() {
             </h4>
             <ul className="mt-5 space-y-3">
               {nav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="font-body text-[15px] text-charcoal/75 transition-colors hover:text-champagne"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-body text-[12px] uppercase tracking-[0.2em] text-charcoal/40">
+              Explore
+            </h4>
+            <ul className="mt-5 space-y-3">
+              {explore.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
