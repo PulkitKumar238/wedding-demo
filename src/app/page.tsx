@@ -2,12 +2,12 @@ import { Hero } from "@/components/sections/hero";
 import { Films } from "@/components/sections/films";
 import { Services } from "@/components/sections/services";
 import { Portfolio } from "@/components/sections/portfolio";
-import { Packages } from "@/components/sections/packages";
 import { Process } from "@/components/sections/process";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Stories } from "@/components/sections/stories";
 import { Booking } from "@/components/sections/booking";
+import { PackagesHashRedirect } from "@/components/layout/packages-hash-redirect";
 
 // The Instagram moodboard ("Inspiration, As It Finds Us") is retired from the
 // page but kept whole — component, images and photos are all still in the
@@ -23,6 +23,8 @@ import { Booking } from "@/components/sections/booking";
 export default function Home() {
   return (
     <>
+      {/* Packages moved to /packages; this forwards the old anchor. */}
+      <PackagesHashRedirect />
       <Hero />
       <Stories />
       <Films />
@@ -30,7 +32,6 @@ export default function Home() {
       <Testimonials />
       <Services />
       <Portfolio />
-      <Packages />
       <Process />
       <WhyChooseUs />
       {/* <InstagramMoodboard /> */}

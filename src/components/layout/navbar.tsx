@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { brand, nav } from "@/data/site";
@@ -10,6 +12,14 @@ import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  /*
+    The bar is transparent with ivory text until you scroll, which reads over
+    the home page's dark hero. Every other route opens on ivory, where ivory
+    text is invisible — so off the home page it starts solid.
+  */
+  const solid = scrolled || pathname !== "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -22,7 +32,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled
+        solid
           ? "bg-ivory/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]"
           : "bg-transparent"
       )}
@@ -35,7 +45,7 @@ export function Navbar() {
             and cross-faded rather than swapping `src` on scroll — swapping
             would re-request the file and blink the mark out mid-transition.
           */}
-          <a href="#top" className="flex items-center gap-3">
+          <Link href="/#top" className="flex items-center gap-3">
             <span className="relative block h-8 w-[33px] shrink-0 md:h-11 md:w-[45px]">
               <Image
                 src={img.logoMarkLight}
@@ -45,7 +55,7 @@ export function Navbar() {
                 priority
                 className={cn(
                   "object-contain transition-opacity duration-500",
-                  scrolled ? "opacity-0" : "opacity-100"
+                  solid ? "opacity-0" : "opacity-100"
                 )}
               />
               <Image
@@ -56,42 +66,42 @@ export function Navbar() {
                 priority
                 className={cn(
                   "object-contain transition-opacity duration-500",
-                  scrolled ? "opacity-100" : "opacity-0"
+                  solid ? "opacity-100" : "opacity-0"
                 )}
               />
             </span>
             <span
               className={cn(
                 "font-display text-xl tracking-wide transition-colors md:text-2xl",
-                scrolled ? "text-charcoal" : "text-ivory"
+                solid ? "text-charcoal" : "text-ivory"
               )}
             >
               {brand.name}
             </span>
-          </a>
+          </Link>
 
           <div className="hidden items-center gap-10 lg:flex">
             {nav.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "font-body text-[13px] uppercase tracking-[0.14em] transition-colors hover:opacity-70",
-                  scrolled ? "text-charcoal" : "text-ivory"
+                  solid ? "text-charcoal" : "text-ivory"
                 )}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           <div className="hidden lg:block">
             <Button
-              variant={scrolled ? "primary" : "outline-light"}
+              variant={solid ? "primary" : "outline-light"}
               size="sm"
               asChild
             >
-              <a href="#booking">Book Your Date</a>
+              <Link href="/#booking">Book Your Date</Link>
             </Button>
           </div>
         </nav>
@@ -106,22 +116,22 @@ export function Navbar() {
       <div
         className={cn(
           "border-t transition-colors duration-500 lg:hidden",
-          scrolled ? "border-charcoal/10" : "border-ivory/15"
+          solid ? "border-charcoal/10" : "border-ivory/15"
         )}
       >
         <Container>
           <div className="grid grid-cols-3 gap-x-3 gap-y-1.5 py-2">
             {nav.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
                   "text-center font-body text-[11px] uppercase tracking-[0.1em] transition-colors",
-                  scrolled ? "text-charcoal/80" : "text-ivory/85"
+                  solid ? "text-charcoal/80" : "text-ivory/85"
                 )}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </Container>

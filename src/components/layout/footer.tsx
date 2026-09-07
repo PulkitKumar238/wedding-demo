@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { brand, nav, footer } from "@/data/site";
 import { img } from "@/data/images";
@@ -10,7 +11,7 @@ export function Footer() {
         <div className="grid gap-16 pb-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             {/* The one place with room for the full lockup, name and all. */}
-            <a href="#top" className="inline-block">
+            <Link href="/#top" className="inline-block">
               <Image
                 src={img.logo}
                 alt={brand.name}
@@ -19,7 +20,7 @@ export function Footer() {
                 sizes="140px"
                 className="h-32 w-auto md:h-36"
               />
-            </a>
+            </Link>
             <p className="mt-5 max-w-xs font-body text-sm leading-relaxed text-charcoal/60">
               {footer.description}
             </p>
@@ -32,12 +33,12 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="font-body text-[15px] text-charcoal/75 transition-colors hover:text-champagne"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

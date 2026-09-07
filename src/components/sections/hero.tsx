@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -181,7 +182,7 @@ export function Hero() {
 
         <div className="hero-cta mt-6 md:mt-10">
           <Button variant="outline-light" asChild>
-            <a href="#booking">{hero.cta}</a>
+            <Link href="/#booking">{hero.cta}</Link>
           </Button>
         </div>
       </Container>

@@ -29,14 +29,20 @@ export const whatsapp = {
   display: "+91 84679 88926",
 };
 
+/**
+ * Packages is a route of its own; everything else is a section of the home
+ * page. The hashes are absolute rather than bare "#films" so they still work
+ * from /packages — next/link keeps them client-side either way, so following
+ * one from the home page does not reload it.
+ */
 export const nav = [
-  { label: "Films", href: "#films" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Packages", href: "#packages" },
-  { label: "Process", href: "#process" },
-  { label: "Stories", href: "#stories" },
-  { label: "Contact", href: "#booking" },
+  { label: "Films", href: "/#films" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Packages", href: "/packages" },
+  { label: "Process", href: "/#process" },
+  { label: "Stories", href: "/#stories" },
+  { label: "Contact", href: "/#booking" },
 ];
 
 export const hero = {

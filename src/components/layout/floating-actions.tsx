@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CalendarCheck } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/icons";
 import { brand } from "@/data/site";
@@ -17,13 +18,13 @@ export function FloatingActions() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 md:inset-x-auto md:bottom-8 md:right-8">
       <div className="flex items-stretch gap-px bg-charcoal/10 shadow-[0_-1px_12px_rgba(0,0,0,0.12)] md:flex-col md:items-end md:gap-3 md:bg-transparent md:shadow-none">
-        <a
-          href="#booking"
+        <Link
+          href="/#booking"
           className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap bg-charcoal px-3 py-4 font-body text-[11px] uppercase tracking-[0.1em] text-ivory transition-colors hover:bg-charcoal-soft sm:tracking-[0.16em] md:flex-none md:rounded-full md:px-6 md:py-3.5 md:shadow-lg"
         >
           <CalendarCheck size={16} strokeWidth={1.5} />
           Book Your Date
-        </a>
+        </Link>
 
         {/*
           Instagram sits beside WhatsApp rather than under it — the two are the
