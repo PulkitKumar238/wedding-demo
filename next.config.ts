@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
     // difference is invisible but the saving is not.
     qualities: [45, 75],
   },
+  // clickweds.com/book is the link the studio sends couples: the home page,
+  // opened straight at the enquiry form, so the whole site is still around it
+  // rather than a dead-end page. Temporary (307) so the target can change.
+  async redirects() {
+    return [{ source: "/book", destination: "/#booking-form", permanent: false }];
+  },
 };
 
 export default nextConfig;
