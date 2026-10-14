@@ -16,6 +16,13 @@ export type EnquiryFields = {
   ceremonies?: Ceremony[];
 };
 
+/**
+ * The studio's own opening line. Every WhatsApp link starts with it — the
+ * contact button, the enquiry form and the package buttons — so a couple's
+ * first message always reads the same, whatever they tapped.
+ */
+const GREETING = `Hello ${brand.name} — I’d like to enquire about your wedding photography services.`;
+
 const MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
@@ -51,7 +58,7 @@ export function buildWhatsAppUrl(fields: EnquiryFields): string {
   ];
 
   const lines = [
-    `Hello ${brand.name} — I'd like to book a consultation.`,
+    GREETING,
     "",
     ...rows
       .filter(([, value]) => value?.trim())
@@ -82,8 +89,7 @@ export function buildWhatsAppUrl(fields: EnquiryFields): string {
  * empty message box.
  */
 export function buildWhatsAppChatUrl(): string {
-  const text = `Hello ${brand.name} — I’d like to enquire about your wedding photography services.`;
-  return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(text)}`;
+  return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(GREETING)}`;
 }
 
 /**
@@ -91,6 +97,6 @@ export function buildWhatsAppChatUrl(): string {
  * couple was reading without them having to describe it.
  */
 export function buildWhatsAppPackageUrl(packageName: string): string {
-  const text = `Hello ${brand.name} — I'd like to know more about the "${packageName}" package.`;
+  const text = `${GREETING}\n\nPackage: ${packageName}`;
   return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(text)}`;
 }
