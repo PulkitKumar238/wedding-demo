@@ -82,7 +82,7 @@ export function buildWhatsAppUrl(fields: EnquiryFields): string {
  * empty message box.
  */
 export function buildWhatsAppChatUrl(): string {
-  const text = `Hello ${brand.name} — I'd like to know more about your wedding services.`;
+  const text = `Hello ${brand.name} — I’d like to enquire about your wedding photography services.`;
   return `https://wa.me/${whatsapp.number}?text=${encodeURIComponent(text)}`;
 }
 

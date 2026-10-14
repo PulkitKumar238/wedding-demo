@@ -189,7 +189,19 @@ export function Booking() {
           </a>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        {/*
+          `booking-form` is the target of clickweds.com/book (see next.config),
+          the link the studio sends couples — it lands on the form itself, which
+          on a phone sits below the contact details and map. The scroll margin
+          clears the fixed header (taller on phones, with its two nav rows) plus
+          the 48px Reveal still has the form shifted down when the browser jumps
+          to it on load — without that, the form slides up under the header.
+        */}
+        <Reveal
+          delay={0.1}
+          id="booking-form"
+          className="scroll-mt-44 md:scroll-mt-40"
+        >
           {status === "success" ? (
             <div className="flex h-full flex-col items-start justify-center border border-champagne/30 p-10">
               <p className="font-display text-2xl text-ivory">

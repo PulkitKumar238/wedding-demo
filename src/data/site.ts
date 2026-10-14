@@ -71,16 +71,16 @@ export const whatsapp = {
 };
 
 /**
- * Packages is a route of its own; everything else is a section of the home
- * page. The hashes are absolute rather than bare "#films" so they still work
- * from /packages — next/link keeps them client-side either way, so following
- * one from the home page does not reload it.
+ * Every entry is a section of the home page. Packages is not here: at the
+ * studio's request it lives in the persistent action bar beside booking and
+ * WhatsApp instead. The hashes are absolute rather than bare "#films" so they
+ * still work from /packages — next/link keeps them client-side either way, so
+ * following one from the home page does not reload it.
  */
 export const nav = [
   { label: "Films", href: "/#films" },
   { label: "Services", href: "/#services" },
   { label: "Portfolio", href: "/#portfolio" },
-  { label: "Packages", href: "/packages" },
   { label: "Process", href: "/#process" },
   { label: "Stories", href: "/#stories" },
   { label: "Contact", href: "/#booking" },
